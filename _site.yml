@@ -12,3 +12,4 @@ navbar:
 output: 
   distill::distill_article:
     css: styles.css
+google_analytics: 'UA-106545908-2'
