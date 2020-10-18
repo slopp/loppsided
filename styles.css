@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;900&display=swap');
+
+.distill-site-nav {
+  background-color: #FFFFFF;
+  font-family: 'Roboto';
+  font-weight: 900;
+  color: #000000;
+}
+
+body {
+  background-color: #FFFFFF;
+}
+
+html, body, p, h1, h2, h3 {
+  font-family: 'Roboto', sans-serif;
+  color: #000000;
+}
+
+body {
+  font-weight: 300;
+}
+
+h1, h2 {
+  font-weight: 900;
+}
+
+h3 {
+  font-weight: 500;
+}
+
+.distill-site-nav a:hover {
+  color: #505050;
+}
