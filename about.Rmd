@@ -6,8 +6,8 @@ title: "About"
 
 My name is Sean Lopp. This is a *personal* blog, and as such I post about a wide range of topics that reflect my *person,* including: data science, open source software, bikes, product management, and Catholocism.
 
-I am currently a sales engineer at RStudio, a B corporation that supports open source software for data science. I was previously RStudio's second first product manager, a sales rep, and a data scientist at NREL. I studied applied math at the Colorado School of Mines. \
+I am currently a sales engineer at RStudio, a B corporation that supports open source software for data science. I was previously RStudio's second "first product manager", a sales rep, and a data scientist at NREL. I studied applied math at the Colorado School of Mines. \
 
-While the posts in this blog **are my own**, I've also written for RStudio, NREL, and Mines. You can view my [research profile here](https://www.semanticscholar.org/author/Sean-Lopp/8719760) where I've accidentally gotten an h-index of 4!
+While the posts in this blog **are my own**, I've also written for RStudio, NREL, and Mines. You can view my [research profile here](https://www.semanticscholar.org/author/Sean-Lopp/8719760) where I've accidentally gotten an h-index of 4! I've also written extensively about [environment management](https://environments.rstudio.com) in R.
 
 I've also given a fair share of talks, and the prettiest versions of those live [here](https://rstudio.com/speakers/sean-lopp/).
