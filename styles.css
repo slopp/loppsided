@@ -31,3 +31,7 @@ h3 {
 .distill-site-nav a:hover {
   color: #505050;
 }
+
+.posts-list .post-preview .thumbnail {
+  max-width: 200px;
+}

@@ -14,3 +14,6 @@ output:
     css: styles.css
 google_analytics: 'UA-106545908-2'
 base_url: 'https://loppsided.blog'
+collections:
+  posts:
+    share: [twitter, linkedin]

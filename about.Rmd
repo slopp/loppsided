@@ -11,3 +11,4 @@ I am currently a sales engineer at RStudio, a B corporation that supports open s
 While the posts in this blog **are my own**, I've also written for RStudio, NREL, and Mines. You can view my [research profile here](https://www.semanticscholar.org/author/Sean-Lopp/8719760) where I've accidentally gotten an h-index of 4! I've also written extensively about [environment management](https://environments.rstudio.com) in R.
 
 I've also given a fair share of talks, and the prettiest versions of those live [here](https://rstudio.com/speakers/sean-lopp/).
+
