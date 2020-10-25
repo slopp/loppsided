@@ -1,1 +1,22 @@
-[]
+[
+  {
+    "path": "posts/2020-10-18-hamburgers-at-chick-fil-a/",
+    "title": "Hamburgers at Chick-fil-a",
+    "description": "An inside look at RStudio's decision to embrace Python",
+    "author": [
+      {
+        "name": "Sean Lopp",
+        "url": {}
+      }
+    ],
+    "date": "2020-10-18",
+    "categories": [
+      "product"
+    ],
+    "preview": "posts/2020-10-18-hamburgers-at-chick-fil-a/images/paste-4AF33372.png",
+    "last_modified": "2020-10-25T10:17:18-06:00",
+    "input_file": {},
+    "preview_width": 1200,
+    "preview_height": 934
+  }
+]
