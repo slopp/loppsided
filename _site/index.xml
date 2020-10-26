@@ -7,7 +7,16 @@
     <description>Loppsided
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Sun, 18 Oct 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 26 Oct 2020 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Tidymodels DVC Mashup</title>
+      <dc:creator>Sean Lopp</dc:creator>
+      <link>https://loppsided.blog/posts/2020-10-26-tidymodels-dvc-mashup</link>
+      <description>Using Github Actions and Data Version Control for ModelOps in R</description>
+      <category>data_science</category>
+      <guid>https://loppsided.blog/posts/2020-10-26-tidymodels-dvc-mashup</guid>
+      <pubDate>Mon, 26 Oct 2020 00:00:00 +0000</pubDate>
+    </item>
     <item>
       <title>Hamburgers at Chick-fil-a</title>
       <dc:creator>Sean Lopp</dc:creator>
