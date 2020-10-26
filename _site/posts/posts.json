@@ -13,9 +13,11 @@
     "categories": [
       "data_science"
     ],
-    "preview": {},
-    "last_modified": "2020-10-26T13:48:29-06:00",
-    "input_file": {}
+    "preview": "posts/2020-10-26-tidymodels-dvc-mashup/images/modelops.png",
+    "last_modified": "2020-10-26T13:53:02-06:00",
+    "input_file": {},
+    "preview_width": 1142,
+    "preview_height": 693
   },
   {
     "path": "posts/2020-10-18-hamburgers-at-chick-fil-a/",
