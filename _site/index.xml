@@ -28,5 +28,16 @@
       <pubDate>Sun, 18 Oct 2020 00:00:00 +0000</pubDate>
       <media:content url="https://loppsided.blog/posts/2020-10-18-hamburgers-at-chick-fil-a/images/paste-4AF33372.png" medium="image" type="image/png" width="1200" height="934"/>
     </item>
+    <item>
+      <title>How to Avoid Firedrills</title>
+      <dc:creator>Sean Lopp</dc:creator>
+      <link>https://loppsided.blog/posts/2020-10-26-how-to-avoid-firedrills</link>
+      <description>My take on "Agile" Data Science</description>
+      <category>data_science</category>
+      <category>management</category>
+      <guid>https://loppsided.blog/posts/2020-10-26-how-to-avoid-firedrills</guid>
+      <pubDate>Mon, 20 Apr 2020 00:00:00 +0000</pubDate>
+      <media:content url="https://loppsided.blog/posts/2020-10-26-how-to-avoid-firedrills/images/firedrill.png" medium="image" type="image/png" width="768" height="403"/>
+    </item>
   </channel>
 </rss>
