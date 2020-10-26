@@ -40,6 +40,27 @@
     "preview_height": 934
   },
   {
+    "path": "posts/2020-10-26-parks-and-rec-management-tips/",
+    "title": "Parks and Rec",
+    "description": "I learned my most useful management skill from Ann Perkins",
+    "author": [
+      {
+        "name": "Sean Lopp",
+        "url": {}
+      }
+    ],
+    "date": "2020-08-12",
+    "categories": [
+      "management",
+      "product"
+    ],
+    "preview": "posts/2020-10-26-parks-and-rec-management-tips/images/paste-F9D9E584.png",
+    "last_modified": "2020-10-26T17:41:00-06:00",
+    "input_file": {},
+    "preview_width": 910,
+    "preview_height": 1282
+  },
+  {
     "path": "posts/2020-10-26-how-to-avoid-firedrills/",
     "title": "How to Avoid Firedrills",
     "description": "My take on \"Agile\" Data Science",
@@ -55,7 +76,7 @@
       "management"
     ],
     "preview": "posts/2020-10-26-how-to-avoid-firedrills/images/firedrill.png",
-    "last_modified": "2020-10-26T14:06:51-06:00",
+    "last_modified": "2020-10-26T17:03:08-06:00",
     "input_file": {},
     "preview_width": 768,
     "preview_height": 403
