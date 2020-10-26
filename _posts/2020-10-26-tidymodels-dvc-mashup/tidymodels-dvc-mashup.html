@@ -7,7 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
   <meta name="generator" content="distill" />
-  <link rel="alternate" type="application/rss+xml" href="https://loppsided.blog/index.xml" />
 
   <style type="text/css">
   /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
@@ -20,366 +19,39 @@
  <!--/radix_placeholder_import_source-->
 
   <!--radix_placeholder_meta_tags-->
-  <title>Loppsided</title>
+  <title>Tidymodels DVC Mashup</title>
+
+  <meta property="description" itemprop="description" content="Using Github Actions and Data Version Control for ModelOps in R"/>
 
 
-
+  <!--  https://schema.org/Article -->
+  <meta property="article:published" itemprop="datePublished" content="2020-10-26"/>
+  <meta property="article:created" itemprop="dateCreated" content="2020-10-26"/>
+  <meta name="article:author" content="Sean Lopp"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Loppsided"/>
+  <meta property="og:title" content="Tidymodels DVC Mashup"/>
   <meta property="og:type" content="article"/>
+  <meta property="og:description" content="Using Github Actions and Data Version Control for ModelOps in R"/>
   <meta property="og:locale" content="en_US"/>
-  <meta property="og:site_name" content="Loppsided"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Loppsided"/>
+  <meta property="twitter:title" content="Tidymodels DVC Mashup"/>
+  <meta property="twitter:description" content="Using Github Actions and Data Version Control for ModelOps in R"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","site","listing"]}},"value":[{"type":"character","attributes":{},"value":["Loppsided"]},{"type":"character","attributes":{},"value":["distill::distill_website"]},{"type":"character","attributes":{},"value":["posts"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories","preview"]}},"value":[{"type":"character","attributes":{},"value":["Tidymodels DVC Mashup"]},{"type":"character","attributes":{},"value":["Using Github Actions and Data Version Control for ModelOps in R\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Sean Lopp"]}]}]},{"type":"character","attributes":{},"value":["10-26-2020"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["data_science"]},{"type":"character","attributes":{},"value":["images/modelops.png"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
-  <!--radix_placeholder_navigation_in_header-->
-
-  <script type="application/javascript">
-
-    window.headroom_prevent_pin = false;
-
-    window.document.addEventListener("DOMContentLoaded", function (event) {
-
-      // initialize headroom for banner
-      var header = $('header').get(0);
-      var headerHeight = header.offsetHeight;
-      var headroom = new Headroom(header, {
-        onPin : function() {
-          if (window.headroom_prevent_pin) {
-            window.headroom_prevent_pin = false;
-            headroom.unpin();
-          }
-        }
-      });
-      headroom.init();
-      if(window.location.hash)
-        headroom.unpin();
-      $(header).addClass('headroom--transition');
-
-      // offset scroll location for banner on hash change
-      // (see: https://github.com/WickyNilliams/headroom.js/issues/38)
-      window.addEventListener("hashchange", function(event) {
-        window.scrollTo(0, window.pageYOffset - (headerHeight + 25));
-      });
-
-      // responsive menu
-      $('.distill-site-header').each(function(i, val) {
-        var topnav = $(this);
-        var toggle = topnav.find('.nav-toggle');
-        toggle.on('click', function() {
-          topnav.toggleClass('responsive');
-        });
-      });
-
-      // nav dropdowns
-      $('.nav-dropbtn').click(function(e) {
-        $(this).next('.nav-dropdown-content').toggleClass('nav-dropdown-active');
-        $(this).parent().siblings('.nav-dropdown')
-           .children('.nav-dropdown-content').removeClass('nav-dropdown-active');
-      });
-      $("body").click(function(e){
-        $('.nav-dropdown-content').removeClass('nav-dropdown-active');
-      });
-      $(".nav-dropdown").click(function(e){
-        e.stopPropagation();
-      });
-    });
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["images/modelops.png","images/paste-5761E6A6.png","images/Screen Shot 2020-10-26 at 1.13.24 PM.png","images/Screen Shot 2020-10-26 at 11.21.48 AM.png","images/Screen Shot 2020-10-26 at 12.34.25 PM.png","tidymodels-dvc-mashup_files/bowser-1.9.3/bowser.min.js","tidymodels-dvc-mashup_files/distill-2.2.21/template.v2.js","tidymodels-dvc-mashup_files/header-attrs-2.4.6/header-attrs.js","tidymodels-dvc-mashup_files/jquery-1.11.3/jquery.min.js","tidymodels-dvc-mashup_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
-
-  <style type="text/css">
-
-  /* Theme (user-documented overrideables for nav appearance) */
-
-  .distill-site-nav {
-    color: rgba(255, 255, 255, 0.8);
-    background-color: #455a64;
-    font-size: 15px;
-    font-weight: 300;
-  }
-
-  .distill-site-nav a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  .distill-site-nav a:hover {
-    color: white;
-  }
-
-  @media print {
-    .distill-site-nav {
-      display: none;
-    }
-  }
-
-  .distill-site-header {
-
-  }
-
-  .distill-site-footer {
-
-  }
-
-
-  /* Site Header */
-
-  .distill-site-header {
-    width: 100%;
-    box-sizing: border-box;
-    z-index: 3;
-  }
-
-  .distill-site-header .nav-left {
-    display: inline-block;
-    margin-left: 8px;
-  }
-
-  @media screen and (max-width: 768px) {
-    .distill-site-header .nav-left {
-      margin-left: 0;
-    }
-  }
-
-
-  .distill-site-header .nav-right {
-    float: right;
-    margin-right: 8px;
-  }
-
-  .distill-site-header a,
-  .distill-site-header .title {
-    display: inline-block;
-    text-align: center;
-    padding: 14px 10px 14px 10px;
-  }
-
-  .distill-site-header .title {
-    font-size: 18px;
-  }
-
-  .distill-site-header .logo {
-    padding: 0;
-  }
-
-  .distill-site-header .logo img {
-    display: none;
-    max-height: 20px;
-    width: auto;
-    margin-bottom: -4px;
-  }
-
-  .distill-site-header .nav-image img {
-    max-height: 18px;
-    width: auto;
-    display: inline-block;
-    margin-bottom: -3px;
-  }
-
-
-
-  @media screen and (min-width: 1000px) {
-    .distill-site-header .logo img {
-      display: inline-block;
-    }
-    .distill-site-header .nav-left {
-      margin-left: 20px;
-    }
-    .distill-site-header .nav-right {
-      margin-right: 20px;
-    }
-    .distill-site-header .title {
-      padding-left: 12px;
-    }
-  }
-
-
-  .distill-site-header .nav-toggle {
-    display: none;
-  }
-
-  .nav-dropdown {
-    display: inline-block;
-    position: relative;
-  }
-
-  .nav-dropdown .nav-dropbtn {
-    border: none;
-    outline: none;
-    color: rgba(255, 255, 255, 0.8);
-    padding: 16px 10px;
-    background-color: transparent;
-    font-family: inherit;
-    font-size: inherit;
-    font-weight: inherit;
-    margin: 0;
-    margin-top: 1px;
-    z-index: 2;
-  }
-
-  .nav-dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: white;
-    min-width: 200px;
-    border: 1px solid rgba(0,0,0,0.15);
-    border-radius: 4px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
-    z-index: 1;
-    margin-top: 2px;
-    white-space: nowrap;
-    padding-top: 4px;
-    padding-bottom: 4px;
-  }
-
-  .nav-dropdown-content hr {
-    margin-top: 4px;
-    margin-bottom: 4px;
-    border: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  }
-
-  .nav-dropdown-active {
-    display: block;
-  }
-
-  .nav-dropdown-content a, .nav-dropdown-content .nav-dropdown-header {
-    color: black;
-    padding: 6px 24px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-  }
-
-  .nav-dropdown-content .nav-dropdown-header {
-    display: block;
-    padding: 5px 24px;
-    padding-bottom: 0;
-    text-transform: uppercase;
-    font-size: 14px;
-    color: #999999;
-    white-space: nowrap;
-  }
-
-  .nav-dropdown:hover .nav-dropbtn {
-    color: white;
-  }
-
-  .nav-dropdown-content a:hover {
-    background-color: #ddd;
-    color: black;
-  }
-
-  .nav-right .nav-dropdown-content {
-    margin-left: -45%;
-    right: 0;
-  }
-
-  @media screen and (max-width: 768px) {
-    .distill-site-header a, .distill-site-header .nav-dropdown  {display: none;}
-    .distill-site-header a.nav-toggle {
-      float: right;
-      display: block;
-    }
-    .distill-site-header .title {
-      margin-left: 0;
-    }
-    .distill-site-header .nav-right {
-      margin-right: 0;
-    }
-    .distill-site-header {
-      overflow: hidden;
-    }
-    .nav-right .nav-dropdown-content {
-      margin-left: 0;
-    }
-  }
-
-
-  @media screen and (max-width: 768px) {
-    .distill-site-header.responsive {position: relative;}
-    .distill-site-header.responsive a.nav-toggle {
-      position: absolute;
-      right: 0;
-      top: 0;
-    }
-    .distill-site-header.responsive a,
-    .distill-site-header.responsive .nav-dropdown {
-      display: block;
-      text-align: left;
-    }
-    .distill-site-header.responsive .nav-left,
-    .distill-site-header.responsive .nav-right {
-      width: 100%;
-    }
-    .distill-site-header.responsive .nav-dropdown {float: none;}
-    .distill-site-header.responsive .nav-dropdown-content {position: relative;}
-    .distill-site-header.responsive .nav-dropdown .nav-dropbtn {
-      display: block;
-      width: 100%;
-      text-align: left;
-    }
-  }
-
-  /* Site Footer */
-
-  .distill-site-footer {
-    width: 100%;
-    overflow: hidden;
-    box-sizing: border-box;
-    z-index: 3;
-    margin-top: 30px;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    text-align: center;
-  }
-
-  /* Headroom */
-
-  d-title {
-    padding-top: 6rem;
-  }
-
-  @media print {
-    d-title {
-      padding-top: 4rem;
-    }
-  }
-
-  .headroom {
-    z-index: 1000;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-  }
-
-  .headroom--transition {
-    transition: all .4s ease-in-out;
-  }
-
-  .headroom--unpinned {
-    top: -100px;
-  }
-
-  .headroom--pinned {
-    top: 0;
-  }
-
-  </style>
-
-  <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet"/>
-  <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet"/>
-  <script src="site_libs/headroom-0.9.4/headroom.min.js"></script>
+  <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
   <!--radix_placeholder_distill-->
 
@@ -1265,465 +937,226 @@
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.4.6/header-attrs.js"></script>
-  <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
-  <script src="site_libs/bowser-1.9.3/bowser.min.js"></script>
-  <script src="site_libs/webcomponents-2.0.0/webcomponents.js"></script>
-  <script src="site_libs/distill-2.2.21/template.v2.js"></script>
+  <script src="tidymodels-dvc-mashup_files/header-attrs-2.4.6/header-attrs.js"></script>
+  <script src="tidymodels-dvc-mashup_files/jquery-1.11.3/jquery.min.js"></script>
+  <script src="tidymodels-dvc-mashup_files/bowser-1.9.3/bowser.min.js"></script>
+  <script src="tidymodels-dvc-mashup_files/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="tidymodels-dvc-mashup_files/distill-2.2.21/template.v2.js"></script>
   <!--radix_placeholder_site_in_header-->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-106545908-2"></script>
-  <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'UA-106545908-2');
-  </script>
-  <style type="text/css">
-  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;900&display=swap');
-
-  .distill-site-nav {
-    background-color: #FFFFFF;
-    font-family: 'Roboto';
-    font-weight: 900;
-    color: #000000;
-  }
-
-  body {
-    background-color: #FFFFFF;
-  }
-
-  html, body, p, h1, h2, h3 {
-    font-family: 'Roboto', sans-serif;
-    color: #000000;
-  }
-
-  body {
-    font-weight: 300;
-  }
-
-  h1, h2 {
-    font-weight: 900;
-  }
-
-  h3 {
-    font-weight: 500;
-  }
-
-  .distill-site-nav a:hover {
-    color: #505050;
-  }
-
-  .posts-list .post-preview .thumbnail {
-    max-width: 200px;
-  }
-  </style>
   <!--/radix_placeholder_site_in_header-->
 
-  <link rel="stylesheet" href="styles.css" type="text/css"/>
 
 </head>
 
-<body class="layout-listing">
+<body>
 
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Loppsided","authors":[]}
+{"title":"Tidymodels DVC Mashup","description":"Using Github Actions and Data Version Control for ModelOps in R","authors":[{"author":"Sean Lopp","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2020-10-26T00:00:00.000-06:00","citationText":"Lopp, 2020"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
 <!--radix_placeholder_navigation_before_body-->
-<header class="header header--fixed" role="banner">
-<nav class="distill-site-nav distill-site-header">
-<div class="nav-left">
-<a href="index.html" class="title">Loppsided</a>
-</div>
-<div class="nav-right">
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
-</div>
-</nav>
-</header>
 <!--/radix_placeholder_navigation_before_body-->
 <!--radix_placeholder_site_before_body-->
 <!--/radix_placeholder_site_before_body-->
-<!--radix_placeholder_article_listing-->
-
-<style type="text/css">
-
-/* Styles for listing layout (hide title) */
-.layout-listing d-title, .layout-listing .d-title {
-  display: none;
-}
-
-/* Styles for posts lists (not auto-injected) */
-
-
-.posts-with-sidebar {
-  padding-left: 45px;
-  padding-right: 45px;
-}
-
-.posts-list .description h2,
-.posts-list .description p {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
-}
-
-.posts-list .description h2 {
-  font-weight: 700;
-  border-bottom: none;
-  padding-bottom: 0;
-}
-
-.posts-list h2.post-tag {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  padding-bottom: 12px;
-}
-.posts-list {
-  margin-top: 60px;
-  margin-bottom: 24px;
-}
-
-.posts-list .post-preview {
-  text-decoration: none;
-  overflow: hidden;
-  display: block;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 24px 0;
-}
-
-.post-preview-last {
-  border-bottom: none !important;
-}
-
-.posts-list .posts-list-caption {
-  grid-column: screen;
-  font-weight: 400;
-}
-
-.posts-list .post-preview h2 {
-  margin: 0 0 6px 0;
-  line-height: 1.2em;
-  font-style: normal;
-  font-size: 24px;
-}
-
-.posts-list .post-preview p {
-  margin: 0 0 12px 0;
-  line-height: 1.4em;
-  font-size: 16px;
-}
-
-.posts-list .post-preview .thumbnail {
-  box-sizing: border-box;
-  margin-bottom: 24px;
-  position: relative;
-  max-width: 500px;
-}
-.posts-list .post-preview img {
-  width: 100%;
-  display: block;
-}
-
-.posts-list .metadata {
-  font-size: 12px;
-  line-height: 1.4em;
-  margin-bottom: 18px;
-}
-
-.posts-list .metadata > * {
-  display: inline-block;
-}
-
-.posts-list .metadata .publishedDate {
-  margin-right: 1em;
-}
-
-.posts-list .metadata .tags {
-  margin-top: 1em;
-}
-
-.posts-list .tags .tag {
-  color: rgba(0,0,0,0.67);
-  padding: 0.3em 0.5em;
-  margin: 0;
-  font-size: 80%;
-  border: 1px solid rgba(0,0,0,0.4);
-  border-radius: 3px;
-  text-transform: uppercase;
-  font-weight: 500;
-}
-
-.posts-list img {
-  opacity: 1;
-}
-
-.posts-list img[data-src] {
-  opacity: 0;
-}
-
-.posts-more {
-  clear: both;
-}
-
-
-.posts-sidebar {
-  font-size: 16px;
-}
-
-.posts-sidebar h3 {
-  font-size: 16px;
-  margin-top: 0;
-  margin-bottom: 0.5em;
-  font-weight: 400;
-  text-transform: uppercase;
-}
-
-.sidebar-section {
-  margin-bottom: 30px;
-}
-
-.categories ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-.categories li {
-  color: rgba(0, 0, 0, 0.8);
-  margin-bottom: 0;
-}
-
-.categories li>a {
-  border-bottom: none;
-}
-
-.categories li>a:hover {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
-}
-
-.categories .active {
-  font-weight: 600;
-}
-
-.categories .category-count {
-  color: rgba(0, 0, 0, 0.4);
-}
-
-
-@media(min-width: 768px) {
-  .posts-list .post-preview h2 {
-    font-size: 26px;
-  }
-  .posts-list .post-preview .thumbnail {
-    float: right;
-    width: 35%;
-    margin-bottom: 0;
-  }
-  .posts-list .post-preview .description {
-    float: left;
-    width: 45%;
-  }
-  .posts-list .post-preview .metadata {
-    float: left;
-    width: 15%;
-    margin-top: 8px;
-  }
-  .posts-list .post-preview p {
-    margin: 0 0 12px 0;
-    line-height: 1.5em;
-    font-size: 16px;
-  }
-  .posts-with-sidebar .posts-list {
-    float: left;
-    width: 72%;
-  }
-  .posts-with-sidebar .posts-sidebar {
-    float: right;
-    width: 20%;
-    margin-top: 60px;
-    padding-top: 24px;
-    padding-bottom: 24px;
-  }
-}
-
-.downlevel .posts-list .post-preview {
-  color: inherit;
-}
-
-</style>
-
-<script type="application/javascript">
-
-function init_posts_list() {
-
-  function load_image(img) {
-    var src = $(img).attr('data-src');
-    if (src) {
-      $(img).attr('src', src);
-      $(img).load(function() {
-        img.removeAttribute('data-src');
-      });
-    }
-  }
-
-  function set_posts_visible(posts, visible) {
-    if (visible) {
-
-      // show bottom border by default
-      $(posts).removeClass('post-preview-last');
-
-      // apply limits if need be
-      var max_posts = 25;
-      var apply_limits = $('.posts-container').hasClass('posts-apply-limit');
-      if (apply_limits && posts.length > max_posts) {
-        posts = $(posts).slice(0, max_posts);
-      } else {
-        $('.posts-more a').addClass('hidden');
-      }
-
-      // apply last style
-      $(posts.slice(-1)[0]).addClass('post-preview-last');
-
-      $(posts).removeClass('hidden');
-      $(posts).find('img[data-src]').each(function(i, img) {
-        load_image(img);
-      });
-    } else {
-      $(posts).addClass('hidden');
-    }
-  }
-
-  function apply_hash_filter() {
-
-    // clear active state
-    $('.categories .active').removeClass('active');
-
-    // mark all posts invisible to start
-    set_posts_visible($('.posts-list').children('a'), false);
-
-    // if we have a hash filter
-    if (window.location.hash) {
-
-      // mark posts that match the category visible
-      var page_category = window.location.hash.replace("#", "");
-      var posts = $('.post-metadata').map(function(idx, script) {
-        var metadata = $.parseJSON($(script).html());
-        var post = null;
-        $.each(metadata.categories, function(idx, category) {
-          category = category.replace(/ /g,"_");
-          if (category == page_category) {
-            post = $(script).parent().get();
-            return false;
-          }
-        });
-        return post;
-      });
-      set_posts_visible(posts, true);
-
-      // mark the hash active
-      $('.categories li>a[href="' + window.location.hash + '"]').addClass('active');
-
-    } else {
-
-      // no hash filter, make all posts visible (subject to max display)
-      set_posts_visible($('.posts-list').children(), true);
-
-    }
-  }
-
-  // more articles
-  function apply_post_limits(apply) {
-    if (apply) {
-      $('.posts-container').addClass('posts-apply-limit');
-      $('.posts-more a').removeClass('hidden');
-    } else {
-      $('.posts-container').removeClass('posts-apply-limit');
-      $('.posts-more a').addClass('hidden');
-    }
-  }
-
-  // hash filter handling
-  apply_hash_filter();
-  $(window).on('hashchange',function() {
-    apply_post_limits(true);
-    apply_hash_filter();
-  });
-
-  // more articles link
-  $('.posts-more a').click(function(e) {
-    e.preventDefault();
-    apply_post_limits(false);
-    apply_hash_filter();
-    return false;
-  });
-
-}
-
-</script>
-
-
-
-<div class="posts-container posts-with-sidebar posts-apply-limit l-screen-inset">
-<div class="posts-list">
-<h1 class="posts-list-caption">Loppsided</h1>
-<a href="posts/2020-10-26-tidymodels-dvc-mashup/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":["data_science"]}</script>
-<div class="metadata">
-<div class="publishedDate">Oct. 26, 2020</div>
-</div>
-<div class="thumbnail">
-<img data-src="posts/2020-10-26-tidymodels-dvc-mashup/images/modelops.png"/>
-</div>
-<div class="description">
-<h2>Tidymodels DVC Mashup</h2>
-<p>Using Github Actions and Data Version Control for ModelOps in R</p>
-</div>
-</a>
-<a href="posts/2020-10-18-hamburgers-at-chick-fil-a/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":["product"]}</script>
-<div class="metadata">
-<div class="publishedDate">Oct. 18, 2020</div>
-</div>
-<div class="thumbnail">
-<img data-src="posts/2020-10-18-hamburgers-at-chick-fil-a/images/paste-4AF33372.png"/>
-</div>
-<div class="description">
-<h2>Hamburgers at Chick-fil-a</h2>
-<p>An inside look at RStudio's decision to embrace Python</p>
-</div>
-</a>
-</div>
-<div class="posts-sidebar">
-<div class="sidebar-section categories">
-<h3>Categories</h3>
-<ul>
-<li>
-<a href="#data_science">data_science</a>
-<span class="category-count">(1)</span>
-</li>
-<li>
-<a href="#product">product</a>
-<span class="category-count">(1)</span>
-</li>
-</ul>
-</div>
-</div>
-<div class="posts-more">
-<a href="#">More articles &raquo;</a>
-</div>
-</div>
-<!--/radix_placeholder_article_listing-->
 
 <div class="d-title">
-<h1>Loppsided</h1>
-
+<h1>Tidymodels DVC Mashup</h1>
+<p><p>Using Github Actions and Data Version Control for ModelOps in R</p></p>
 </div>
 
+<div class="d-byline">
+  Sean Lopp  
+  
+<br/>10-26-2020
+</div>
 
 <div class="d-article">
+<p>I had a few goals in my first few days of vacation:</p>
+<ol type="1">
+<li>Figure out GitHub Actions.</li>
+<li>Try out <a href="https://tidymodels.org"><code>tidymodels</code></a> , after being inspired by a R in Pharma talk on the <code>stacks</code> package.</li>
+<li>Investigate this whole MLOps thing, and by investigate I meant <em>try it</em>, I did NOT go on vacation to read more Gartner Garbage ™️ .</li>
+</ol>
+<p>As luck would have it, <a href="https://twitter.com/DrElleOBrien">@DrElleOBrien</a> happened to reach out about trying <a href="https://twitter.com/DrElleOBrien">DVC</a> with R. DVC is a framework for MLOps that can use GitHub actions, so I had the perfect excuse to knock out all three goals with one sample project.</p>
+<p>If you don’t want the rambling story, here is the project: <a href="https://github.com/slopp/tidydvc" class="uri">https://github.com/slopp/tidydvc</a>.</p>
+<h2 id="background">Background</h2>
+<h3 id="dvc">DVC</h3>
+<p><a href="https://dvc.org">DVC</a>, and its close companion <a href="https://cml.dev">CML</a>, provide tools for model management - think Git for data and models. The core idea is that a DVC pipeline tracks the input (files, data, hyper-parameters) to an experiment and the output of an experiment (model, metrics, etc). DVC can be used locally, but the real magic is that DVC can be combined with something like GitHub and GitHub actions to automate the experiment management. Just like a software engineer could create a PR to propose a change to code, a data scientist could create a PR to propose a change to a model. But, unlike in software engineering where the goal of a PR is to review and automatically test code changes, in ModelOps the goal of the PR would be to train a model and explain the outcome!</p>
+<p>DVC is primarily built around Python, but I wanted to see if it could be used with R. In many ways it shares some of the principles of the <code>drake</code> (now <code>targets</code>) package, but with some added Git ✨.</p>
+<h3 id="tidymodels">Tidymodels</h3>
+<p><a href="https://tidymodels.org">Tidymodels</a> is an opinionated workflow for model construction in R<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. It is kind of like scikit learn in the sense that many different algorithms are presented with a consistent interface.</p>
+<p>A few interesting bits about tidymodels:</p>
+<ol type="1">
+<li>There is a concept of a <code>workflow</code> that allows you to track a model’s pre-processing steps and the model itself in one easy-to-use object. This turns out to be super helpful, though a bit at odds with DVC (or drake)’s concept of a pipeline… more to come.</li>
+<li>There are easy ways to <code>tune</code> hyper-parameters. Again, very helpful, but potentially at odds with external ModelOps-y things that want to control those elements.</li>
+<li>There is experimental support for <a href="https://github.com/tidymodels/stacks">ensembles</a>, which is what I wanted to try!</li>
+</ol>
+<p><img src="images/paste-5761E6A6.png" title="The Delightful stacks Logo" style="width: 194px" alt="The Delightful stacks Logo" /><br />
+</p>
+<h3 id="mashup">Mashup</h3>
+<p>Aside from learning the individual pieces, I wanted to see if it was possible to glue these different ecosystems together. As I hinted at above, however, there were some surface level concerns. It wasn’t clear to me if I could define clean boundaries between the concepts <code>tidymodels</code> wanted to control and what DVC expected to own. But the goal of PRs with beautiful <code>ggplots</code>was enticing. (Famous last words).</p>
+<p>Final note, I also enjoy using R Markdown as a framework for data exploration and model creation. I find R Markdown encourages “thinking while coding”. I definitely wanted R Markdown to play a role.</p>
+<p>If you are interested in this type of mashup but want to play mostly in R, I highly recommend this article by David Neuzerling: <a href="https://mdneuzerling.com/post/machine-learning-pipelines-with-tidymodels-and-targets/">Machine Learning Pipelines with Tidymodels and Targets</a>.</p>
+<h2 id="unstacking-stacks">Unstacking Stacks</h2>
+<p>I began by creating an R Markdown document that roughly followed the outline of this <a href="https://stacks.tidymodels.org/articles/basics.html">stacks tutorial</a>. To spice things up, I decided to use the Ames Housing data, so my goal was to create an ensemble that predicted housing prices. You can follow the <a href="https://github.com/slopp/tidydvc/blob/main/fit_model.Rmd">code here</a>. Because one of my goals was to try tidymodels, here are some notes for future me on what I learned.<br />
+<br />
+</p>
+<h3 id="dont-skip-eda">Don’t skip EDA</h3>
+<p>I didn’t want to just copy code from Max’s <a href="https://www.tidymodels.org/learn/models/parsnip-ranger-glmnet/">parsnip regression tutorial</a> so instead I opted to write my own formula regressing on different predictors<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. I thought I could do this without any EDA. MISTAKE. I lost at least 2 hours fighting models that wouldn’t converge because my data was either incomplete or my pre-processing was non-sensical. I still am not happy with the results, but I did learn a valuable tactic. <em>When defining a recipe that will be used further down the line in a workflow, it is still a good idea (though not required) to prep and juice the recipe.</em> Essentially, this optional juicing allows you to SEE how the recipe is applied to your training dataset and troubleshoot any errors in a friendly space, as opposed to an unfriendly space (which is what I call a stack trace from the middle of a cross validation optimization routine that has failed because of a <code>NA</code>).</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# First define the recipe
+housing_rec &lt;- recipe(SalePrice ~ ...) %&gt;% 
+  update_role(PID, new_role = &quot;ID&quot;) %&gt;% 
+  step_dummy(all_nominal()) %&gt;%  
+  step_meanimpute(all_numeric()) %&gt;% 
+  step_zv(all_predictors()) %&gt;% 
+  step_nzv(all_predictors())
 
+# Check it!
+housing_rec %&gt;% 
+  prep() %&gt;% 
+  juice()
+
+# Then do the rest of your workflow magic
+housing_wflow &lt;- 
+  workflow() %&gt;% 
+  add_recipe(housing_rec)</code></pre>
+</div>
+<p><em>Tune</em></p>
+<p>Tuning is easy. Getting the model out of the tune to actually use… a little less intuitive. As with all things, I should have started by reading <a href="https://juliasilge.com/blog/sf-trees-random-tuning/">Julia Silge’s advice</a>. Essentially there are a couple things you (future me) need to know:</p>
+<ol type="1">
+<li>You create a model spec and stick it in a workflow:</li>
+</ol>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# PS - for those who learned penalized regression through glmnet
+# penalty = lambda 
+# mixture = alpha
+model_spec &lt;- linear_reg(penalty = tune(&quot;penalty&quot;), mixture = tune(&quot;mixture&quot;))
+
+# the workflow ties your model to your pre-processing
+model_wflow &lt;- 
+  workflow() %&gt;% 
+  add_recipe(preprocess_data) %&gt;% 
+  add_model(model_spec)</code></pre>
+</div>
+<ol start="2" type="1">
+<li>You can tune the model<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> using a grid:</li>
+</ol>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+tune_results &lt;- 
+  tune_grid(
+    model_wflow,
+    resamples = folds,  
+    metrics = metric,  # think rmse
+    control = control_grid() # controls what metadata is saved 
+  )</code></pre>
+</div>
+<ol start="3" type="1">
+<li>You can look at the tuned results:</li>
+</ol>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# hint use the n function argument to see more. This is where you can find the actual tune parameters
+show_best(tune_results)</code></pre>
+</div>
+<ol start="4" type="1">
+<li>BUT, at this point, <em>you have to finalize the actual best model</em>. Or in the case of an ensemble, you have to finalize <em>many</em> models. Finalize means take the tuned parameters and fit the model on ALL the training data. (The parameters come from a model fit on a cross validation fold). To do this:</li>
+</ol>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# select_best was counterintuitive to me... I found it hard to pull the data
+# for all models; and it doesn&#39;t give you the best model, just the best
+# tune parameters 
+tuned_params &lt;- select_best(tune_results)
+
+# use this object for future predictions
+model_wflow_fit &lt;- finalize_workflow(model_wflow, tuned_params)
+
+# final tip: to inspect the actual model 
+model_wflow_fit %&gt;% 
+  pull_workflow_fit() %&gt;% 
+  broom::tidy() # linear models OR
+  vip::vip() # trees</code></pre>
+</div>
+<p>At different points of this process it can be easy to forget what is trained and what is still a placeholder. The print methods are really good, use them.</p>
+<h3 id="stacks">Stacks</h3>
+<p>My final goal was to fit an ensemble model. Unfortunately, I hit an error using the <code>stacks</code> package. I suspect this error was due to the fact that the package is experimental and I had some stale dependencies. This left me between a rock and, well, another rock. I could have tried to nuke my environment and fight with <code>remotes</code> to install a bunch of development tidymodels packages. (This was made harder by the WIP change to <code>main</code> from <code>master</code> 👏). Or I could try to push forward by working around the error with my own ensemble code. I went for the latter path, and refreshed a lot of my statistical thinking along the way. (Recall <code>%*%</code> is how to do matrix multiplication in R). But I also killed 5 hours of vacation. 🤷 I will spare you and my future self the details in the hope that the error is fixed, but a few conceptual tips:</p>
+<ol type="1">
+<li>The <code>stacks()</code> object starts with candidate models (from <code>tune_grid</code>) or a single model but with multiple fits (from <code>fit_resamples</code>). The magic this function does is align the different models based on the resample they used. In other words, if one candidate was fit on resample 1, it is matched with another candidate fit on resample 1. The same matching occurs within tuning configurations from a single model.<br />
+</li>
+<li>Under the hood, the ensemble is fit with glmnet, but buried in quite a few layers of tidymodels abstraction. <code>cv.glmnet</code> works as an alternative, but with a nasty side affect. You have to do all the work manually to get a final fitted object that glues all the prior models, workflows, and the ensemble together.<br />
+</li>
+<li>When those nice print methods I mentioned earlier fail, try <code>attributes</code> to see “all the stuff” tidymodels is carrying around.</li>
+</ol>
+<h2 id="the-mashup"><strong>The Mashup</strong></h2>
+<h3 id="adding-dvc">Adding DVC</h3>
+<p><br />
+*Once I had a functional R Markdown document that was fitting models, it was time to try this ModelOps thing. Now ModelOps can consist of a lot of things, but in this case I was interested in trying out the training side of model operations - tracking experiments and enabling collaboration. I’ll save the monitoring side - deploying models to production and watching them overtime - for another vacation.</p>
+<p>DVC is oriented around pipelines. Unfortunately, this appeared to clash a bit with my R Markdown workflow. For one, the R Markdown document “drove” all the modeling code, and this code was not amenable to being managed by an external pipeline. Another problem was that the tidymodels packages, especially <code>tune</code> and <code>stacks,</code> handled the parameters and “experiments” that DVC wanted to control.<br />
+<br />
+I decided to mostly ignore the first challenge. If my data was large, or the pre-processing intense, I think I would have benefited from breaking the R Markdown document into child documents that could each be a stage in a pipeline. In this case, I didn’t care for the extra overhead in saving intermediate results, and things were fast enough that I didn’t mind re-running steps from scratch. As I mentioned, I am advocate for using R Markdown instead of .R files even in the multi-stage approach. You an see an example of this <a href="https://github.com/sol-eng/bike_predict">“split it up” approach here</a>.</p>
+<p>For the second problem, I decided to go with a hyper-hyper-parameter strategy. Essentially, I allowed <code>tune</code> and tidymodels to handle the hyper-parameter optimization within a model, but I used DVC to handle “parameters” that would fundamentally change the type of model at play. In other words, my “PR experiments” amounted to asking questions like “what if our ensemble uses ridge regression instead of LASSO?” as opposed to questions like “what if each forest has more or less trees?”. Is this splitting hairs? You betcha. In fact, you can see artifacts in the code where I did use DVC for “# of trees” and where I attempted to use the tidymodels code for optimizng the ensemble. My advice: “experiments” in most ModelOps settings come with overhead and complexity, so use them to track whatever changes really matter to you.</p>
+<blockquote>
+<p>In the current sate of MLOps, there aren’t great boundaries.</p>
+</blockquote>
+<p>I think this article explains this <a href="https://towardsdatascience.com/the-problem-with-ai-developer-tools-for-enterprises-and-what-ikea-has-to-do-with-it-b26277841661?gi=1a3a6ab5f7e7">nascent border-less state well</a>.<br />
+<br />
+One artifact of my toy exploration is that I also punted a bit on questions of scale. One of the claims of ModelOps is that, when adopted correctly, the training portion of experiments can easily be scaled across a wide variety of backends. I’ll leave that test for another day, but in my experience “magic parallelism” is almost always a lie.</p>
+<h3 id="pipeline-iteration">Pipeline Iteration</h3>
+<figure>
+<img src="images/Screen%20Shot%202020-10-26%20at%2011.21.48%20AM.png" title="Pipeline Failures" style="width: 435px" alt="Pipeline Failures" /><figcaption aria-hidden="true">Pipeline Failures</figcaption>
+</figure>
+<p>After settling on how I wanted to incorporate DVC into my example, it was time to try and get GitHub Actions working. This is where I thought my expertise in R package management would come in handy. I was right and wrong. On the plus side, I was successful. On the other hand, it was still hard.<br />
+</p>
+<p>Here are a few tips and tricks:</p>
+<ol type="1">
+<li>Elle created an <a href="https://github.com/elleobrien/actions_with_r">action workflow</a> that showed me how to use the <a href="https://github.com/r-lib/actions"><code>r-lib</code> Github actions</a> to install R in the context of a CML pipeline. Unfortunately, the r-lib actions are geared towards people testing packages, not people just running code. This discrepancy made our use case a bit awkward. In the future there will hopefully be actions geared at using R to simply run code.<br />
+</li>
+<li>I created an R script to wrap my <code>render::rmarkdown</code> call. This script did two things. First, it set the R repo option to use <a href="https://packagemanager.studio.com">Public Package Manager</a> to provide pre-built package binaries. This rapidly speeds up package install time. Second, the script calls <code>renv::restore</code>, which installs the packages I needed for my project. <a href="https://github.com/rstudio/renv">renv</a> is like the R equivalent to <code>pip freeze; pip install -r requirements.txt</code> .<br />
+</li>
+<li>Even though I was using pre-compiled R package binaries, some of them still had runtime system requirements. This meant I had to add a number of <code>apt-get install thing</code> lines to the actions file. I should have known this ahead of time and used Package Manager to identify what those requirements would be, but instead I did it the “old fashioned” (read: painful) way of failing again and again until it worked.</li>
+</ol>
+<p>Overall, I think if I was doing a project like this for real, it’d be well worth my time to create a custom Docker image with my project environment and have the GitHub Action start by pulling that image. Otherwise you end up spending valuable iteration time waiting for the same packages to be installed.<br />
+<br />
+I also think this experience highlights the importance of local testing and experimentation. Running <code>dvc repro</code> to try out experiments locally was significantly faster for both troubleshooting and model exploration than waiting for the CI system to run. It is also much easier, locally, to explore metrics around model fit or interpretation that you may have forgotten to have your CI system write out. What this means:</p>
+<ol type="1">
+<li>Before CI/CD can be real for ModelOps, CI systems will need to be optimized for model operation performance.<br />
+</li>
+<li>Model management tools, like DVC pipelines, can be useful for organizing experiments and collaborating with others even without the CI part.<br />
+</li>
+<li>If you do go the CI route, remember that the environment is ephemeral, so be sure to save persistently <em>everything and anything</em> that might be useful for interactive debugging, model interpretation, etc later on.</li>
+</ol>
+<p>In general, I think we are a ways away from collaborating as seamlessly as software engineers do through Git. But, the state of the world is much much better than tracking model runs manually in a spreadsheet!<br />
+<br />
+</p>
+<h3 id="the-magic-moment">The Magic Moment</h3>
+<blockquote>
+<p><em>“There is nothing quite as joyous as the rush one gets from a pipeline building when it had been failing” -every software engineer and soon every data scientist too</em></p>
+</blockquote>
+<p>This <a href="https://github.com/slopp/tidydvc/pull/2">PR shows you the results</a>, and here are a few of the happy screenshots:</p>
+<figure>
+<img src="images/Screen%20Shot%202020-10-26%20at%2012.34.25%20PM.png" title="Metric Diffs" alt="Metric Diffs" /><figcaption aria-hidden="true">Metric Diffs</figcaption>
+</figure>
+<figure>
+<img src="images/modelops.png" title="DVC Pipeline with R" alt="DVC Pipeline with R" /><figcaption aria-hidden="true">DVC Pipeline with R</figcaption>
+</figure>
+<figure>
+<img src="images/Screen%20Shot%202020-10-26%20at%201.13.24%20PM.png" title="GitHub PRs for ModelOps" alt="GitHub PRs for ModelOps" /><figcaption aria-hidden="true">GitHub PRs for ModelOps</figcaption>
+</figure>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>Tip: it is <a href="https://tidymodels.org" class="uri">https://tidymodels.org</a> NOT <a href="https://tidymodels.com…">https://tidymodels.com…</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>My ultimate model did outperform the models in that tutorial …. but lets all admit tutorial models are garbage and safely move on. Lest we get stuck on wondering why folks in Iowa value garage spaces over lot size.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p>I am going to use model and workflow as synonyms for the rest of this section<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
