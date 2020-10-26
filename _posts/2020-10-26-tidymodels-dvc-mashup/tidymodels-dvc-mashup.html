@@ -1094,16 +1094,16 @@ model_wflow_fit %&gt;%
 </li>
 <li>When those nice print methods I mentioned earlier fail, try <code>attributes</code> to see “all the stuff” tidymodels is carrying around.</li>
 </ol>
-<h2 id="the-mashup"><strong>The Mashup</strong></h2>
+<h2 id="the-mashup">The Mashup</h2>
 <h3 id="adding-dvc">Adding DVC</h3>
 <p><br />
-*Once I had a functional R Markdown document that was fitting models, it was time to try this ModelOps thing. Now ModelOps can consist of a lot of things, but in this case I was interested in trying out the training side of model operations - tracking experiments and enabling collaboration. I’ll save the monitoring side - deploying models to production and watching them overtime - for another vacation.</p>
+Once I had a functional R Markdown document that was fitting models, it was time to try this ModelOps thing. Now ModelOps can consist of a lot of things, but in this case I was interested in trying out the training side of model operations - tracking experiments and enabling collaboration. I’ll save the monitoring side - deploying models to production and watching them overtime - for another vacation.</p>
 <p>DVC is oriented around pipelines. Unfortunately, this appeared to clash a bit with my R Markdown workflow. For one, the R Markdown document “drove” all the modeling code, and this code was not amenable to being managed by an external pipeline. Another problem was that the tidymodels packages, especially <code>tune</code> and <code>stacks,</code> handled the parameters and “experiments” that DVC wanted to control.<br />
 <br />
 I decided to mostly ignore the first challenge. If my data was large, or the pre-processing intense, I think I would have benefited from breaking the R Markdown document into child documents that could each be a stage in a pipeline. In this case, I didn’t care for the extra overhead in saving intermediate results, and things were fast enough that I didn’t mind re-running steps from scratch. As I mentioned, I am advocate for using R Markdown instead of .R files even in the multi-stage approach. You an see an example of this <a href="https://github.com/sol-eng/bike_predict">“split it up” approach here</a>.</p>
 <p>For the second problem, I decided to go with a hyper-hyper-parameter strategy. Essentially, I allowed <code>tune</code> and tidymodels to handle the hyper-parameter optimization within a model, but I used DVC to handle “parameters” that would fundamentally change the type of model at play. In other words, my “PR experiments” amounted to asking questions like “what if our ensemble uses ridge regression instead of LASSO?” as opposed to questions like “what if each forest has more or less trees?”. Is this splitting hairs? You betcha. In fact, you can see artifacts in the code where I did use DVC for “# of trees” and where I attempted to use the tidymodels code for optimizng the ensemble. My advice: “experiments” in most ModelOps settings come with overhead and complexity, so use them to track whatever changes really matter to you.</p>
 <blockquote>
-<p>In the current sate of MLOps, there aren’t great boundaries.</p>
+<p>In the current state of ModelOps, there aren’t great boundaries.</p>
 </blockquote>
 <p>I think this article explains this <a href="https://towardsdatascience.com/the-problem-with-ai-developer-tools-for-enterprises-and-what-ikea-has-to-do-with-it-b26277841661?gi=1a3a6ab5f7e7">nascent border-less state well</a>.<br />
 <br />
