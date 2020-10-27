@@ -51,7 +51,7 @@ I hear rumors that some electric shifters also get rid of that thought, but I do
 
 The most damning evidence for this side of the debate: when it came time for my Dad to buy his *one* bike, I got convinced him to go with the very similar, slightly less aggressive, Salsa Journeyman. I will admit, if you are more like my wife, you may prefer to skip the drop handle bars and go with commuter bars for comfort.
 
-## Against `n=1`
+### Against `n=1`
 
 The most damning evidence against this case: since purchasing Chuck I have purchased another bike.... meet Charles (a bit more sophisticated, eh?)\
 
@@ -69,7 +69,7 @@ Charles spends a greater part of the winter on a trainer
 
 So whether you want to believe `n=1` or not, I can highly recommend both bikes. Ride more, talk about riding slightly less.
 
-## PS
+### PS
 
 This post would feel a bit incomplete if I didn't introduce you to the final member of the fleet: Charlie. Charlie was my high school mtn bike turned college commuter turned emergency backup. Most of Charlie's time these days is spent like this:
 

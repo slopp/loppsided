@@ -1,0 +1,36 @@
+
+Data Science
+- Scheduled Emails and Sales 
+- Diagnostic Diagnosis 
+- More than `rsync`: A 3 Year Journey
+- The Scariest Talk
+- The Weirdest Talk
+- Distilled 
+- An Outsiders Take on the FDA
+- Tidier `caselaw`
+- API Packages R-sixed 
+- Reacting to Reactive  
+- Stumbling through Conversational AI
+- Exploring dvc with tidymodels
+
+Biking
+- n=1 Maybe?
+- Super Evans
+- A Hearty Endorsement of Kroger Fruit Snacks
+
+Catholocism: 
+- Paradox & Chesterton
+- ~Mere~ Christianity 
+- Wrestling with Ratzinger 
+
+Product Management:
+- Food Critics Who Never Eat
+- Parks and Rec 1
+- Parks and Rec 2 
+- My Fight with Agile
+- Open Source Funding Hot Takes 
+- When Chick-fil-A added Hamburger
+
+Lessons from Learning:
+- Debate
+- Internships
