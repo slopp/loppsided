@@ -1,0 +1,235 @@
+---
+title: "A Windy TidyTuesday"
+description: |
+  A short description of the post.
+author:
+  - name: Sean Lopp
+date: 10-27-2020
+output: distill::distill_article
+categories:
+  - data_science
+preview: images/paste-A30A7B7C.png
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(crosstalk)
+library(leaflet)
+library(htmltools)
+library(plotly)
+library(lubridate)
+wind_turbine <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-10-27/wind-turbine.csv')
+```
+
+![Probably Not Canadian Windmills](images/paste-A30A7B7C.png "Probably Not Canadian Windmills"){style="width: 300px"}
+
+```{css echo=FALSE}
+d-article {
+    font-size: 1.5rem;
+    line-height: 1.7em;
+}
+```
+    
+It has been a long time since I've done a [TidyTuesdsay](https://github.com/rfordatascience/tidytuesday) post, but wind turbines, time series, and maps are hard to resist! (Especially on a snowy shoulder season vacation!) Because this dataset is relatively small, my goal was to make an interactive dashboard using crosstalk contained in a standalone web page.
+
+My first step was to grab the data and make it into a shared data object accessible to crosstalk. My overall goal was to present an option for looking at the data across time, but immediately I discovered the `commissioning_date` field would need a bit of clean up. Who has a column of the form `year1/year2/year...`? 😞 Unfortunately there didn't appear to be an easy way to fully determine the actual commission date. A couple of options presented themselves:
+
+1.  I could just "floor" the project date. So a project with a commission date like `2001/2002` would represent all the turbines with `year = 2001` . This option is the easiest but the least satisfying.\
+2.  I could create some kind of heuristic to assign turbines to years assuming a linear build out. For example, if a project had ten turbines split across 2 years (e.g., 2001/2002) I would assign the first 5 to 2001 and 6-10 to 2002.
+
+Since I was on vacation, I decided to go with option 2.
+
+```{r prep-data, layout="l-page"}
+
+# compute year based on turbine's rank 
+# in project and available commissioning years
+# assuming a linear roll out over time
+compute_year <- function(turbines){
+  # given data like 2001 / 2002
+  num_years = str_count(turbines$commissioning_date, "/")
+  cut_points = turbines$total_turbines / (num_years + 1)
+  # ceiling here because we want to start 
+  # our counting at year1 (see separate call below)
+  turbine_yearid = (ceiling(turbines$turbine_rank / cut_points)) %>% 
+    sprintf("year%d", .)
+  turbine_year = map_chr(
+    1:nrow(turbines), 
+    ~turbines[[.x,turbine_yearid[.x]]]
+  )
+  turbine_year
+}
+
+# pre-process then create crosstalk object
+wind<- wind_turbine %>% 
+  separate(commissioning_date, 
+           into = c("year1", "year2", "year3"), 
+           sep = "/", 
+           remove = FALSE) %>% 
+  separate(turbine_number_in_project, 
+           into = c("turbine_rank", "total_turbines"), 
+           sep = "/", 
+           remove = FALSE) %>% 
+  mutate(turbine_rank = as.numeric(turbine_rank),
+         total_turbines = as.numeric(total_turbines)) %>%  
+  mutate(computed_year = compute_year(.)) %>% 
+  mutate(computed_year = paste0(computed_year,"-01-01"),
+         computed_year = ymd(computed_year),
+         year = year(computed_year)) %>%  # useful for plotting
+  mutate(label = paste0(
+    project_name, " <br/>", 
+    total_project_capacity_mw, " project MW <br/>",
+    turbine_rated_capacity_k_w, " turbine kW <br/>"
+  ))
+
+# look at an interesting case to see what all this code did
+wind %>% 
+  filter(project_name == "St. Leon") %>% 
+  select(turbine_identifier, 
+         turbine_number_in_project, 
+         commissioning_date, 
+         computed_year, 
+         starts_with("year"), 
+         -year) %>% 
+  rmarkdown::paged_table()
+
+```
+
+Before we go any further, we should check if our "computed year" heuristic makes any sense. To do this, we'll pick an interesting project (one split over multiple commissioning years) and then check if the breakdown makes sense.
+
+```{r check-year, layout="l-page"}
+colors <- c('darkred','purple', 'orange')
+st_leon <- wind %>% 
+  filter(project_name == "St. Leon") %>% 
+  # mutate for fixed circle sizes below
+  mutate(turbine_capacity_10kw = turbine_rated_capacity_k_w / 10, 
+         color = colors[as_factor(year)]) %>% 
+  SharedData$new()
+year_select <- filter_checkbox(
+  id = 'year',
+  label = "Year",
+  sharedData = st_leon,
+  group = ~computed_year
+)
+map <- leaflet(st_leon) %>% 
+  addProviderTiles(providers$CartoDB.Positron) %>% 
+  # use a addCircles to get a fixed size 
+  #since we don't expect much zooming on this plot
+  addCircles(lat = ~latitude, 
+             lng = ~longitude, 
+             radius = ~turbine_capacity_10kw, 
+             popup = ~label,
+             color = ~color)
+
+# lay out widgets
+div(
+  bscols(
+    # in bscols things add to 12!
+    widths = c(2, 10),
+    year_select, 
+    map
+  )
+)
+```
+
+You can see how our "computed year" huerisitic mostly corresponds with geographic area. Each year's build out was in a new area, which makes sense to me because that is how construction works. This gives me some reassurance that the heuristic is reasonable.
+
+Now that we have some confidence our data is correct, we can use crosstalk to power an exploration.
+
+```{r dashboard, layout="l-page"}
+# create the object for crosstalk
+wind_sd <- SharedData$new(wind)
+
+# for some reason distill 
+# and date driven sliders
+# dont get along
+year_slider <- filter_slider(
+  id = "year",
+  label = "Year",
+  sharedData = wind_sd,
+  column = ~year,
+  sep = ""
+)
+
+province_filter <- filter_select(
+  id = "prov",
+  label = "Focus on one province",
+  sharedData = wind_sd,
+  group = ~province_territory
+)
+
+map <- leaflet(wind_sd) %>% 
+  addProviderTiles(providers$CartoDB.Positron) %>% 
+  # use circle markers so that the mark scales as you zoom
+  addCircleMarkers(lat = ~latitude, 
+             lng = ~longitude, 
+             popup = ~label
+  )
+
+power_plot <- plot_ly(wind_sd,
+  y=~province_territory,
+  x=~turbine_rated_capacity_k_w,
+  type = "bar",
+  transforms = list(
+    list(
+      type = 'aggregate',
+      groups = ~province_territory,
+      aggregations = list(
+        list(
+          target = 'x', func = 'sum', enabled = T
+        )
+      )
+    )
+  )
+) %>% 
+layout(
+  title = 'Total Available Power (kW)',
+  yaxis = list(title = 'Province'),
+  xaxis = list(title = 'Total Rated Capacity kW')
+)   
+
+height_plot <- plot_ly(wind_sd,
+  x=~province_territory,
+  y=~hub_height_m,
+  jitter = 0.7,
+  type = "scatter",
+  color = ~year
+) %>% 
+layout(
+  title = 'Turbine Size',
+  xaxis = list(title = 'Province'),
+  yaxis = list(title = 'Hub Height (m)'),
+  color = list(title = 'Year Turbine Comissioned')
+)
+
+# lay out widgets
+div(
+  bscols(
+    # bscols total is 12
+    widths = c(2,5,5),
+    # uses lists to represent "rows" within a column
+    list(year_slider, province_filter),
+    power_plot, 
+    height_plot
+  ),
+  map
+)
+
+```
+
+One final note. As you can see in the map, there is a bit of overplotting... One way to handle this normally in plotly is to use `clusterIds`, which I demonstrate below. Unfortunately [at this time](https://github.com/rstudio/leaflet/issues/478) clustering is not supported with crosstalk filters.
+
+```{r clusters}
+leaflet(wind) %>% 
+  addProviderTiles(providers$CartoDB.Positron) %>% 
+  # use circle markers so that the mark scales as you zoom
+  addCircleMarkers(lat = ~latitude, 
+             lng = ~longitude, 
+             popup = ~label, 
+             radius = ~turbine_rated_capacity_k_w/100,
+             clusterId = ~project_name,
+             clusterOptions = markerClusterOptions()
+  )
+
+```
