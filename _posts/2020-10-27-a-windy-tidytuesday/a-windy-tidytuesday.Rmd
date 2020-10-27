@@ -1,7 +1,7 @@
 ---
 title: "A Windy TidyTuesday"
 description: |
-  A short description of the post.
+  Using crosstalk to analyze spatio-temporal data.
 author:
   - name: Sean Lopp
 date: 10-27-2020

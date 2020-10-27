@@ -2,7 +2,7 @@
   {
     "path": "posts/2020-10-27-a-windy-tidytuesday/",
     "title": "A Windy TidyTuesday",
-    "description": "A short description of the post.",
+    "description": "Using crosstalk to analyze spatio-temporal data.",
     "author": [
       {
         "name": "Sean Lopp",
@@ -14,7 +14,7 @@
       "data_science"
     ],
     "preview": "posts/2020-10-27-a-windy-tidytuesday/images/paste-A30A7B7C.png",
-    "last_modified": "2020-10-27T15:29:49-06:00",
+    "last_modified": "2020-10-27T15:32:44-06:00",
     "input_file": {},
     "preview_width": 510,
     "preview_height": 340
