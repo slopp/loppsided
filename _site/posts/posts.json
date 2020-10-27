@@ -81,6 +81,26 @@
     "preview_height": 1282
   },
   {
+    "path": "posts/2020-10-27-n1/",
+    "title": "n=1?",
+    "description": "A post about bikes.",
+    "author": [
+      {
+        "name": "Sean Lopp",
+        "url": {}
+      }
+    ],
+    "date": "2020-07-05",
+    "categories": [
+      "cycling"
+    ],
+    "preview": "posts/2020-10-27-n1/images/paste-DD51328B.png",
+    "last_modified": "2020-10-27T16:19:33-06:00",
+    "input_file": "n1.utf8.md",
+    "preview_width": 2048,
+    "preview_height": 1536
+  },
+  {
     "path": "posts/2020-10-26-how-to-avoid-firedrills/",
     "title": "How to Avoid Firedrills",
     "description": "My take on \"Agile\" Data Science",
