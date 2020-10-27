@@ -32,9 +32,10 @@ d-article {
 }
 ```
     
-It has been a long time since I've done a [TidyTuesdsay](https://github.com/rfordatascience/tidytuesday) post, but wind turbines, time series, and maps are hard to resist! (Especially on a snowy shoulder season vacation!) Because this dataset is relatively small, my goal was to make an interactive dashboard using crosstalk contained in a standalone web page.
 
-My first step was to grab the data and make it into a shared data object accessible to crosstalk. My overall goal was to present an option for looking at the data across time, but immediately I discovered the `commissioning_date` field would need a bit of clean up. Who has a column of the form `year1/year2/year...`? 😞 Unfortunately there didn't appear to be an easy way to fully determine the actual commission date. A couple of options presented themselves:
+It has been a long time since I've done a [TidyTuesdsay](https://github.com/rfordatascience/tidytuesday) post, but wind turbines, time series, and maps are hard to resist! My goal for this dataset was to make a standalone webpage housing an interactive dashboard by using [crosstalk](https://rstudio.github.io/crosstalk/).
+
+You can learn a bit about this week's dataset [here](https://github.com/rfordatascience/tidytuesday), but essentially we have spatio-temporal information on Canadian wind turbines. My overall goal was to present an option for looking at the data across time, but immediately I discovered the "time" component of our dataset -  `commissioning_date` - needed a bit of clean up. Who has a column where some values are `2001` and some are `2001/2002`? 😞  Unfortunately there didn't appear to be an easy way to fully determine the actual commission date. A couple of options presented themselves:
 
 1.  I could just "floor" the project date. So a project with a commission date like `2001/2002` would represent all the turbines with `year = 2001` . This option is the easiest but the least satisfying.\
 2.  I could create some kind of heuristic to assign turbines to years assuming a linear build out. For example, if a project had ten turbines split across 2 years (e.g., 2001/2002) I would assign the first 5 to 2001 and 6-10 to 2002.
@@ -61,8 +62,11 @@ compute_year <- function(turbines){
   turbine_year
 }
 
-# pre-process then create crosstalk object
+# pre-process 
 wind<- wind_turbine %>% 
+  # split the gross date field
+  # ... with grosser code hard coded to assume
+  # at most 3 annual values :grimmace: 
   separate(commissioning_date, 
            into = c("year1", "year2", "year3"), 
            sep = "/", 
@@ -73,10 +77,12 @@ wind<- wind_turbine %>%
            remove = FALSE) %>% 
   mutate(turbine_rank = as.numeric(turbine_rank),
          total_turbines = as.numeric(total_turbines)) %>%  
+  # call our function
   mutate(computed_year = compute_year(.)) %>% 
   mutate(computed_year = paste0(computed_year,"-01-01"),
          computed_year = ymd(computed_year),
-         year = year(computed_year)) %>%  # useful for plotting
+         year = year(computed_year)) %>%  # needed later...
+  # prettier labels
   mutate(label = paste0(
     project_name, " <br/>", 
     total_project_capacity_mw, " project MW <br/>",
@@ -218,7 +224,7 @@ div(
 
 ```
 
-One final note. As you can see in the map, there is a bit of overplotting... One way to handle this normally in plotly is to use `clusterIds`, which I demonstrate below. Unfortunately [at this time](https://github.com/rstudio/leaflet/issues/478) clustering is not supported with crosstalk filters.
+One final note. As you can see in the map, there is a bit of overplotting... One way to handle this normally in leaflet is to use `clusterIds`, which I demonstrate below. Unfortunately [at this time](https://github.com/rstudio/leaflet/issues/478) clustering is not supported with crosstalk filters.
 
 ```{r clusters}
 leaflet(wind) %>% 

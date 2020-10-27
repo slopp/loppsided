@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" version="1.0">
   <url>
     <loc>https://loppsided.blog/about.html</loc>
-    <lastmod>2020-10-26T10:25:51-06:00</lastmod>
+    <lastmod>2020-10-27T16:18:00-06:00</lastmod>
   </url>
   <url>
     <loc>https://loppsided.blog/</loc>
@@ -10,7 +10,7 @@
   </url>
   <url>
     <loc>https://loppsided.blog/posts/2020-10-27-a-windy-tidytuesday/</loc>
-    <lastmod>2020-10-27T15:32:44-06:00</lastmod>
+    <lastmod>2020-10-27T16:39:05-06:00</lastmod>
   </url>
   <url>
     <loc>https://loppsided.blog/posts/2020-10-26-tidymodels-dvc-mashup/</loc>
@@ -23,6 +23,10 @@
   <url>
     <loc>https://loppsided.blog/posts/2020-10-26-parks-and-rec-management-tips/</loc>
     <lastmod>2020-10-26T17:47:08-06:00</lastmod>
+  </url>
+  <url>
+    <loc>https://loppsided.blog/posts/2020-10-27-n1/</loc>
+    <lastmod>2020-10-27T16:27:59-06:00</lastmod>
   </url>
   <url>
     <loc>https://loppsided.blog/posts/2020-10-26-how-to-avoid-firedrills/</loc>
