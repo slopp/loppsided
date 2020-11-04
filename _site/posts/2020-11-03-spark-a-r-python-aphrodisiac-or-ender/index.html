@@ -1,0 +1,1634 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="generator" content="distill" />
+
+  <style type="text/css">
+  /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
+  body {
+    visibility: hidden;
+  }
+  </style>
+
+ <!--radix_placeholder_import_source-->
+ <!--/radix_placeholder_import_source-->
+
+  <!--radix_placeholder_meta_tags-->
+<title>Loppsided: Spark?</title>
+
+<meta property="description" itemprop="description" content="If R &amp; Python is a love story, is Spark an aphrodisiac or a relationship red flag?"/>
+
+<link rel="canonical" href="https://loppsided.blog/posts/2020-11-03-spark-a-r-python-aphrodisiac-or-ender/"/>
+
+<!--  https://schema.org/Article -->
+<meta property="article:published" itemprop="datePublished" content="2020-11-03"/>
+<meta property="article:created" itemprop="dateCreated" content="2020-11-03"/>
+<meta name="article:author" content="Sean Lopp"/>
+
+<!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
+<meta property="og:title" content="Loppsided: Spark?"/>
+<meta property="og:type" content="article"/>
+<meta property="og:description" content="If R &amp; Python is a love story, is Spark an aphrodisiac or a relationship red flag?"/>
+<meta property="og:url" content="https://loppsided.blog/posts/2020-11-03-spark-a-r-python-aphrodisiac-or-ender/"/>
+<meta property="og:image" content="https://loppsided.blog/posts/2020-11-03-spark-a-r-python-aphrodisiac-or-ender/images/paste-9BBAFB7B.png"/>
+<meta property="og:image:width" content="750"/>
+<meta property="og:image:height" content="500"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:site_name" content="Loppsided"/>
+
+<!--  https://dev.twitter.com/cards/types/summary -->
+<meta property="twitter:card" content="summary_large_image"/>
+<meta property="twitter:title" content="Loppsided: Spark?"/>
+<meta property="twitter:description" content="If R &amp; Python is a love story, is Spark an aphrodisiac or a relationship red flag?"/>
+<meta property="twitter:url" content="https://loppsided.blog/posts/2020-11-03-spark-a-r-python-aphrodisiac-or-ender/"/>
+<meta property="twitter:image" content="https://loppsided.blog/posts/2020-11-03-spark-a-r-python-aphrodisiac-or-ender/images/paste-9BBAFB7B.png"/>
+<meta property="twitter:image:width" content="750"/>
+<meta property="twitter:image:height" content="500"/>
+
+<!--  https://scholar.google.com/intl/en/scholar/inclusion.html#indexing -->
+<meta name="citation_title" content="Loppsided: Spark?"/>
+<meta name="citation_fulltext_html_url" content="https://loppsided.blog/posts/2020-11-03-spark-a-r-python-aphrodisiac-or-ender/"/>
+<meta name="citation_online_date" content="2020/11/03"/>
+<meta name="citation_publication_date" content="2020/11/03"/>
+<meta name="citation_author" content="Sean Lopp"/>
+<!--/radix_placeholder_meta_tags-->
+  <!--radix_placeholder_rmarkdown_metadata-->
+
+<script type="text/json" id="radix-rmarkdown-metadata">
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","categories","preview","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["Spark?"]},{"type":"character","attributes":{},"value":["If R & Python is a love story, is Spark an aphrodisiac or a relationship red flag?"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Sean Lopp"]}]}]},{"type":"character","attributes":{},"value":["11-03-2020"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["data_science"]},{"type":"character","attributes":{},"value":["images/paste-9BBAFB7B.png"]},{"type":"character","attributes":{},"value":["https://loppsided.blog/posts/2020-11-03-spark-a-r-python-aphrodisiac-or-ender/"]},{"type":"character","attributes":{},"value":["https://loppsided.blog/posts/2020-11-03-spark-a-r-python-aphrodisiac-or-ender/"]}]}
+</script>
+<!--/radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["images/paste-9BBAFB7B.png","spark-a-r-python-aphrodisiac-or-ender_files/bowser-1.9.3/bowser.min.js","spark-a-r-python-aphrodisiac-or-ender_files/distill-2.2.21/template.v2.js","spark-a-r-python-aphrodisiac-or-ender_files/header-attrs-2.4.6/header-attrs.js","spark-a-r-python-aphrodisiac-or-ender_files/jquery-1.11.3/jquery.min.js","spark-a-r-python-aphrodisiac-or-ender_files/webcomponents-2.0.0/webcomponents.js"]}
+  </script>
+  <!--radix_placeholder_navigation_in_header-->
+
+<script type="application/javascript">
+
+  window.headroom_prevent_pin = false;
+
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+
+    // initialize headroom for banner
+    var header = $('header').get(0);
+    var headerHeight = header.offsetHeight;
+    var headroom = new Headroom(header, {
+      onPin : function() {
+        if (window.headroom_prevent_pin) {
+          window.headroom_prevent_pin = false;
+          headroom.unpin();
+        }
+      }
+    });
+    headroom.init();
+    if(window.location.hash)
+      headroom.unpin();
+    $(header).addClass('headroom--transition');
+
+    // offset scroll location for banner on hash change
+    // (see: https://github.com/WickyNilliams/headroom.js/issues/38)
+    window.addEventListener("hashchange", function(event) {
+      window.scrollTo(0, window.pageYOffset - (headerHeight + 25));
+    });
+
+    // responsive menu
+    $('.distill-site-header').each(function(i, val) {
+      var topnav = $(this);
+      var toggle = topnav.find('.nav-toggle');
+      toggle.on('click', function() {
+        topnav.toggleClass('responsive');
+      });
+    });
+
+    // nav dropdowns
+    $('.nav-dropbtn').click(function(e) {
+      $(this).next('.nav-dropdown-content').toggleClass('nav-dropdown-active');
+      $(this).parent().siblings('.nav-dropdown')
+         .children('.nav-dropdown-content').removeClass('nav-dropdown-active');
+    });
+    $("body").click(function(e){
+      $('.nav-dropdown-content').removeClass('nav-dropdown-active');
+    });
+    $(".nav-dropdown").click(function(e){
+      e.stopPropagation();
+    });
+  });
+</script>
+
+<style type="text/css">
+
+/* Theme (user-documented overrideables for nav appearance) */
+
+.distill-site-nav {
+  color: rgba(255, 255, 255, 0.8);
+  background-color: #455a64;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.distill-site-nav a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.distill-site-nav a:hover {
+  color: white;
+}
+
+@media print {
+  .distill-site-nav {
+    display: none;
+  }
+}
+
+.distill-site-header {
+
+}
+
+.distill-site-footer {
+
+}
+
+
+/* Site Header */
+
+.distill-site-header {
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 3;
+}
+
+.distill-site-header .nav-left {
+  display: inline-block;
+  margin-left: 8px;
+}
+
+@media screen and (max-width: 768px) {
+  .distill-site-header .nav-left {
+    margin-left: 0;
+  }
+}
+
+
+.distill-site-header .nav-right {
+  float: right;
+  margin-right: 8px;
+}
+
+.distill-site-header a,
+.distill-site-header .title {
+  display: inline-block;
+  text-align: center;
+  padding: 14px 10px 14px 10px;
+}
+
+.distill-site-header .title {
+  font-size: 18px;
+}
+
+.distill-site-header .logo {
+  padding: 0;
+}
+
+.distill-site-header .logo img {
+  display: none;
+  max-height: 20px;
+  width: auto;
+  margin-bottom: -4px;
+}
+
+.distill-site-header .nav-image img {
+  max-height: 18px;
+  width: auto;
+  display: inline-block;
+  margin-bottom: -3px;
+}
+
+
+
+@media screen and (min-width: 1000px) {
+  .distill-site-header .logo img {
+    display: inline-block;
+  }
+  .distill-site-header .nav-left {
+    margin-left: 20px;
+  }
+  .distill-site-header .nav-right {
+    margin-right: 20px;
+  }
+  .distill-site-header .title {
+    padding-left: 12px;
+  }
+}
+
+
+.distill-site-header .nav-toggle {
+  display: none;
+}
+
+.nav-dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+.nav-dropdown .nav-dropbtn {
+  border: none;
+  outline: none;
+  color: rgba(255, 255, 255, 0.8);
+  padding: 16px 10px;
+  background-color: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  margin: 0;
+  margin-top: 1px;
+  z-index: 2;
+}
+
+.nav-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 200px;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 4px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+  z-index: 1;
+  margin-top: 2px;
+  white-space: nowrap;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.nav-dropdown-content hr {
+  margin-top: 4px;
+  margin-bottom: 4px;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.nav-dropdown-active {
+  display: block;
+}
+
+.nav-dropdown-content a, .nav-dropdown-content .nav-dropdown-header {
+  color: black;
+  padding: 6px 24px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.nav-dropdown-content .nav-dropdown-header {
+  display: block;
+  padding: 5px 24px;
+  padding-bottom: 0;
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #999999;
+  white-space: nowrap;
+}
+
+.nav-dropdown:hover .nav-dropbtn {
+  color: white;
+}
+
+.nav-dropdown-content a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.nav-right .nav-dropdown-content {
+  margin-left: -45%;
+  right: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .distill-site-header a, .distill-site-header .nav-dropdown  {display: none;}
+  .distill-site-header a.nav-toggle {
+    float: right;
+    display: block;
+  }
+  .distill-site-header .title {
+    margin-left: 0;
+  }
+  .distill-site-header .nav-right {
+    margin-right: 0;
+  }
+  .distill-site-header {
+    overflow: hidden;
+  }
+  .nav-right .nav-dropdown-content {
+    margin-left: 0;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .distill-site-header.responsive {position: relative;}
+  .distill-site-header.responsive a.nav-toggle {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .distill-site-header.responsive a,
+  .distill-site-header.responsive .nav-dropdown {
+    display: block;
+    text-align: left;
+  }
+  .distill-site-header.responsive .nav-left,
+  .distill-site-header.responsive .nav-right {
+    width: 100%;
+  }
+  .distill-site-header.responsive .nav-dropdown {float: none;}
+  .distill-site-header.responsive .nav-dropdown-content {position: relative;}
+  .distill-site-header.responsive .nav-dropdown .nav-dropbtn {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+}
+
+/* Site Footer */
+
+.distill-site-footer {
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  z-index: 3;
+  margin-top: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+/* Headroom */
+
+d-title {
+  padding-top: 6rem;
+}
+
+@media print {
+  d-title {
+    padding-top: 4rem;
+  }
+}
+
+.headroom {
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.headroom--transition {
+  transition: all .4s ease-in-out;
+}
+
+.headroom--unpinned {
+  top: -100px;
+}
+
+.headroom--pinned {
+  top: 0;
+}
+
+</style>
+
+<link href="../../site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet"/>
+<link href="../../site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet"/>
+<script src="../../site_libs/headroom-0.9.4/headroom.min.js"></script>
+<!--/radix_placeholder_navigation_in_header-->
+  <!--radix_placeholder_distill-->
+
+<style type="text/css">
+
+body {
+  background-color: white;
+}
+
+.pandoc-table {
+  width: 100%;
+}
+
+.pandoc-table>caption {
+  margin-bottom: 10px;
+}
+
+.pandoc-table th:not([align]) {
+  text-align: left;
+}
+
+.pagedtable-footer {
+  font-size: 15px;
+}
+
+.html-widget {
+  margin-bottom: 2.0em;
+}
+
+.l-screen-inset {
+  padding-right: 16px;
+}
+
+.l-screen .caption {
+  margin-left: 10px;
+}
+
+.shaded {
+  background: rgb(247, 247, 247);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.shaded .html-widget {
+  margin-bottom: 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.shaded .shaded-content {
+  background: white;
+}
+
+.text-output {
+  margin-top: 0;
+  line-height: 1.5em;
+}
+
+.hidden {
+  display: none !important;
+}
+
+d-article {
+  padding-bottom: 30px;
+}
+
+d-appendix {
+  padding-top: 30px;
+}
+
+d-article>p>img {
+  width: 100%;
+}
+
+d-article iframe {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 2.0em;
+  width: 100%;
+}
+
+figure img.external {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+  padding: 18px;
+  box-sizing: border-box;
+}
+
+/* CSS for table of contents */
+
+.d-toc {
+  color: rgba(0,0,0,0.8);
+  font-size: 0.8em;
+  line-height: 1em;
+}
+
+.d-toc-header {
+  font-size: 0.6rem;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 1.3em;
+}
+
+.d-toc a {
+  border-bottom: none;
+}
+
+.d-toc ul {
+  padding-left: 0;
+}
+
+.d-toc li>ul {
+  padding-top: 0.8em;
+  padding-left: 16px;
+  margin-bottom: 0.6em;
+}
+
+.d-toc ul,
+.d-toc li {
+  list-style-type: none;
+}
+
+.d-toc li {
+  margin-bottom: 0.9em;
+}
+
+.d-toc-separator {
+  margin-top: 20px;
+  margin-bottom: 2em;
+}
+
+.d-article-with-toc {
+  border-top: none;
+  padding-top: 0;
+}
+
+
+
+/* Tweak code blocks (note that this CSS is repeated above in an injection
+   into the d-code shadow dom) */
+
+d-code {
+  overflow-x: auto !important;
+}
+
+pre.d-code code.d-code {
+  padding-left: 10px;
+  font-size: 12px;
+  border-left: 2px solid rgba(0,0,0,0.1);
+}
+
+pre.text-output {
+
+  font-size: 12px;
+  color: black;
+  background: none;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+@media(min-width: 768px) {
+
+d-code {
+  overflow-x: visible !important;
+}
+
+pre.d-code code.d-code  {
+    padding-left: 18px;
+    font-size: 14px;
+}
+pre.text-output {
+  font-size: 14px;
+}
+}
+
+/* Figure */
+
+.figure {
+  position: relative;
+  margin-bottom: 2.5em;
+  margin-top: 1.5em;
+}
+
+.figure img {
+  width: 100%;
+}
+
+.figure .caption {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 12px;
+  line-height: 1.5em;
+}
+
+.figure img.external {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+  padding: 18px;
+  box-sizing: border-box;
+}
+
+.figure .caption a {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.figure .caption b,
+.figure .caption strong, {
+  font-weight: 600;
+  color: rgba(0, 0, 0, 1.0);
+}
+
+
+
+/* Tweak 1000px media break to show more text */
+
+@media(min-width: 1000px) {
+  .base-grid,
+  distill-header,
+  d-title,
+  d-abstract,
+  d-article,
+  d-appendix,
+  distill-appendix,
+  d-byline,
+  d-footnote-list,
+  d-citation-list,
+  distill-footer {
+    grid-template-columns: [screen-start] 1fr [page-start kicker-start] 80px [middle-start] 50px [text-start kicker-end] 65px 65px 65px 65px 65px 65px 65px 65px [text-end gutter-start] 65px [middle-end] 65px [page-end gutter-end] 1fr [screen-end];
+    grid-column-gap: 16px;
+  }
+
+  .grid {
+    grid-column-gap: 16px;
+  }
+
+  d-article {
+    font-size: 1.06rem;
+    line-height: 1.7em;
+  }
+  figure .caption, .figure .caption, figure figcaption {
+    font-size: 13px;
+  }
+}
+
+@media(min-width: 1180px) {
+  .base-grid,
+  distill-header,
+  d-title,
+  d-abstract,
+  d-article,
+  d-appendix,
+  distill-appendix,
+  d-byline,
+  d-footnote-list,
+  d-citation-list,
+  distill-footer {
+    grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+    grid-column-gap: 32px;
+  }
+
+  .grid {
+    grid-column-gap: 32px;
+  }
+}
+
+
+/* Get the citation styles for the appendix (not auto-injected on render since
+   we do our own rendering of the citation appendix) */
+
+d-appendix .citation-appendix,
+.d-appendix .citation-appendix {
+  font-size: 11px;
+  line-height: 15px;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  padding-left: 18px;
+  border: 1px solid rgba(0,0,0,0.1);
+  background: rgba(0, 0, 0, 0.02);
+  padding: 10px 18px;
+  border-radius: 3px;
+  color: rgba(150, 150, 150, 1);
+  overflow: hidden;
+  margin-top: -12px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+
+/* Social footer */
+
+.social_footer {
+  margin-top: 30px;
+  margin-bottom: 0;
+  color: rgba(0,0,0,0.67);
+}
+
+.disqus-comments {
+  margin-right: 30px;
+}
+
+.disqus-comment-count {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+
+#disqus_thread {
+  margin-top: 30px;
+}
+
+.article-sharing a {
+  border-bottom: none;
+  margin-right: 8px;
+}
+
+.article-sharing a:hover {
+  border-bottom: none;
+}
+
+.sidebar-section.subscribe {
+  font-size: 12px;
+  line-height: 1.6em;
+}
+
+.subscribe p {
+  margin-bottom: 0.5em;
+}
+
+
+.article-footer .subscribe {
+  font-size: 15px;
+  margin-top: 45px;
+}
+
+
+.sidebar-section.custom {
+  font-size: 12px;
+  line-height: 1.6em;
+}
+
+.custom p {
+  margin-bottom: 0.5em;
+}
+
+
+/* Improve display for browsers without grid (IE/Edge <= 15) */
+
+.downlevel {
+  line-height: 1.6em;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+}
+
+.downlevel .d-title {
+  padding-top: 6rem;
+  padding-bottom: 1.5rem;
+}
+
+.downlevel .d-title h1 {
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 1.1em;
+  margin: 0 0 0.5rem;
+}
+
+.downlevel .d-title p {
+  font-weight: 300;
+  font-size: 1.2rem;
+  line-height: 1.55em;
+  margin-top: 0;
+}
+
+.downlevel .d-byline {
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
+  font-size: 0.8rem;
+  line-height: 1.8em;
+}
+
+.downlevel .section-separator {
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.downlevel .d-article {
+  font-size: 1.06rem;
+  line-height: 1.7em;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
+
+
+.downlevel .d-appendix {
+  padding-left: 0;
+  padding-right: 0;
+  max-width: none;
+  font-size: 0.8em;
+  line-height: 1.7em;
+  margin-bottom: 0;
+  color: rgba(0,0,0,0.5);
+  padding-top: 40px;
+  padding-bottom: 48px;
+}
+
+.downlevel .footnotes ol {
+  padding-left: 13px;
+}
+
+.downlevel .base-grid,
+.downlevel .distill-header,
+.downlevel .d-title,
+.downlevel .d-abstract,
+.downlevel .d-article,
+.downlevel .d-appendix,
+.downlevel .distill-appendix,
+.downlevel .d-byline,
+.downlevel .d-footnote-list,
+.downlevel .d-citation-list,
+.downlevel .distill-footer,
+.downlevel .appendix-bottom,
+.downlevel .posts-container {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+@media(min-width: 768px) {
+  .downlevel .base-grid,
+  .downlevel .distill-header,
+  .downlevel .d-title,
+  .downlevel .d-abstract,
+  .downlevel .d-article,
+  .downlevel .d-appendix,
+  .downlevel .distill-appendix,
+  .downlevel .d-byline,
+  .downlevel .d-footnote-list,
+  .downlevel .d-citation-list,
+  .downlevel .distill-footer,
+  .downlevel .appendix-bottom,
+  .downlevel .posts-container {
+  padding-left: 150px;
+  padding-right: 150px;
+  max-width: 900px;
+}
+}
+
+.downlevel pre code {
+  display: block;
+  border-left: 2px solid rgba(0, 0, 0, .1);
+  padding: 0 0 0 20px;
+  font-size: 14px;
+}
+
+.downlevel code, .downlevel pre {
+  color: black;
+  background: none;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+</style>
+
+<script type="application/javascript">
+
+function is_downlevel_browser() {
+  if (bowser.isUnsupportedBrowser({ msie: "12", msedge: "16"},
+                                 window.navigator.userAgent)) {
+    return true;
+  } else {
+    return window.load_distill_framework === undefined;
+  }
+}
+
+// show body when load is complete
+function on_load_complete() {
+
+  // set body to visible
+  document.body.style.visibility = 'visible';
+
+  // force redraw for leaflet widgets
+  if (window.HTMLWidgets) {
+    var maps = window.HTMLWidgets.findAll(".leaflet");
+    $.each(maps, function(i, el) {
+      var map = this.getMap();
+      map.invalidateSize();
+      map.eachLayer(function(layer) {
+        if (layer instanceof L.TileLayer)
+          layer.redraw();
+      });
+    });
+  }
+
+  // trigger 'shown' so htmlwidgets resize
+  $('d-article').trigger('shown');
+}
+
+function init_distill() {
+
+  init_common();
+
+  // create front matter
+  var front_matter = $('<d-front-matter></d-front-matter>');
+  $('#distill-front-matter').wrap(front_matter);
+
+  // create d-title
+  $('.d-title').changeElementType('d-title');
+
+  // create d-byline
+  var byline = $('<d-byline></d-byline>');
+  $('.d-byline').replaceWith(byline);
+
+  // create d-article
+  var article = $('<d-article></d-article>');
+  $('.d-article').wrap(article).children().unwrap();
+
+  // move posts container into article
+  $('.posts-container').appendTo($('d-article'));
+
+  // create d-appendix
+  $('.d-appendix').changeElementType('d-appendix');
+
+  // create d-bibliography
+  var bibliography = $('<d-bibliography></d-bibliography>');
+  $('#distill-bibliography').wrap(bibliography);
+
+  // flag indicating that we have appendix items
+  var appendix = $('.appendix-bottom').children('h3').length > 0;
+
+  // replace citations with <d-cite>
+  $('.citation').each(function(i, val) {
+    appendix = true;
+    var cites = $(this).attr('data-cites').split(" ");
+    var dt_cite = $('<d-cite></d-cite>');
+    dt_cite.attr('key', cites.join());
+    $(this).replaceWith(dt_cite);
+  });
+  // remove refs
+  $('#refs').remove();
+
+  // replace footnotes with <d-footnote>
+  $('.footnote-ref').each(function(i, val) {
+    appendix = true;
+    var href = $(this).attr('href');
+    var id = href.replace('#', '');
+    var fn = $('#' + id);
+    var fn_p = $('#' + id + '>p');
+    fn_p.find('.footnote-back').remove();
+    var text = fn_p.html();
+    var dtfn = $('<d-footnote></d-footnote>');
+    dtfn.html(text);
+    $(this).replaceWith(dtfn);
+  });
+  // remove footnotes
+  $('.footnotes').remove();
+
+  $('h1.appendix, h2.appendix').each(function(i, val) {
+    $(this).changeElementType('h3');
+  });
+  $('h3.appendix').each(function(i, val) {
+    var id = $(this).attr('id');
+    $('.d-toc a[href="#' + id + '"]').parent().remove();
+    appendix = true;
+    $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('d-appendix'));
+  });
+
+  // show d-appendix if we have appendix content
+  $("d-appendix").css('display', appendix ? 'grid' : 'none');
+
+  // replace code blocks with d-code
+  $('pre>code').each(function(i, val) {
+    var code = $(this);
+    var pre = code.parent();
+    var clz = "";
+    var language = pre.attr('class');
+    if (language) {
+      // map unknown languages to "clike" (without this they just dissapear)
+      if ($.inArray(language, ["bash", "clike", "css", "go", "html",
+                               "javascript", "js", "julia", "lua", "markdown",
+                               "markup", "mathml", "python", "svg", "xml"]) == -1)
+        language = "clike";
+      language = ' language="' + language + '"';
+      var dt_code = $('<d-code block' + language + clz + '></d-code>');
+      dt_code.text(code.text());
+      pre.replaceWith(dt_code);
+    } else {
+      code.addClass('text-output').unwrap().changeElementType('pre');
+    }
+  });
+
+  // localize layout chunks to just output
+  $('.layout-chunk').each(function(i, val) {
+
+    // capture layout
+    var layout = $(this).attr('data-layout');
+
+    // apply layout to markdown level block elements
+    var elements = $(this).children().not('d-code, pre.text-output, script');
+    elements.each(function(i, el) {
+      var layout_div = $('<div class="' + layout + '"></div>');
+      if (layout_div.hasClass('shaded')) {
+        var shaded_content = $('<div class="shaded-content"></div>');
+        $(this).wrap(shaded_content);
+        $(this).parent().wrap(layout_div);
+      } else {
+        $(this).wrap(layout_div);
+      }
+    });
+
+
+    // unwrap the layout-chunk div
+    $(this).children().unwrap();
+  });
+
+  // load distill framework
+  load_distill_framework();
+
+  // wait for window.distillRunlevel == 4 to do post processing
+  function distill_post_process() {
+
+    if (!window.distillRunlevel || window.distillRunlevel < 4)
+      return;
+
+    // hide author/affiliations entirely if we have no authors
+    var front_matter = JSON.parse($("#distill-front-matter").html());
+    var have_authors = front_matter.authors && front_matter.authors.length > 0;
+    if (!have_authors)
+      $('d-byline').addClass('hidden');
+
+    // table of contents
+    if (have_authors) // adjust border if we are in authors
+      $('.d-toc').parent().addClass('d-article-with-toc');
+
+    // strip links that point to #
+    $('.authors-affiliations').find('a[href="#"]').removeAttr('href');
+
+    // hide elements of author/affiliations grid that have no value
+    function hide_byline_column(caption) {
+      $('d-byline').find('h3:contains("' + caption + '")').parent().css('visibility', 'hidden');
+    }
+
+    // affiliations
+    var have_affiliations = false;
+    for (var i = 0; i<front_matter.authors.length; ++i) {
+      var author = front_matter.authors[i];
+      if (author.affiliation !== "&nbsp;") {
+        have_affiliations = true;
+        break;
+      }
+    }
+    if (!have_affiliations)
+      $('d-byline').find('h3:contains("Affiliations")').css('visibility', 'hidden');
+
+    // published date
+    if (!front_matter.publishedDate)
+      hide_byline_column("Published");
+
+    // document object identifier
+    var doi = $('d-byline').find('h3:contains("DOI")');
+    var doi_p = doi.next().empty();
+    if (!front_matter.doi) {
+      // if we have a citation and valid citationText then link to that
+      if ($('#citation').length > 0 && front_matter.citationText) {
+        doi.html('Citation');
+        $('<a href="#citation"></a>')
+          .text(front_matter.citationText)
+          .appendTo(doi_p);
+      } else {
+        hide_byline_column("DOI");
+      }
+    } else {
+      $('<a></a>')
+         .attr('href', "https://doi.org/" + front_matter.doi)
+         .html(front_matter.doi)
+         .appendTo(doi_p);
+    }
+
+     // change plural form of authors/affiliations
+    if (front_matter.authors.length === 1) {
+      var grid = $('.authors-affiliations');
+      grid.children('h3:contains("Authors")').text('Author');
+      grid.children('h3:contains("Affiliations")').text('Affiliation');
+    }
+
+    // inject pre code styles (can't do this with a global stylesheet b/c a shadow root is used)
+    $('d-code').each(function(i, val) {
+      var style = document.createElement('style');
+      style.innerHTML = 'pre code { padding-left: 10px; font-size: 12px; border-left: 2px solid rgba(0,0,0,0.1); } ' +
+                        '@media(min-width: 768px) { pre code { padding-left: 18px; font-size: 14px; } }';
+      if (this.shadowRoot)
+        this.shadowRoot.appendChild(style);
+    });
+
+    // move appendix-bottom entries to the bottom
+    $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
+    $('.appendix-bottom').remove();
+
+    // clear polling timer
+    clearInterval(tid);
+
+    // show body now that everything is ready
+    on_load_complete();
+  }
+
+  var tid = setInterval(distill_post_process, 50);
+  distill_post_process();
+
+}
+
+function init_downlevel() {
+
+  init_common();
+
+   // insert hr after d-title
+  $('.d-title').after($('<hr class="section-separator"/>'));
+
+  // check if we have authors
+  var front_matter = JSON.parse($("#distill-front-matter").html());
+  var have_authors = front_matter.authors && front_matter.authors.length > 0;
+
+  // manage byline/border
+  if (!have_authors)
+    $('.d-byline').remove();
+  $('.d-byline').after($('<hr class="section-separator"/>'));
+  $('.d-byline a').remove();
+
+  // remove toc
+  $('.d-toc-header').remove();
+  $('.d-toc').remove();
+  $('.d-toc-separator').remove();
+
+  // move appendix elements
+  $('h1.appendix, h2.appendix').each(function(i, val) {
+    $(this).changeElementType('h3');
+  });
+  $('h3.appendix').each(function(i, val) {
+    $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('.d-appendix'));
+  });
+
+
+  // inject headers into references and footnotes
+  var refs_header = $('<h3></h3>');
+  refs_header.text('References');
+  $('#refs').prepend(refs_header);
+
+  var footnotes_header = $('<h3></h3');
+  footnotes_header.text('Footnotes');
+  $('.footnotes').children('hr').first().replaceWith(footnotes_header);
+
+  // move appendix-bottom entries to the bottom
+  $('.appendix-bottom').appendTo('.d-appendix').children().unwrap();
+  $('.appendix-bottom').remove();
+
+  // remove appendix if it's empty
+  if ($('.d-appendix').children().length === 0)
+    $('.d-appendix').remove();
+
+  // prepend separator above appendix
+  $('.d-appendix').before($('<hr class="section-separator" style="clear: both"/>'));
+
+  // trim code
+  $('pre>code').each(function(i, val) {
+    $(this).html($.trim($(this).html()));
+  });
+
+  // move posts-container right before article
+  $('.posts-container').insertBefore($('.d-article'));
+
+  $('body').addClass('downlevel');
+
+  on_load_complete();
+}
+
+
+function init_common() {
+
+  // jquery plugin to change element types
+  (function($) {
+    $.fn.changeElementType = function(newType) {
+      var attrs = {};
+
+      $.each(this[0].attributes, function(idx, attr) {
+        attrs[attr.nodeName] = attr.nodeValue;
+      });
+
+      this.replaceWith(function() {
+        return $("<" + newType + "/>", attrs).append($(this).contents());
+      });
+    };
+  })(jQuery);
+
+  // prevent underline for linked images
+  $('a > img').parent().css({'border-bottom' : 'none'});
+
+  // mark non-body figures created by knitr chunks as 100% width
+  $('.layout-chunk').each(function(i, val) {
+    var figures = $(this).find('img, .html-widget');
+    if ($(this).attr('data-layout') !== "l-body") {
+      figures.css('width', '100%');
+    } else {
+      figures.css('max-width', '100%');
+      figures.filter("[width]").each(function(i, val) {
+        var fig = $(this);
+        fig.css('width', fig.attr('width') + 'px');
+      });
+
+    }
+  });
+
+  // auto-append index.html to post-preview links in file: protocol
+  // and in rstudio ide preview
+  $('.post-preview').each(function(i, val) {
+    if (window.location.protocol === "file:")
+      $(this).attr('href', $(this).attr('href') + "index.html");
+  });
+
+  // get rid of index.html references in header
+  if (window.location.protocol !== "file:") {
+    $('.distill-site-header a[href]').each(function(i,val) {
+      $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+    });
+  }
+
+  // add class to pandoc style tables
+  $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
+  $('.kable-table').children('table').addClass('pandoc-table');
+
+  // add figcaption style to table captions
+  $('caption').parent('table').addClass("figcaption");
+
+  // initialize posts list
+  if (window.init_posts_list)
+    window.init_posts_list();
+
+  // implmement disqus comment link
+  $('.disqus-comment-count').click(function() {
+    window.headroom_prevent_pin = true;
+    $('#disqus_thread').toggleClass('hidden');
+    if (!$('#disqus_thread').hasClass('hidden')) {
+      var offset = $(this).offset();
+      $(window).resize();
+      $('html, body').animate({
+        scrollTop: offset.top - 35
+      });
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  if (is_downlevel_browser())
+    init_downlevel();
+  else
+    window.addEventListener('WebComponentsReady', init_distill);
+});
+
+</script>
+
+<!--/radix_placeholder_distill-->
+  <script src="../../site_libs/header-attrs-2.4.6/header-attrs.js"></script>
+  <script src="../../site_libs/jquery-1.11.3/jquery.min.js"></script>
+  <script src="../../site_libs/bowser-1.9.3/bowser.min.js"></script>
+  <script src="../../site_libs/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="../../site_libs/distill-2.2.21/template.v2.js"></script>
+  <!--radix_placeholder_site_in_header-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-106545908-2"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-106545908-2');
+</script>
+<style type="text/css">
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;900&display=swap');
+
+.distill-site-nav {
+  background-color: #FFFFFF;
+  font-family: 'Roboto';
+  font-weight: 900;
+  color: #000000;
+}
+
+body {
+  background-color: #FFFFFF;
+}
+
+html, body, p, h1, h2, h3 {
+  font-family: 'Roboto', sans-serif;
+  color: #000000;
+}
+
+body {
+  font-weight: 300;
+}
+
+h1, h2 {
+  font-weight: 900;
+}
+
+h3 {
+  font-weight: 500;
+}
+
+.distill-site-nav a:hover {
+  color: #505050;
+}
+
+.posts-list .post-preview .thumbnail {
+  max-width: 200px;
+}
+</style>
+<!--/radix_placeholder_site_in_header-->
+
+
+</head>
+
+<body>
+
+<!--radix_placeholder_front_matter-->
+
+<script id="distill-front-matter" type="text/json">
+{"title":"Spark?","description":"If R & Python is a love story, is Spark an aphrodisiac or a relationship red flag?","authors":[{"author":"Sean Lopp","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2020-11-03T00:00:00.000-07:00","citationText":"Lopp, 2020"}
+</script>
+
+<!--/radix_placeholder_front_matter-->
+<!--radix_placeholder_navigation_before_body-->
+<header class="header header--fixed" role="banner">
+<nav class="distill-site-nav distill-site-header">
+<div class="nav-left">
+<a href="../../index.html" class="title">Loppsided</a>
+</div>
+<div class="nav-right">
+<a href="../../index.html">Home</a>
+<a href="../../about.html">About</a>
+<a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
+</div>
+</nav>
+</header>
+<!--/radix_placeholder_navigation_before_body-->
+<!--radix_placeholder_site_before_body-->
+<!--/radix_placeholder_site_before_body-->
+
+<div class="d-title">
+<h1>Spark?</h1>
+<p><p>If R &amp; Python is a love story, is Spark an aphrodisiac or a relationship red flag?</p></p>
+</div>
+
+<div class="d-byline">
+  Sean Lopp  
+  
+<br/>11-03-2020
+</div>
+
+<div class="d-article">
+<figure>
+<img src="images/paste-9BBAFB7B.png" title="Not very original meme" style="width: 359px" alt="Not very original meme" /><figcaption aria-hidden="true">Not very original meme</figcaption>
+</figure>
+<p>I’ve written about how R and Python can be used together:</p>
+<ul>
+<li><p><a href="https://loppsided.blog/posts/2020-10-18-hamburgers-at-chick-fil-a/">in a platform</a></p></li>
+<li><p>by <a href="https://blogs.rstudio.com/ai/posts/2019-08-29-using-tf-from-r/">package authors writing multilingual wrappers</a></p></li>
+<li><p>by <a href="https://rviews.rstudio.com/2018/04/17/reticulated-shiny/">individuals in an analysis</a></p></li>
+</ul>
+<p>Recently I was presented with a challenge that was well suited to Spark and forced me to think about the R and Python “love story” at scale. Or in other words, could R and Python be used together in a <strong>ML engineering context</strong> that values performance and scale?</p>
+<p>If you are fuzzy on the differences between analyst and ML engineer, I highly recommend Cassie Kozyrkov’s breakdown<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. My goal in this post is to show you some tricks that can help a multi-lingual analyst approach an ML engineering task by taking advantage of both Python and R.</p>
+<h2 id="the-setup">The Setup</h2>
+<p>Imagine you’ve got customer data in a time series:</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>
+# A tibble: 11 x 4
+   customer time                water_flow customer_type
+   &lt;chr&gt;    &lt;dttm&gt;                   &lt;dbl&gt; &lt;chr&gt;        
+ 1 cust_A   2019-01-15 08:00:00       6.25 business     
+ 2 cust_A   2019-01-15 08:15:00      18.8  business     
+ 3 cust_A   2019-01-15 08:30:00       1.75 business     
+ 4 cust_A   2019-01-15 08:45:00       3.5  business     
+ 5 cust_A   2019-01-15 09:00:00      20    business     
+ 6 cust_B   2019-03-20 11:30:00      13    residential  
+ 7 cust_B   2019-03-20 11:45:00      13    residential  
+ 8 cust_B   2019-03-20 12:00:00       8    residential  
+ 9 cust_B   2019-03-20 12:15:00      17.8  residential  
+10 cust_B   2019-03-20 12:30:00       6.25 residential  
+11 cust_C   2019-10-11 22:45:00      15.5  business     </code></pre>
+</div>
+<p>Now imagine, additionally, you’ve done some feature engineering and built a model. In this case, say our model is attempting to predict whether or not a customer is a business or a residential water user.</p>
+<p>On many data science teams, you may have Python code that looks something like this:</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="python"><code>
+import pandas as pd
+from scipy.signal import find_peaks
+import numpy as np
+from sklearn.linear_model import LogisticRegression
+
+training_data = pd.read_csv(&quot;water_data.csv&quot;)
+num_customers = len(training_data.customer.unique())
+
+# take the time series and generate
+# one feature row per customer
+num_peaks = np.zeros(num_customers)
+max_water_off_hours = np.zeros(num_customers)
+max_water_abs = np.zeros(num_customers)
+
+for c in 1:num_customers:
+  customer = training_data.customer.unique()[c]
+  this_customer = training_data[training_data.customer == customer]
+  # use a cool scipy algorithm
+  peaks, _ = find_peaks(this_customer.water_flow)
+  num_peaks[c] = len(peaks)
+  # some simpler feature generation
+  hour = this_customer.time.hour
+  max_water_off_hours[c] = max(this_customer.water_flow[hour &lt; 8 | hour &gt; 17])
+  max_water_abs[c] = max(this_customer.water_flow)
+  
+X = pd.DataFrame.from_dict({
+  &#39;num_peaks&#39;: num_peaks,
+  &#39;max_water_off_hours&#39;: max_water_off_hours,
+  &#39;max_water_abs&#39;: max_water_abs
+})
+
+y = (training_data.groupby(&quot;customer&quot;)
+  .customer_type
+  .agg(lambda column: pd.unique(column)))
+
+model = LogisticRegression().fit(X, y)</code></pre>
+</div>
+<p>So here is the big setup: <strong>What if you need to score 1 million customers? And what if your expertise is in R?</strong></p>
+<p>One way to frame the second condition of the questions is what if, as an analyst, you are comfortable with some Python and some R but not all that comfortable with PySpark? Have no fear, this blog post has the tips for you!</p>
+<h2 id="why-spark">Why Spark?</h2>
+<p>Spark is a natural fit for this example (and other problems like it) for a few reasons:<br />
+</p>
+<ol type="1">
+<li>The data really is BIG. In this case, if each customer is a time series with data every 15 minutes, in a year a customer would generate 35K rows of data. 1M customers would generate close to 35 billion rows of data in a year. With data this size, feature generation in a loop would be tricky.<br />
+</li>
+<li>The data is well suited to partitioning. In this case, each customer is still relatively small, and assuming the customers are independent, you have a very natural map reduce problem. In laymen terms, this means the problem is easy to break into small pieces. We could write parallel code ourselves, but if you have big data that is easy to break into small pieces, than the Spark ✨ is really just that it will do the parallelization for you!</li>
+</ol>
+<h2 id="the-love-story-challenge">The Love Story Challenge</h2>
+<p>Unfortunately the average data analyst, asked to translate the code above into Spark, could be stumped. And this is where I will make a bold statement. In this case, combining R and Python with a few tricks lets you accomplish the ML engineering task.</p>
+<h2 id="tips-and-approach">Tips and Approach</h2>
+<p><strong>Step 1: For local testing, get Spark installed and running.</strong></p>
+<p>For this step, I find the R toolchain to be really well suited to the task:</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+library(sparklyr)
+spark_install()</code></pre>
+</div>
+<p><strong>Step 2: Feature Transforming using dplyr</strong></p>
+<p>As a bilingual analyst, this is where we can start to cash in on some sparklyr magic. Even though the original feature transformation code is in Python, we can use dplyr in R to quickly generate the Spark SQL equivalent:</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# connect to our dev spark environment
+sc &lt;- spark_connect(master = &quot;local&quot;)
+
+# take our Python for loop and turn it into a 
+# dplyr chain
+training_data &lt;- spark_read_csv(&quot;water_data.csv&quot;)
+
+features &lt;- training_data %&gt;% 
+  group_by(customer) %&gt;% 
+  mutate(hours = to_hour(time)) %&gt;% 
+  mutate(
+    off_hours = as.numeric(hours &lt; 8 | hours &gt; 17),
+    max_water_off_hours = max(water_flow * off_hours), 
+    max_water_abs = max(water_flow)
+  )
+
+dbplyr::sql_render(features)</code></pre>
+</div>
+<pre><code>
+SELECT `customer`, `time`, `water_flow`, `customer_type`, `hours`, `off_hours`, MAX(`water_flow` * `off_hours`) OVER (PARTITION BY `customer`) AS `max_water_off_hours`, MAX(`water_flow`) OVER (PARTITION BY `customer`) AS `max_water_abs`
+FROM (SELECT `customer`, `time`, `water_flow`, `customer_type`, `hours`, CAST(`hours` &lt; 8.0 OR `hours` &gt; 17.0 AS DOUBLE) AS `off_hours`
+FROM (SELECT `customer`, `time`, `water_flow`, `customer_type`, to_hour(`time`) AS `hours`
+FROM `training_data`) `dbplyr_001`) `dbplyr_002`</code></pre>
+<p><strong>The first key trick:</strong> Sometimes when you are writing dplyr that executes against a Spark data frame, you want to use native R functions, especially in your <code>mutate</code>. Sometimes these R functions work magically, sometimes they do not. In general, you can see what R functions will magically make the trip to Spark SQL <a href="https://spark.rstudio.com/dplyr/#sql-translation">here</a>. If your function isn’t on the list, fear not. Often there is a Hive UDF that will do the trick. Think of a Hive UDF as a special function you can use in spark-flavored dplyr. The list of these functions lives <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF">here</a>, and in this example we use <code>to_hour</code>. <strong><br />
+<br />
+The second key trick</strong>: You can now take this SQL and use it in a different context. In our example, we will need to use a Python UDF (see below) to capture the <code>find_peaks</code> feature transformation. This means our final Spark instructions will need to run in Python. But we don’t need to learn all of PySpark, we can take our dplyr-generated Spark SQL and use in Python like so:</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="python"><code>
+sc = (SparkSession
+  .builder
+  .appName(&quot;DetermineWater&quot;)
+  .getOrCreate())
+
+
+# read our data directly into spark
+training_data = (sc.read.options(header=True, inferSchema=True, delimiter=&quot;,&quot;)
+  .csv(&quot;water_data.csv&quot;))
+
+# take our spark data frame and create a view that we can execute SQL against
+training_data.createOrReplaceTempView(&quot;training_data&quot;)
+
+# embed our direct-from-dplyr SQL
+# WOW isn&#39;t it still nice and readable :) 
+feature_query = &quot;&quot;&quot;
+SELECT `customer`, `time`, `water_flow`, `customer_type`, `hours`, `off_hours`, MAX(`water_flow` * `off_hours`) OVER (PARTITION BY `customer`) AS `max_water_off_hours`, MAX(`water_flow`) OVER (PARTITION BY `customer`) AS `max_water_abs`
+FROM (SELECT `customer`, `time`, `water_flow`, `customer_type`, `hours`, CAST(`hours` &lt; 8.0 OR `hours` &gt; 17.0 AS DOUBLE) AS `off_hours`
+FROM (SELECT `customer`, `time`, `water_flow`, `customer_type`, to_hour(`time`) AS `hours`
+FROM `training_data`) `dbplyr_001`) `dbplyr_002`
+&quot;&quot;&quot;
+
+features = sc.sql(feature_query)</code></pre>
+</div>
+<p><strong>Step 3: Python UDFs</strong></p>
+<p>Now that we have the features we can generate from SQL (thanks to our dplyr trick), it is time to turn to the <code>peaks</code> feature that comes from the <code>scipy</code> <code>find_peaks</code> function. We could approach the peaks transformation at scale in a few ways:</p>
+<ul>
+<li><p>We could try to find a built-in Spark equivalent to <code>find_peaks</code></p></li>
+<li><p>We could try to write a SQL equivalent ourselves</p></li>
+<li><p>We could use a “user defined function” to execute the Python code in Spark</p></li>
+</ul>
+<p>Option 3 is a good choice here thanks to the recent work by the <a href="https://ursalabs.org">Arrow Team</a>. There is now the option in Spark to efficiently run a Python function that takes in a data frame partition (a small piece of our BIG data) and returns a data frame, and it is all done as-if the input and output were pandas data frames. Here is what the code looks like:</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="python"><code>
+# a regular python function that takes a pandas dataframe and 
+# returns a pandas dataframe
+def peak_finder(this_customer):
+  peaks, _ = find_peaks(this_customer.water_flow)
+  return(
+   pd.DataFrame.from_dict({
+    &#39;customer&#39;: this_customer.customer[0]
+    &#39;num_peaks&#39;: len(peaks)
+   })
+  )
+  
+# this is the only weird part, we have to give spark
+# more info about the data frame we&#39;ll be returning
+schema = &quot;customer string, num_peaks int&quot;
+
+# call the magic, Spark dispatches the Python function
+# taking advantage of the per customer partition 
+peaks = (training_data
+  .groupby(&quot;customer&quot;)
+  .applyInPandas(peak_finder, schema = schema))</code></pre>
+</div>
+<p>With <code>peaks</code> and <code>features</code> both at hand, we could create a final <code>features</code> Spark data frame using <code>join</code>.<strong><br />
+<br />
+Final Step : Model (Re)Fitting and Scoring</strong></p>
+<p>A benefit of Spark is that it provides some ML capabilities out of the box that the analyst might already be familiar with. In this hypothetical case we could do two things:</p>
+<ol type="1">
+<li>If we were happy with our trained model, we could just apply the coefficients the old fashioned way to our BIG data in Spark by writing code that looks like <code>y = coef*X1 + coef*X2 …</code> . (Or for a logistic regression, <span class="math inline">\(y = \frac{e^{X\beta}}{1 + e^{X\beta}}\)</span> ).</li>
+<li>If we wanted to train a new model, we could take advantage of Spark’s own logistic regression, which is purpose built for fitting model coefficients in the case where the total data (1M customers minus a holdout) is too big for your local machine.</li>
+</ol>
+<p>Now that we have the pseudo code to make our concept work in Spark, scaling is as easy as: (1) reading in a folder of csvs instead of a single csv, (2) connecting to a real Spark instance instead of our local development instance, and then (3) scaling the cluster horizontally and tuning our spark commands to take advantage! Ok, I know, this last sentence may feel a bit like “draw the owl”, but a blog post can only contain so many 💎.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Multilingual data science can make you a ninja. Two tricks in particular are really powerful: <code>dbplyr::sql_render</code> and <code>applyInPandas</code>. Combining these tactics from different languages allows the regular data scientist to achieve ML engineering status: performance at scale. In this case, I think it is fair to say that R and Python are compatible with Spark, and I might go so far as to say Spark is an aphrodisiac to the multilingual love story.</p>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>Google’s Chief Decision Scientist. Essentially, her point is that analysts value speed, statisticians value rigor and correctness, and ML engineers value performance. So in this case, my question is whether R and Python can be used together in a performant and scaled way, not just to enable speedy data exploration and hypothesis discovery.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+<!--radix_placeholder_article_footer-->
+<div class="article-footer">
+  <p class="social_footer">
+    <span class="article-sharing">
+      Share: &nbsp;
+      <a href="https://twitter.com/share?text=Spark%3F&amp;url=https%3A%2F%2Floppsided.blog%2Fposts%2F2020-11-03-spark-a-r-python-aphrodisiac-or-ender%2F">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Floppsided.blog%2Fposts%2F2020-11-03-spark-a-r-python-aphrodisiac-or-ender%2F&amp;title=Spark%3F">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </span>
+  </p>
+</div>
+<!--/radix_placeholder_article_footer-->
+</div>
+
+<div class="d-appendix">
+</div>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+<!--radix_placeholder_site_after_body-->
+<!--/radix_placeholder_site_after_body-->
+<!--radix_placeholder_appendices-->
+<div class="appendix-bottom">
+  <h3 id="citation">Citation</h3>
+  <p>For attribution, please cite this work as</p>
+  <pre class="citation-appendix short">Lopp (2020, Nov. 3). Loppsided: Spark?. Retrieved from https://loppsided.blog/posts/2020-11-03-spark-a-r-python-aphrodisiac-or-ender/</pre>
+  <p>BibTeX citation</p>
+  <pre class="citation-appendix long">@misc{lopp2020spark?,
+  author = {Lopp, Sean},
+  title = {Loppsided: Spark?},
+  url = {https://loppsided.blog/posts/2020-11-03-spark-a-r-python-aphrodisiac-or-ender/},
+  year = {2020}
+}</pre>
+</div>
+<!--/radix_placeholder_appendices-->
+<!--radix_placeholder_navigation_after_body-->
+<!--/radix_placeholder_navigation_after_body-->
+
+</body>
+
+</html>
