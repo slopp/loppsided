@@ -7,7 +7,17 @@
     <description>Loppsided
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Tue, 27 Oct 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 03 Nov 2020 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Spark?</title>
+      <dc:creator>Sean Lopp</dc:creator>
+      <link>https://loppsided.blog/posts/2020-11-03-spark-a-r-python-aphrodisiac-or-ender</link>
+      <description>If R &amp; Python is a love story, is Spark an aphrodisiac or a relationship red flag?</description>
+      <category>data_science</category>
+      <guid>https://loppsided.blog/posts/2020-11-03-spark-a-r-python-aphrodisiac-or-ender</guid>
+      <pubDate>Tue, 03 Nov 2020 00:00:00 +0000</pubDate>
+      <media:content url="https://loppsided.blog/posts/2020-11-03-spark-a-r-python-aphrodisiac-or-ender/images/paste-9BBAFB7B.png" medium="image" type="image/png" width="750" height="500"/>
+    </item>
     <item>
       <title>A Windy TidyTuesday</title>
       <dc:creator>Sean Lopp</dc:creator>
