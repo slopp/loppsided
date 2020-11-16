@@ -7,7 +7,16 @@
     <description>Loppsided
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Tue, 03 Nov 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 15 Nov 2020 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Tasty Models</title>
+      <dc:creator>Sean Lopp</dc:creator>
+      <link>https://loppsided.blog/posts/tasty-models</link>
+      <description>Different feature engineering approaches using TidyTuesday's Chopped data</description>
+      <guid>https://loppsided.blog/posts/tasty-models</guid>
+      <pubDate>Sun, 15 Nov 2020 00:00:00 +0000</pubDate>
+      <media:content url="https://loppsided.blog/posts/tasty-models/distill-preview.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
     <item>
       <title>Spark?</title>
       <dc:creator>Sean Lopp</dc:creator>
