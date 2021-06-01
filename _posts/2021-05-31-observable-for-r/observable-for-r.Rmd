@@ -1,0 +1,19 @@
+---
+title: "Observable for R"
+description: |
+  What R users should know about Observable notebooks
+author:
+  - name: Sean Lopp
+    url: {}
+date: 03-23-2021
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+This is an embedded notebook. Head on over to observable to view the real editing experience including the ability to fork or comment. 
+
+Notebook at: https://observablehq.com/@slopp/observable-for-r-users
+
+<iframe width="100%" height="500" frameborder="0"
+  src="https://observablehq.com/embed/@slopp/observable-for-r-users?cell=*"></iframe>

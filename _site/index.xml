@@ -7,7 +7,24 @@
     <description>Loppsided
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Sun, 15 Nov 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 31 May 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Hunt for the Pangrams</title>
+      <dc:creator>Sean Lopp</dc:creator>
+      <link>https://loppsided.blog/posts/hunt-for-the-pangrams</link>
+      <description>An accidental dive into OCR in a quest for New York Times Spelling Bees</description>
+      <guid>https://loppsided.blog/posts/hunt-for-the-pangrams</guid>
+      <pubDate>Mon, 31 May 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://loppsided.blog/posts/hunt-for-the-pangrams/distill-preview.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
+    <item>
+      <title>Observable for R</title>
+      <dc:creator>Sean Lopp</dc:creator>
+      <link>https://loppsided.blog/posts/2021-05-31-observable-for-r</link>
+      <description>What R users should know about Observable notebooks</description>
+      <guid>https://loppsided.blog/posts/2021-05-31-observable-for-r</guid>
+      <pubDate>Tue, 23 Mar 2021 00:00:00 +0000</pubDate>
+    </item>
     <item>
       <title>Tasty Models</title>
       <dc:creator>Sean Lopp</dc:creator>
