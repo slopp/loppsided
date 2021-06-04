@@ -7,7 +7,16 @@
     <description>Loppsided
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Mon, 31 May 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 04 Jun 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Hunt for the Pangrams Part 2</title>
+      <dc:creator>Sean Lopp</dc:creator>
+      <link>https://loppsided.blog/posts/hunt-for-the-pangrams-part-2</link>
+      <description>More OCR in a quest for New York Times Spelling Bees</description>
+      <guid>https://loppsided.blog/posts/hunt-for-the-pangrams-part-2</guid>
+      <pubDate>Fri, 04 Jun 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://loppsided.blog/posts/hunt-for-the-pangrams-part-2/distill-preview.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
     <item>
       <title>Hunt for the Pangrams</title>
       <dc:creator>Sean Lopp</dc:creator>
