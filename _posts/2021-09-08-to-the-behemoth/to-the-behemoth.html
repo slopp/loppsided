@@ -1,0 +1,1542 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="generator" content="distill" />
+
+  <style type="text/css">
+  /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
+  body {
+    visibility: hidden;
+  }
+  </style>
+
+ <!--radix_placeholder_import_source-->
+ <!--/radix_placeholder_import_source-->
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #545454; font-weight: bold; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #a1024a; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007faa; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #008000; } /* Char */
+code span.cn { color: #d91e18; } /* Constant */
+code span.co { color: #545454; } /* Comment */
+code span.cv { color: #545454; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #aa5d00; } /* DataType */
+code span.dv { color: #a1024a; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #a1024a; } /* Float */
+code span.fu { color: #4254a7; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #545454; font-weight: bold; } /* Information */
+code span.kw { color: #007faa; font-weight: bold; } /* Keyword */
+code span.op { color: #696969; } /* Operator */
+code span.ot { color: #007faa; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #008000; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #008000; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #008000; } /* VerbatimString */
+code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+  <!--radix_placeholder_meta_tags-->
+  <title>To the Behemoth</title>
+
+  <meta property="description" itemprop="description" content="On leaving RStudio to join Google"/>
+
+
+  <!--  https://schema.org/Article -->
+  <meta property="article:published" itemprop="datePublished" content="2021-09-08"/>
+  <meta property="article:created" itemprop="dateCreated" content="2021-09-08"/>
+  <meta name="article:author" content="Sean Lopp"/>
+
+  <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
+  <meta property="og:title" content="To the Behemoth"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:description" content="On leaving RStudio to join Google"/>
+  <meta property="og:locale" content="en_US"/>
+
+  <!--  https://dev.twitter.com/cards/types/summary -->
+  <meta property="twitter:card" content="summary"/>
+  <meta property="twitter:title" content="To the Behemoth"/>
+  <meta property="twitter:description" content="On leaving RStudio to join Google"/>
+
+  <!--/radix_placeholder_meta_tags-->
+  <!--radix_placeholder_rmarkdown_metadata-->
+
+  <script type="text/json" id="radix-rmarkdown-metadata">
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["To the Behemoth"]},{"type":"character","attributes":{},"value":["On leaving RStudio to join Google\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Sean Lopp"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":[]}},"value":[]}]}]},{"type":"character","attributes":{},"value":["09-08-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
+  </script>
+  <!--/radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["to-the-behemoth_files/anchor-4.2.2/anchor.min.js","to-the-behemoth_files/bowser-1.9.3/bowser.min.js","to-the-behemoth_files/distill-2.2.21/template.v2.js","to-the-behemoth_files/header-attrs-2.5/header-attrs.js","to-the-behemoth_files/jquery-1.11.3/jquery.min.js","to-the-behemoth_files/webcomponents-2.0.0/webcomponents.js"]}
+  </script>
+  <!--radix_placeholder_navigation_in_header-->
+  <!--/radix_placeholder_navigation_in_header-->
+  <!--radix_placeholder_distill-->
+
+  <style type="text/css">
+
+  body {
+    background-color: white;
+  }
+
+  .pandoc-table {
+    width: 100%;
+  }
+
+  .pandoc-table>caption {
+    margin-bottom: 10px;
+  }
+
+  .pandoc-table th:not([align]) {
+    text-align: left;
+  }
+
+  .pagedtable-footer {
+    font-size: 15px;
+  }
+
+  d-byline .byline {
+    grid-template-columns: 2fr 2fr;
+  }
+
+  d-byline .byline h3 {
+    margin-block-start: 1.5em;
+  }
+
+  d-byline .byline .authors-affiliations h3 {
+    margin-block-start: 0.5em;
+  }
+
+  .authors-affiliations .orcid-id {
+    width: 16px;
+    height:16px;
+    margin-left: 4px;
+    margin-right: 4px;
+    vertical-align: middle;
+    padding-bottom: 2px;
+  }
+
+  d-title .dt-tags {
+    margin-top: 1em;
+    grid-column: text;
+  }
+
+  .dt-tags .dt-tag {
+    text-decoration: none;
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0em 0.4em;
+    margin-right: 0.5em;
+    margin-bottom: 0.4em;
+    font-size: 70%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  d-article table.gt_table td,
+  d-article table.gt_table th {
+    border-bottom: none;
+  }
+
+  .html-widget {
+    margin-bottom: 2.0em;
+  }
+
+  .l-screen-inset {
+    padding-right: 16px;
+  }
+
+  .l-screen .caption {
+    margin-left: 10px;
+  }
+
+  .shaded {
+    background: rgb(247, 247, 247);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .html-widget {
+    margin-bottom: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .shaded-content {
+    background: white;
+  }
+
+  .text-output {
+    margin-top: 0;
+    line-height: 1.5em;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  d-article {
+    padding-top: 2.5rem;
+    padding-bottom: 30px;
+  }
+
+  d-appendix {
+    padding-top: 30px;
+  }
+
+  d-article>p>img {
+    width: 100%;
+  }
+
+  d-article h2 {
+    margin: 1rem 0 1.5rem 0;
+  }
+
+  d-article h3 {
+    margin-top: 1.5rem;
+  }
+
+  d-article iframe {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 2.0em;
+    width: 100%;
+  }
+
+  /* Tweak code blocks */
+
+  d-article div.sourceCode code,
+  d-article pre code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: auto;
+  }
+
+  d-article div.sourceCode {
+    background-color: white;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 10px;
+    font-size: 12px;
+    border-left: 2px solid rgba(0,0,0,0.1);
+  }
+
+  d-article pre {
+    font-size: 12px;
+    color: black;
+    background: none;
+    margin-top: 0;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  d-article pre a {
+    border-bottom: none;
+  }
+
+  d-article pre a:hover {
+    border-bottom: none;
+    text-decoration: underline;
+  }
+
+  @media(min-width: 768px) {
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: visible !important;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 18px;
+    font-size: 14px;
+  }
+
+  d-article pre {
+    font-size: 14px;
+  }
+
+  }
+
+  figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  /* CSS for d-contents */
+
+  .d-contents {
+    grid-column: text;
+    color: rgba(0,0,0,0.8);
+    font-size: 0.9em;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+    padding-left: 0.25em;
+    justify-self: start;
+  }
+
+  @media(min-width: 1000px) {
+    .d-contents.d-contents-float {
+      height: 0;
+      grid-column-start: 1;
+      grid-column-end: 4;
+      justify-self: center;
+      padding-right: 3em;
+      padding-left: 2em;
+    }
+  }
+
+  .d-contents nav h3 {
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 1em;
+  }
+
+  .d-contents li {
+    list-style-type: none
+  }
+
+  .d-contents nav > ul {
+    padding-left: 0;
+  }
+
+  .d-contents ul {
+    padding-left: 1em
+  }
+
+  .d-contents nav ul li {
+    margin-top: 0.6em;
+    margin-bottom: 0.2em;
+  }
+
+  .d-contents nav a {
+    font-size: 13px;
+    border-bottom: none;
+    text-decoration: none
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+  .d-contents nav a:hover {
+    text-decoration: underline solid rgba(0, 0, 0, 0.6)
+  }
+
+  .d-contents nav > ul > li > a {
+    font-weight: 600;
+  }
+
+  .d-contents nav > ul > li > ul {
+    font-weight: inherit;
+  }
+
+  .d-contents nav > ul > li > ul > li {
+    margin-top: 0.2em;
+  }
+
+
+  .d-contents nav ul {
+    margin-top: 0;
+    margin-bottom: 0.25em;
+  }
+
+  .d-article-with-toc h2:nth-child(2) {
+    margin-top: 0;
+  }
+
+
+  /* Figure */
+
+  .figure {
+    position: relative;
+    margin-bottom: 2.5em;
+    margin-top: 1.5em;
+  }
+
+  .figure img {
+    width: 100%;
+  }
+
+  .figure .caption {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 12px;
+    line-height: 1.5em;
+  }
+
+  .figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  .figure .caption a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  .figure .caption b,
+  .figure .caption strong, {
+    font-weight: 600;
+    color: rgba(0, 0, 0, 1.0);
+  }
+
+  /* Citations */
+
+  d-article .citation {
+    color: inherit;
+    cursor: inherit;
+  }
+
+  div.hanging-indent{
+    margin-left: 1em; text-indent: -1em;
+  }
+
+
+  /* Tweak 1000px media break to show more text */
+
+  @media(min-width: 1000px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 80px [middle-start] 50px [text-start kicker-end] 65px 65px 65px 65px 65px 65px 65px 65px [text-end gutter-start] 65px [middle-end] 65px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 16px;
+    }
+
+    .grid {
+      grid-column-gap: 16px;
+    }
+
+    d-article {
+      font-size: 1.06rem;
+      line-height: 1.7em;
+    }
+    figure .caption, .figure .caption, figure figcaption {
+      font-size: 13px;
+    }
+  }
+
+  @media(min-width: 1180px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 32px;
+    }
+
+    .grid {
+      grid-column-gap: 32px;
+    }
+  }
+
+
+  /* Get the citation styles for the appendix (not auto-injected on render since
+     we do our own rendering of the citation appendix) */
+
+  d-appendix .citation-appendix,
+  .d-appendix .citation-appendix {
+    font-size: 11px;
+    line-height: 15px;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    padding-left: 18px;
+    border: 1px solid rgba(0,0,0,0.1);
+    background: rgba(0, 0, 0, 0.02);
+    padding: 10px 18px;
+    border-radius: 3px;
+    color: rgba(150, 150, 150, 1);
+    overflow: hidden;
+    margin-top: -12px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  /* Include appendix styles here so they can be overridden */
+
+  d-appendix {
+    contain: layout style;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-top: 60px;
+    margin-bottom: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    color: rgba(0,0,0,0.5);
+    padding-top: 60px;
+    padding-bottom: 48px;
+  }
+
+  d-appendix h3 {
+    grid-column: page-start / text-start;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 1em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.65);
+  }
+
+  d-appendix h3 + * {
+    margin-top: 1em;
+  }
+
+  d-appendix ol {
+    padding: 0 0 0 15px;
+  }
+
+  @media (min-width: 768px) {
+    d-appendix ol {
+      padding: 0 0 0 30px;
+      margin-left: -30px;
+    }
+  }
+
+  d-appendix li {
+    margin-bottom: 1em;
+  }
+
+  d-appendix a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  d-appendix > * {
+    grid-column: text;
+  }
+
+  d-appendix > d-footnote-list,
+  d-appendix > d-citation-list,
+  d-appendix > distill-appendix {
+    grid-column: screen;
+  }
+
+  /* Include footnote styles here so they can be overridden */
+
+  d-footnote-list {
+    contain: layout style;
+  }
+
+  d-footnote-list > * {
+    grid-column: text;
+  }
+
+  d-footnote-list a.footnote-backlink {
+    color: rgba(0,0,0,0.3);
+    padding-left: 0.5em;
+  }
+
+
+
+  /* Anchor.js */
+
+  .anchorjs-link {
+    /*transition: all .25s linear; */
+    text-decoration: none;
+    border-bottom: none;
+  }
+  *:hover > .anchorjs-link {
+    margin-left: -1.125em !important;
+    text-decoration: none;
+    border-bottom: none;
+  }
+
+  /* Social footer */
+
+  .social_footer {
+    margin-top: 30px;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.67);
+  }
+
+  .disqus-comments {
+    margin-right: 30px;
+  }
+
+  .disqus-comment-count {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+  }
+
+  #disqus_thread {
+    margin-top: 30px;
+  }
+
+  .article-sharing a {
+    border-bottom: none;
+    margin-right: 8px;
+  }
+
+  .article-sharing a:hover {
+    border-bottom: none;
+  }
+
+  .sidebar-section.subscribe {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .subscribe p {
+    margin-bottom: 0.5em;
+  }
+
+
+  .article-footer .subscribe {
+    font-size: 15px;
+    margin-top: 45px;
+  }
+
+
+  .sidebar-section.custom {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .custom p {
+    margin-bottom: 0.5em;
+  }
+
+  /* Styles for listing layout (hide title) */
+  .layout-listing d-title, .layout-listing .d-title {
+    display: none;
+  }
+
+  /* Styles for posts lists (not auto-injected) */
+
+
+  .posts-with-sidebar {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+
+  .posts-list .description h2,
+  .posts-list .description p {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  .posts-list .description h2 {
+    font-weight: 700;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .posts-list h2.post-tag {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 12px;
+  }
+  .posts-list {
+    margin-top: 60px;
+    margin-bottom: 24px;
+  }
+
+  .posts-list .post-preview {
+    text-decoration: none;
+    overflow: hidden;
+    display: block;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 24px 0;
+  }
+
+  .post-preview-last {
+    border-bottom: none !important;
+  }
+
+  .posts-list .posts-list-caption {
+    grid-column: screen;
+    font-weight: 400;
+  }
+
+  .posts-list .post-preview h2 {
+    margin: 0 0 6px 0;
+    line-height: 1.2em;
+    font-style: normal;
+    font-size: 24px;
+  }
+
+  .posts-list .post-preview p {
+    margin: 0 0 12px 0;
+    line-height: 1.4em;
+    font-size: 16px;
+  }
+
+  .posts-list .post-preview .thumbnail {
+    box-sizing: border-box;
+    margin-bottom: 24px;
+    position: relative;
+    max-width: 500px;
+  }
+  .posts-list .post-preview img {
+    width: 100%;
+    display: block;
+  }
+
+  .posts-list .metadata {
+    font-size: 12px;
+    line-height: 1.4em;
+    margin-bottom: 18px;
+  }
+
+  .posts-list .metadata > * {
+    display: inline-block;
+  }
+
+  .posts-list .metadata .publishedDate {
+    margin-right: 2em;
+  }
+
+  .posts-list .metadata .dt-authors {
+    display: block;
+    margin-top: 0.3em;
+    margin-right: 2em;
+  }
+
+  .posts-list .dt-tags {
+    display: block;
+    line-height: 1em;
+  }
+
+  .posts-list .dt-tags .dt-tag {
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0.3em 0.4em;
+    margin-right: 0.2em;
+    margin-bottom: 0.4em;
+    font-size: 60%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .posts-list img {
+    opacity: 1;
+  }
+
+  .posts-list img[data-src] {
+    opacity: 0;
+  }
+
+  .posts-more {
+    clear: both;
+  }
+
+
+  .posts-sidebar {
+    font-size: 16px;
+  }
+
+  .posts-sidebar h3 {
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .sidebar-section {
+    margin-bottom: 30px;
+  }
+
+  .categories ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .categories li {
+    color: rgba(0, 0, 0, 0.8);
+    margin-bottom: 0;
+  }
+
+  .categories li>a {
+    border-bottom: none;
+  }
+
+  .categories li>a:hover {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  }
+
+  .categories .active {
+    font-weight: 600;
+  }
+
+  .categories .category-count {
+    color: rgba(0, 0, 0, 0.4);
+  }
+
+
+  @media(min-width: 768px) {
+    .posts-list .post-preview h2 {
+      font-size: 26px;
+    }
+    .posts-list .post-preview .thumbnail {
+      float: right;
+      width: 30%;
+      margin-bottom: 0;
+    }
+    .posts-list .post-preview .description {
+      float: left;
+      width: 45%;
+    }
+    .posts-list .post-preview .metadata {
+      float: left;
+      width: 20%;
+      margin-top: 8px;
+    }
+    .posts-list .post-preview p {
+      margin: 0 0 12px 0;
+      line-height: 1.5em;
+      font-size: 16px;
+    }
+    .posts-with-sidebar .posts-list {
+      float: left;
+      width: 75%;
+    }
+    .posts-with-sidebar .posts-sidebar {
+      float: right;
+      width: 20%;
+      margin-top: 60px;
+      padding-top: 24px;
+      padding-bottom: 24px;
+    }
+  }
+
+
+  /* Improve display for browsers without grid (IE/Edge <= 15) */
+
+  .downlevel {
+    line-height: 1.6em;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+  }
+
+  .downlevel .d-title {
+    padding-top: 6rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .downlevel .d-title h1 {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.1em;
+    margin: 0 0 0.5rem;
+  }
+
+  .downlevel .d-title p {
+    font-weight: 300;
+    font-size: 1.2rem;
+    line-height: 1.55em;
+    margin-top: 0;
+  }
+
+  .downlevel .d-byline {
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    font-size: 0.8rem;
+    line-height: 1.8em;
+  }
+
+  .downlevel .section-separator {
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .downlevel .d-article {
+    font-size: 1.06rem;
+    line-height: 1.7em;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+
+
+  .downlevel .d-appendix {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: none;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.5);
+    padding-top: 40px;
+    padding-bottom: 48px;
+  }
+
+  .downlevel .footnotes ol {
+    padding-left: 13px;
+  }
+
+  .downlevel .base-grid,
+  .downlevel .distill-header,
+  .downlevel .d-title,
+  .downlevel .d-abstract,
+  .downlevel .d-article,
+  .downlevel .d-appendix,
+  .downlevel .distill-appendix,
+  .downlevel .d-byline,
+  .downlevel .d-footnote-list,
+  .downlevel .d-citation-list,
+  .downlevel .distill-footer,
+  .downlevel .appendix-bottom,
+  .downlevel .posts-container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  @media(min-width: 768px) {
+    .downlevel .base-grid,
+    .downlevel .distill-header,
+    .downlevel .d-title,
+    .downlevel .d-abstract,
+    .downlevel .d-article,
+    .downlevel .d-appendix,
+    .downlevel .distill-appendix,
+    .downlevel .d-byline,
+    .downlevel .d-footnote-list,
+    .downlevel .d-citation-list,
+    .downlevel .distill-footer,
+    .downlevel .appendix-bottom,
+    .downlevel .posts-container {
+    padding-left: 150px;
+    padding-right: 150px;
+    max-width: 900px;
+  }
+  }
+
+  .downlevel pre code {
+    display: block;
+    border-left: 2px solid rgba(0, 0, 0, .1);
+    padding: 0 0 0 20px;
+    font-size: 14px;
+  }
+
+  .downlevel code, .downlevel pre {
+    color: black;
+    background: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  .downlevel .posts-list .post-preview {
+    color: inherit;
+  }
+
+
+
+  </style>
+
+  <script type="application/javascript">
+
+  function is_downlevel_browser() {
+    if (bowser.isUnsupportedBrowser({ msie: "12", msedge: "16"},
+                                   window.navigator.userAgent)) {
+      return true;
+    } else {
+      return window.load_distill_framework === undefined;
+    }
+  }
+
+  // show body when load is complete
+  function on_load_complete() {
+
+    // add anchors
+    if (window.anchors) {
+      window.anchors.options.placement = 'left';
+      window.anchors.add('d-article > h2, d-article > h3, d-article > h4, d-article > h5');
+    }
+
+
+    // set body to visible
+    document.body.style.visibility = 'visible';
+
+    // force redraw for leaflet widgets
+    if (window.HTMLWidgets) {
+      var maps = window.HTMLWidgets.findAll(".leaflet");
+      $.each(maps, function(i, el) {
+        var map = this.getMap();
+        map.invalidateSize();
+        map.eachLayer(function(layer) {
+          if (layer instanceof L.TileLayer)
+            layer.redraw();
+        });
+      });
+    }
+
+    // trigger 'shown' so htmlwidgets resize
+    $('d-article').trigger('shown');
+  }
+
+  function init_distill() {
+
+    init_common();
+
+    // create front matter
+    var front_matter = $('<d-front-matter></d-front-matter>');
+    $('#distill-front-matter').wrap(front_matter);
+
+    // create d-title
+    $('.d-title').changeElementType('d-title');
+
+    // create d-byline
+    var byline = $('<d-byline></d-byline>');
+    $('.d-byline').replaceWith(byline);
+
+    // create d-article
+    var article = $('<d-article></d-article>');
+    $('.d-article').wrap(article).children().unwrap();
+
+    // move posts container into article
+    $('.posts-container').appendTo($('d-article'));
+
+    // create d-appendix
+    $('.d-appendix').changeElementType('d-appendix');
+
+    // flag indicating that we have appendix items
+    var appendix = $('.appendix-bottom').children('h3').length > 0;
+
+    // replace footnotes with <d-footnote>
+    $('.footnote-ref').each(function(i, val) {
+      appendix = true;
+      var href = $(this).attr('href');
+      var id = href.replace('#', '');
+      var fn = $('#' + id);
+      var fn_p = $('#' + id + '>p');
+      fn_p.find('.footnote-back').remove();
+      var text = fn_p.html();
+      var dtfn = $('<d-footnote></d-footnote>');
+      dtfn.html(text);
+      $(this).replaceWith(dtfn);
+    });
+    // remove footnotes
+    $('.footnotes').remove();
+
+    // move refs into #references-listing
+    $('#references-listing').replaceWith($('#refs'));
+
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      var id = $(this).attr('id');
+      $('.d-contents a[href="#' + id + '"]').parent().remove();
+      appendix = true;
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('d-appendix'));
+    });
+
+    // show d-appendix if we have appendix content
+    $("d-appendix").css('display', appendix ? 'grid' : 'none');
+
+    // localize layout chunks to just output
+    $('.layout-chunk').each(function(i, val) {
+
+      // capture layout
+      var layout = $(this).attr('data-layout');
+
+      // apply layout to markdown level block elements
+      var elements = $(this).children().not('div.sourceCode, pre, script');
+      elements.each(function(i, el) {
+        var layout_div = $('<div class="' + layout + '"></div>');
+        if (layout_div.hasClass('shaded')) {
+          var shaded_content = $('<div class="shaded-content"></div>');
+          $(this).wrap(shaded_content);
+          $(this).parent().wrap(layout_div);
+        } else {
+          $(this).wrap(layout_div);
+        }
+      });
+
+
+      // unwrap the layout-chunk div
+      $(this).children().unwrap();
+    });
+
+    // remove code block used to force  highlighting css
+    $('.distill-force-highlighting-css').parent().remove();
+
+    // remove empty line numbers inserted by pandoc when using a
+    // custom syntax highlighting theme
+    $('code.sourceCode a:empty').remove();
+
+    // load distill framework
+    load_distill_framework();
+
+    // wait for window.distillRunlevel == 4 to do post processing
+    function distill_post_process() {
+
+      if (!window.distillRunlevel || window.distillRunlevel < 4)
+        return;
+
+      // hide author/affiliations entirely if we have no authors
+      var front_matter = JSON.parse($("#distill-front-matter").html());
+      var have_authors = front_matter.authors && front_matter.authors.length > 0;
+      if (!have_authors)
+        $('d-byline').addClass('hidden');
+
+      // article with toc class
+      $('.d-contents').parent().addClass('d-article-with-toc');
+
+      // strip links that point to #
+      $('.authors-affiliations').find('a[href="#"]').removeAttr('href');
+
+      // add orcid ids
+      $('.authors-affiliations').find('.author').each(function(i, el) {
+        var orcid_id = front_matter.authors[i].orcidID;
+        if (orcid_id) {
+          var a = $('<a></a>');
+          a.attr('href', 'https://orcid.org/' + orcid_id);
+          var img = $('<img></img>');
+          img.addClass('orcid-id');
+          img.attr('alt', 'ORCID ID');
+          img.attr('src','data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==');
+          a.append(img);
+          $(this).append(a);
+        }
+      });
+
+      // hide elements of author/affiliations grid that have no value
+      function hide_byline_column(caption) {
+        $('d-byline').find('h3:contains("' + caption + '")').parent().css('visibility', 'hidden');
+      }
+
+      // affiliations
+      var have_affiliations = false;
+      for (var i = 0; i<front_matter.authors.length; ++i) {
+        var author = front_matter.authors[i];
+        if (author.affiliation !== "&nbsp;") {
+          have_affiliations = true;
+          break;
+        }
+      }
+      if (!have_affiliations)
+        $('d-byline').find('h3:contains("Affiliations")').css('visibility', 'hidden');
+
+      // published date
+      if (!front_matter.publishedDate)
+        hide_byline_column("Published");
+
+      // document object identifier
+      var doi = $('d-byline').find('h3:contains("DOI")');
+      var doi_p = doi.next().empty();
+      if (!front_matter.doi) {
+        // if we have a citation and valid citationText then link to that
+        if ($('#citation').length > 0 && front_matter.citationText) {
+          doi.html('Citation');
+          $('<a href="#citation"></a>')
+            .text(front_matter.citationText)
+            .appendTo(doi_p);
+        } else {
+          hide_byline_column("DOI");
+        }
+      } else {
+        $('<a></a>')
+           .attr('href', "https://doi.org/" + front_matter.doi)
+           .html(front_matter.doi)
+           .appendTo(doi_p);
+      }
+
+       // change plural form of authors/affiliations
+      if (front_matter.authors.length === 1) {
+        var grid = $('.authors-affiliations');
+        grid.children('h3:contains("Authors")').text('Author');
+        grid.children('h3:contains("Affiliations")').text('Affiliation');
+      }
+
+      // remove d-appendix and d-footnote-list local styles
+      $('d-appendix > style:first-child').remove();
+      $('d-footnote-list > style:first-child').remove();
+
+      // move appendix-bottom entries to the bottom
+      $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
+      $('.appendix-bottom').remove();
+
+      // clear polling timer
+      clearInterval(tid);
+
+      // show body now that everything is ready
+      on_load_complete();
+    }
+
+    var tid = setInterval(distill_post_process, 50);
+    distill_post_process();
+
+  }
+
+  function init_downlevel() {
+
+    init_common();
+
+     // insert hr after d-title
+    $('.d-title').after($('<hr class="section-separator"/>'));
+
+    // check if we have authors
+    var front_matter = JSON.parse($("#distill-front-matter").html());
+    var have_authors = front_matter.authors && front_matter.authors.length > 0;
+
+    // manage byline/border
+    if (!have_authors)
+      $('.d-byline').remove();
+    $('.d-byline').after($('<hr class="section-separator"/>'));
+    $('.d-byline a').remove();
+
+    // remove toc
+    $('.d-contents').remove();
+
+    // move appendix elements
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('.d-appendix'));
+    });
+
+
+    // inject headers into references and footnotes
+    var refs_header = $('<h3></h3>');
+    refs_header.text('References');
+    $('#refs').prepend(refs_header);
+
+    var footnotes_header = $('<h3></h3');
+    footnotes_header.text('Footnotes');
+    $('.footnotes').children('hr').first().replaceWith(footnotes_header);
+
+    // move appendix-bottom entries to the bottom
+    $('.appendix-bottom').appendTo('.d-appendix').children().unwrap();
+    $('.appendix-bottom').remove();
+
+    // remove appendix if it's empty
+    if ($('.d-appendix').children().length === 0)
+      $('.d-appendix').remove();
+
+    // prepend separator above appendix
+    $('.d-appendix').before($('<hr class="section-separator" style="clear: both"/>'));
+
+    // trim code
+    $('pre>code').each(function(i, val) {
+      $(this).html($.trim($(this).html()));
+    });
+
+    // move posts-container right before article
+    $('.posts-container').insertBefore($('.d-article'));
+
+    $('body').addClass('downlevel');
+
+    on_load_complete();
+  }
+
+
+  function init_common() {
+
+    // jquery plugin to change element types
+    (function($) {
+      $.fn.changeElementType = function(newType) {
+        var attrs = {};
+
+        $.each(this[0].attributes, function(idx, attr) {
+          attrs[attr.nodeName] = attr.nodeValue;
+        });
+
+        this.replaceWith(function() {
+          return $("<" + newType + "/>", attrs).append($(this).contents());
+        });
+      };
+    })(jQuery);
+
+    // prevent underline for linked images
+    $('a > img').parent().css({'border-bottom' : 'none'});
+
+    // mark non-body figures created by knitr chunks as 100% width
+    $('.layout-chunk').each(function(i, val) {
+      var figures = $(this).find('img, .html-widget');
+      if ($(this).attr('data-layout') !== "l-body") {
+        figures.css('width', '100%');
+      } else {
+        figures.css('max-width', '100%');
+        figures.filter("[width]").each(function(i, val) {
+          var fig = $(this);
+          fig.css('width', fig.attr('width') + 'px');
+        });
+
+      }
+    });
+
+    // auto-append index.html to post-preview links in file: protocol
+    // and in rstudio ide preview
+    $('.post-preview').each(function(i, val) {
+      if (window.location.protocol === "file:")
+        $(this).attr('href', $(this).attr('href') + "index.html");
+    });
+
+    // get rid of index.html references in header
+    if (window.location.protocol !== "file:") {
+      $('.distill-site-header a[href]').each(function(i,val) {
+        $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+      });
+    }
+
+    // add class to pandoc style tables
+    $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
+    $('.kable-table').children('table').addClass('pandoc-table');
+
+    // add figcaption style to table captions
+    $('caption').parent('table').addClass("figcaption");
+
+    // initialize posts list
+    if (window.init_posts_list)
+      window.init_posts_list();
+
+    // implmement disqus comment link
+    $('.disqus-comment-count').click(function() {
+      window.headroom_prevent_pin = true;
+      $('#disqus_thread').toggleClass('hidden');
+      if (!$('#disqus_thread').hasClass('hidden')) {
+        var offset = $(this).offset();
+        $(window).resize();
+        $('html, body').animate({
+          scrollTop: offset.top - 35
+        });
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    if (is_downlevel_browser())
+      init_downlevel();
+    else
+      window.addEventListener('WebComponentsReady', init_distill);
+  });
+
+  </script>
+
+  <!--/radix_placeholder_distill-->
+  <script src="to-the-behemoth_files/header-attrs-2.5/header-attrs.js"></script>
+  <script src="to-the-behemoth_files/jquery-1.11.3/jquery.min.js"></script>
+  <script src="to-the-behemoth_files/anchor-4.2.2/anchor.min.js"></script>
+  <script src="to-the-behemoth_files/bowser-1.9.3/bowser.min.js"></script>
+  <script src="to-the-behemoth_files/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="to-the-behemoth_files/distill-2.2.21/template.v2.js"></script>
+  <!--radix_placeholder_site_in_header-->
+  <!--/radix_placeholder_site_in_header-->
+
+
+</head>
+
+<body>
+
+<!--radix_placeholder_front_matter-->
+
+<script id="distill-front-matter" type="text/json">
+{"title":"To the Behemoth","description":"On leaving RStudio to join Google","authors":[{"author":"Sean Lopp","authorURL":{},"affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-09-08T00:00:00.000+00:00","citationText":"Lopp, 2021"}
+</script>
+
+<!--/radix_placeholder_front_matter-->
+<!--radix_placeholder_navigation_before_body-->
+<!--/radix_placeholder_navigation_before_body-->
+<!--radix_placeholder_site_before_body-->
+<!--/radix_placeholder_site_before_body-->
+
+<div class="d-title">
+<h1>To the Behemoth</h1>
+<!--radix_placeholder_categories-->
+<!--/radix_placeholder_categories-->
+<p><p>On leaving RStudio to join Google</p></p>
+</div>
+
+<div class="d-byline">
+  Sean Lopp true 
+  
+<br/>09-08-2021
+</div>
+
+<div class="d-article">
+<p>In November 2015 I scored my dream job at RStudio, the company behind the RStudio IDE, shiny, and the soon-to-be-named tidyverse of R packages. Looking back, that offer was definitively my lucky break. I joined as the 3rd member of their sales team, the 22nd person in the company as a whole. I knew nothing about startups, I definitely had no business being in sales, but I was estatic when I shared with my grad school buddies that my new email would be <a href="mailto:sean@rstudio.com" class="email">sean@rstudio.com</a>.</p>
+<p>Fast forward just shy of 6 years. RStudio has grown to 200 employees, our sales engineering team is approaching 20, and I am sad but excited to be moving on. This post is really written for 2028 Sean, to remember what I thought and felt at this moment. To remember the people who have been so important, and to document my speculations on the market and the world so that in 6 years I can laugh at all the unknown unknowns.</p>
+<h2 id="the-somewhat-short-story-of-my-time-at-rstudio">The somewhat short story of my time at RStudio</h2>
+<p>It is hard to summarize six years, especially when those 6 start-up years map to at least 12 years of regular company work. My attempt:</p>
+<ol type="1">
+<li>From 2015-2016 I worked as a customer success rep. I learned what commission was, what a non-recoverable draw entailed, and all about pharmas (our largest vertical), salesforce, and marketo. It was hard to believe that RStudio would trust a 22 year old to jump into calls with some of the largest companies in the world, its even harder to believe it worked. I still remember when my boss, the wise and sales hardened Jim Clemens, took me to a fancy bar my first day onsite in Boston. I don’t think he or the bartender believed I was 22 and had an expense account! Other critical folks in this time included Pete Knast (who introduced me to sales and <em>real</em> expense account travel) and Phil, who would become one of my closest partners in crime and the future director of life sciences.</li>
+</ol>
+<p>I remember a few things about starting at RStudio that really tell how green I was. At that time I was living in a horrible housing complex where I had my own room but shared a shower and kitchen with 8 strangers. I paid 400 a month but didn’t have internet. I took my RStudio interviews from the floor of a college laundromat lobby. My first day was a Monday in RStudio’s Boston office. I had booked a red-eye flight that departed Denver at 12am to avoid having to pay for an extra night’s hotel fair. Unfortunately Saturday I realized that I had messed up the booking and my flight left denver Monday at midnight. I paid a $600 last minute change fee that I never expensed out of embarrassment, but set me back a months rent. When I first met RStudio’s president, Tareef, I called him Kareef. He politely corrected me and then asked me how Colorado was. I said fine, and then he asked if I had ever been to Boulder. I jokingly said “the place where they believe in all that gluten nonsense?”. I later learned Tareef was an ardent gluten-free adherent. It wouldn’t be the last time I put my foot in my mouth, but I am pretty sure after the first 5 minutes Jim thought he had made a horrible mistake.</p>
+<ol start="2" type="1">
+<li>In Oct 2016 I jumped from RStudio’s sales org to become the second solutions engineer. At the time this move was pretty straightforward. Nathan Stephens, the head of SE, was a generous man (who would turn out to be a dear friend and mentor). I had the technical skills to support our growing sales team, and I liked doing demos more than salesforce. Our team grew quickly over the next year, key hires included Jonathan R (the finance guru who would first break my naivety bubble and tell me about the business world outside RStudio) and Edgar Ruiz (another solutions engineer with unquenchable cheer and serious Latin coolness).</li>
+</ol>
+<p>A brief short story to reassure you that I still hadn’t mastered this professional life. One week in 2016 I was asked to fly to San Jose to be the sales representative in a series of customer visits that the Hadley Wickham had agreed to attend. I would later learn that Hadley was a literal rock star, with weirdo R users asking for his autograph. My single job during this tour was to drive Hadley around. We had a full day, with a plan to meet at the airport, then drive to Intel, Genetech, and into San Fran to visit Uber. (Uber had such a weird culture, and later would be the only customer I would legitimately complain was rude and arrogant.) I showed up at the San Jose airport at 7am and texted Hadley. We were going to meet at 7:30 and arrive at Intel in time for an 8am meeting. By 7:40 we were both confused, he was texting me where he was, but I couldn’t find him. Turns out that, “the airport”, was SFO, not SJO. I had failed at my one job, and Hadley had to scramble to pay a Lyft 100 dollars to drive him from SFO to Intel where he calmly gave his hour long presentation in 20 minutes.</p>
+<ol start="3" type="1">
+<li><p>2017-2018 is what I’d consider my golden years. We hired Cole Arendt - the single smartest person I’ve ever worked with, despite his tendency to hack faster than he could ever document. I traveled all over, including Austin, Boston, Seattle, New York, San Fran, Chicago, and Houston (where I got an exclusive tour of NASA mission control before giving one of the worst demos of my life because, while they could send a man to the moon, NASA couldn’t provide reliable public internet.). Everywhere I went we got to eat amazing food, and I filled any spare time walking the streets or visiting art museums. Overtime I would also travel to Belgium (my first trip abroad) and London. I rediscovered biking (thanks to the prodding of Aron Atkins to buy a Salsa Warbird). I gave my single best presentation at the 2018 RStudio Conf in Orlando showing in real time how to scale a shiny app to 10,000 users. (The Orlando conf was incredible. We started with a RStudio exclusive evening at Harry Potter World and then JJ paid for the RStudio employees to spend the next day at the park, fast passes included! This also happened to be 7 days after my wedding…. quite the “honeymoon”?).</p></li>
+<li><p>Towards the end of 2018 I started to dabble my toes in product management. I joined the sprint reviews for RStudio Connect and I started working closer with Jeff Allen (an enormously kind and talented engineering manager) and Robby Shaver (a brilliant but laid back designer who taught me that less is more in words, buttons, and just about everything but white space). (Side, side note: for some reason I consistently lied to Jeff about my age, claiming I was a few years older than I really am. This lie started because I was embarrassed to take on responsibilities while being so young, but because Jeff is so thoughtful it ultimately became worse and worse - one night he politely realized I was lying when my time in college, high school, and at RStudio didn’t add up. Sorry Jeff!). I became more and more involved in our product planning, and eventually I was given the reigns to create a new product from scratch in RStudio Package Manager. The genesis of this product was partly a need to support customers in offline environments, but mostly my ambition to lead a product team. We started with a gaggle of spreadsheets and customer interviews, and thanks to Jon Yoder (a humble, quiet, and brilliant engineer) we built something special. Package Manager would fully launch in 2019, and I would lead the team through 2020. The product eventually became both a core part of RStudio’s offering, accounting for millions in revenue, and it became a <a href="https://packagemanager.rstudio.com">public service</a>. I am most proud of how Package Manager provides pre-compiled packages for Linux. This work took a team and some clever planning, but in it I feel I’ve left a lasting fingerprint on the R community. Before, installing R and packages on Linux could easily take hours. Now, both R and packages come pre-compiled from RStudio. The way I know I’m successful is that occasionally the service will fail and folks will have to go back to the old method, and it is so painful as to be unfathomable! Of course none of this success was pre-destined, I learned that building a product requires countless trade-offs and a near constant diligence in engineering groomings and reviews. (Even great engineers have a tendency to never ship if left to their own choices.) During this period I also got to work on marketing content with Greg Swinehart, who is perhaps the best human being I’ve ever met.</p></li>
+<li><p>2019 and 2020 marked the beginning of the end, though I didn’t know it at the time. In mid-2019 I formally became a full time product manager – RStudio’s first. I was woefully unprepared, and in hindsight, this position wasn’t really a fair one. I was tasked with balancing our executive team’s ever-changing vision, our legitimate but diverse customer requests, and our dev team’s daily execution. I was soon crushed. Luckily at this time I was able to rely on the wisdom of Kris Overholt and Daniel Rodriguez, two ex-PMs who briefly worked at RStudio and instilled in me both an earnest skepticism of the business and a keen nose for bullshit. At this time Jeff left to pursue a new team at RStudio, and so I found myself managing both RStudio Package Manager and RStudio Connect. A wiser person would have built a product managemnt team, I attempted to forge ahead on my own. I also refused to give up my work with customers which I rightly thought would ground my product work, but which I incorrectly assumed would magically take less time. A perfect recipe for burnout. This was also the period when I began to realize an unhealthy relationship with Tareef, RStudio’s president. I hesitate to write much about Tareef, I won’t need a blogpost to remember him. He was both a paternal figure genuinely invested in my career, an interesting corporate philosopher, and my strategic arch-enemy. I wanted to build a process that took data from our customers, aligned around a strategic vision, and then executed against a prioritized roadmap. In many ways Tareef wanted the same thing, but lived at a different level of visibility. He struggled to share his vision, and I lacked the leadership tools to clarify it, and so I often felt undermined when he would critique the team’s execution or focus while simultaneously introducing new initiatives. The only way I lasted until the end of 2020 was because I was joined in product by Kelly. Kelly is one of the most strategic and empathetic people I’ve ever met, and in Jan 2020 she joined me in working on Connect. Mentoring Kelly was hard for me, not because of Kelly - whose work was always brilliant and 3 steps ahead of my own, but because the challenges she felt and reported back to me caused me 10x the frustration as when I felt them myself. I realized during this time just how hard it can be to be a manager or mentor, I was much better suited to dealing with shit than telling someone I cared about that I couldn’t remove their obstacles. By Oct 2020 I was constantly angry, burnt out, and quick to boil into frustration with others. My wife said I had to quit. I had promised Tareef if it came to that I would give him a few months notice, so in October I told him I needed to leave. A few other things are worth noting about the fall of 2020. For one, my old solutions engineering team was imploding. Skeptical Kris had left, leaving a wake and a big hole (because he was also the most gifted solutions engineer I’ve worked with). Cole and James (who was and is my constant motivation in RStudio’s cycling strava) were both on paternity leave. Edgar, the other old goat from 2017, had abruptly quit at the beginning of the year. This proved a tough load, and it ultimately contributed to Nathan stepping away from the director role. In short, it was a total and complete dumpster fire, and I found myself in the midst of my struggles with product attempting to hold together the fragile remains of the SE team.</p></li>
+<li><p>Enter 2021. My big question after telling Tareef I was done was “what’s next?”. This question turned out to be quite the doozy. I temporarily opted to return to solutions engineering, and like most things in my life this short term choice turned out to be insanely lucky. After 9 months of reflection it is easier for me to understand that sales engineering is where I should continue next, but that realization came after quite a few false starts. I applied and almost accepted a consulting job that would have returned me to my college work of energy analytics and 10 hour days of coding. I applied and was accepted to law school. I even read all about other product roles, teams, and domains. In June I took two weeks off to attend a wedding in Alaska and travel the state. During this time, and there was a LOT of time driving, I realized that I really enjoyed my time with our sales team. I have been lucky to work alongside really excellent account executives in Jason Miles, Kevin Hayden, Sabrina, Lauren, Nichole, Dylan, and countless others. Unlike product management, where the objectives are ambiguous and the time frames are measured in years, sales had a clear directive. Yes, there is still an art to asking questions and aligning around value, but our team was always on the same page. The rewards were satisfying and aligned with compensation. The customers were diverse and interesting. Finally, in my year of renewed SE focus, I rediscovered that I was really good at sales engineering. I had unknowingly felt like an imposter as a product manager, always quite certain that I had no business representing the needs of any users, desperately trying to read the market tea leaves while directing millions of dollars in dev investment. Ultimately I realized I was in the right role as an SE, which led to a natural question, how do I get better and go further? This question has taken awhile to answer, but it is what leads me to Google. I need to be exposed to something outside of RStudio, to learn how other organizations and sales teams operate, to sell different products, in different frameworks, to different customers. I realized, with both happiness and sorrow, that I need to leave RStudio.</p></li>
+</ol>
+<p>You may be wondering whats to come of the SE team that was struggling in 2020 and that I luckily rejoined in earnest in 2021. To answer that question I have to introduce a few more characters. Alex Gold joined RStudio in 2019 as an SE after giving an excellent interview with a few too many memes. He is proving to be both a talented “get shit done” organizer and a thoughtful manager who will carry the team. Andrie joined RStudio in 2017 and has had a knack for doing the dirtiest work, and I expect he will continue that trend. David joined RStudio in 2020 and shares my knack for sarcasm, dread, and picking up new tools quickly and holistically. Others deserve mention as marvelous people who I worked with less but still hold dear: Gagan, Ian, Ralf, Mark, and Lou (the most diligently organized product marketer).</p>
+<p>It is also worth mentioning that during 2021 I had the privilege of working with an executive coach. I spent 6 months working every other week with an older gentlemen named Harry. Harry’s superpower is very quickly seeing to the heart of things. The main thing Harry helped me realize was that I was responsible when people misunderstood me, or I misunderstood them. He taught me to convince others by teaching them not telling them (slow down and ask questions you sometimes know the answer to). He taught me to ask questions I didn’t know the answer to, again and again, to try and help others show me their work. Most of all, he taught me that Pixar’s Inside Out is actually pretty accurate, and that feelings serve their best purpose when they work together. Or, the Aristotelian take, prudence is the heart of all virtues.</p>
+<p>In closing this short story, I still struggle to imagine that this chapter is coming to a close. I can still put myself in the middle of some of my best and fondest memories:</p>
+<ul>
+<li>drinking a beer with Phil at O’hare after a long drive from Abbott</li>
+<li>sitting in between Alex, Greg, and Joe C at a bar talking about music<br />
+</li>
+<li>yelling at a planetarium screen after one too many drinks with Tyler while Kelly watched mortified, and then later that evening finding my way into an amazing halal place with Alex<br />
+</li>
+<li>sitting with Nathan at a poolside lounge talking for hours about the importance of good mattress selection<br />
+</li>
+<li>sipping wine with Mark E in Chicago, pretending I could tell the difference between four reds<br />
+</li>
+<li>eating an absurdly expensive hamburger with Jonathan off of Wall Street<br />
+</li>
+<li>driving through a blizzard to spend 3 nights onboarding Jason at Jim’s lakeside mansion/cabin, and our “team building” 2 mile hike post-holing through 2 ft deep snow up the side of a mountain. (Jim is in remarkable shape)<br />
+</li>
+<li>walking around Mountain View at 11pm eating ice cream with Phil and Tareef after meeting with a bunch of pharmas, listening to Tareef tell us his life story<br />
+</li>
+<li>attending JJ’s birthday party, complete with amazing finger food and dancers spray painted to look like robots<br />
+</li>
+<li>riding the London tube for the first time, and then 8 days later for the last time, feeling rather comfortable as I recognized the route names<br />
+</li>
+<li>navigating the middle of no-where Cambridge with Tareef trying to find AztraZeneca’s headquarters, and Tareef’s kindness when he stopped at a small cafe even though he doesn’t drink coffee<br />
+</li>
+<li>eating benets in New Orleans late at night with our whole SE team<br />
+</li>
+<li>arguing about Looper in a hipster food court</li>
+</ul>
+<h2 id="a-shorter-tldr-of-a-few-things-i-learned-at-rstudio">A shorter TL:DR of a few things I learned at RStudio</h2>
+<ol type="1">
+<li><p>Inbound sales can be amazing. RStudio built a business with almost zero marketing, close to 3 million a rep, and an average deal size of 30K ACV. While the deals got larger and the account load smaller, I learned that an open source community, great products, and low pricing can sustain an incredibly leveraged business.</p></li>
+<li><p>On-premise products have pros and cons. Integrating with disparate architectures is hard, and on-prem system admins can be hit or miss. BUT, for free, we were able to position ourselves as multi-cloud or hybrid, and our marginal costs were truly $0!</p></li>
+<li><p>Stock options. They are a lottery, but worth exercising early if they are cheap.</p></li>
+<li><p>As companies grow its easy to think the sky is falling with every change. Hold back chicken little.</p></li>
+<li><p>The sales team really does eat and drink the best. Hang out with them when you travel.</p></li>
+<li><p>My most lasting product efforts required the alignment and patience of a large team. My most fun efforts required under-the-radar teamwork with 1 or 2 individuals who knew how to get shit done.</p></li>
+<li><p>Interviewing is really hard. Be patient and hold out for people who generate an absolute yes. Any qualities you notice in an interview (sloppy with details, talkative, a little arrogant) will become more and more pronounced when you work with them. People who know their shit can talk about it at different levels, and will lead you deeper. (If YOU have to keep asking questions to probe for someone’s concrete knowledge, its likely they don’t have much!) Further, if someone explains something and you don’t understand it, its not because you are a dummy – they’ve failed the task.</p></li>
+<li><p>Marketing is important, but easy to shit on because no one can really say if its working. When a deal is closed won its “because of sales”, when a deal is closed lost, its “because of product”.</p></li>
+<li><p>Small teams of independent professionals are amazing, but they are really hard to scale. Larger teams need more process to stay afloat.</p></li>
+<li><p>As a leader, “showing up” to every meeting is important. No team meeting or 1:1 can be handled casually, so skip it if you’re not in the right head space. Your job is almost always to present ideas with optimism, absorb (not amplify) the natural concerns around ambiguity, and remain professional. All that said, it can be really helpful to have a few peers to whom you can vent and “let down your guard”, but gossip isn’t a shortcut to being considered genuine.</p></li>
+<li><p>Keyboard shortcuts in gmail are clutch, as is Alfred, zsh, the reveal bullshit plugin, and hard restarting chrome every morning.</p></li>
+<li><p>After countless hours in many airports I can confirm that O’hare is the worst, JFK is the most inconvenient, and as Phil would proudly tell you, Indy is the best. A few other airport comments - if you are going to downtown Chicago, take the blue line not a rental car. (Except if it is Lalapalooza week, then definitely do NOT take the train.) In Denver, the fastest way to get from driving to your gate is to park in the southern end of the west lot, walk through the Westin, up the escalators, through South security, and onto the train. Patagonia black hole 40L duffles are <em>the optimal 2-3 day trip bag</em> as they can fit under the seat in a pinch and fit on your back. People who roll their luggage are slower, can’t run down escalators, and look like idiots walking downtown. Never gate check a bag. Only fly direct. TSA pre-check is the single best investment you can make.</p></li>
+</ol>
+<h2 id="thoughts-about-data-analytics-and-statistics">Thoughts about Data, Analytics, and Statistics</h2>
+<p>Anyone who knows me well (or even a little) knows I hate the Gartner Magic Quadrant. Here are my anecdotal hot takes.</p>
+<ol type="1">
+<li><p>JavaScript might eat the world, but SQL already has and will again. I am very bullish on groups like Observable. Data products that only need a browser are pretty sweet. Those products, however, aren’t great at data prep – enter SQL. I was slow to realize that every meaningful bit of code I’ve dogfooded at RStudio has just been SQL in disguise. I’m super bullish on products that make SQL better, R included? I can’t wait to follow Dremio, Voltron Data, and dbt. Those are 3 rocket ships.</p></li>
+<li><p>I love RStudio Connect. Domino and Dataiku I really don’t understand. If you want infrastructure and project orchestration then Sagemaker, GCP Notebooks, Azure ML, etc are sufficient. Connect is unique in it’s ability to host an R or Python app outside of a development context. While Connect hasn’t quite figured out if its a BI tool for data scientists or an execution service for R and Python (like Heroku), I sort of love that it lives in its own grey area. I am certain Kelly will ensure it keeps delighting users despite its lack of a coherent category.</p></li>
+<li><p>Some modelling activities are actually data engineering in disguise. NLP, image recognition, deep learning, most of them are just to get non-tabular data into a SQL-able form. Corollary 1: Most ML hyped production use cases are either just counting or could be served by just counting. Corollary 2: Databricks is valuable for teams that need to do SQL on larger-than-SQL data, but SQL warehouses are getting bigger and bigger so I really don’t understand their multi-billon dollar valuation. The rest of their lineup, MLOps and what not, probably isn’t very real.</p></li>
+<li><p>Statistics is all about helping identify if an insight discovered in an analysis is legitimate or could be the result of random chance. In many cases, executive leadership won’t care. Boxplots are better than bar charts, but many executives won’t get them.</p></li>
+<li><p>The FDA is the most insane regulatory body I have ever encountered, and paints a grim picture of what “digital transformation” looks like in government. Feel what you will about big pharma, the idea that they have to submit data on clinical trials as plain text files according to a 1999 spec is crazy. SAS rules this land because the FDA is unwilling to change, and their claim to be language agnostic is tantamount to fraud.</p></li>
+<li><p>Most data science companies, especially start-ups, are consultants in disguise. This has pros and cons. Consulting keeps you close to your users and helps build better products. It can also lead to VCs pouring stupid amounts of money into vaporware (ahem - plotly, streamlit, and also IBM Watson?).</p></li>
+<li><p>h2o.ai is legitimate and building interesting AI techniques. Domo and DataRobot are not.</p></li>
+<li><p>Kubernetes lives up to the hype and its worth learning. Overtime the patterns make sense and the helm templates become readable. Chef recipes, on the other hand, will never make sense.</p></li>
+</ol>
+<h2 id="looking-towards-google">Looking towards Google</h2>
+<p>I’m not sure what to expect next, except that Google will be different. I hope this pandemic ends and I get to enjoy their famed lunches. I hope that I can get up to speed on BI, that SQL really does continue to eat the world, and that JavaScript becomes less confusing. I am excited to learn about the GCP landscape, especially data engineering which is a critical part of my SQL + JavaScript dominates the world prediction. Most of all, I hope I am fortunate enough to find myself with a team that is half as humble, hungry, and kind as my current colleagues and friends.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<!--radix_placeholder_article_footer-->
+<!--/radix_placeholder_article_footer-->
+</div>
+
+<div class="d-appendix">
+</div>
+
+
+<!--radix_placeholder_site_after_body-->
+<!--/radix_placeholder_site_after_body-->
+<!--radix_placeholder_appendices-->
+<div class="appendix-bottom"></div>
+<!--/radix_placeholder_appendices-->
+<!--radix_placeholder_navigation_after_body-->
+<!--/radix_placeholder_navigation_after_body-->
+
+</body>
+
+</html>
