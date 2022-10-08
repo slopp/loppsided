@@ -7,7 +7,24 @@
     <description>Loppsided
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Wed, 08 Sep 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 23 Sep 2022 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Dagster Getting Started</title>
+      <dc:creator>Sean Lopp</dc:creator>
+      <link>https://loppsided.blog/posts/2022-09-23-dagster-part-1-dev-gcp-setup</link>
+      <description>Steps to get started with dagster using GCP for "local" dev and Dagster Cloud + GKE for production.</description>
+      <guid>https://loppsided.blog/posts/2022-09-23-dagster-part-1-dev-gcp-setup</guid>
+      <pubDate>Fri, 23 Sep 2022 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Modern Data Stack_s_?</title>
+      <dc:creator>Sean Lopp</dc:creator>
+      <link>https://loppsided.blog/posts/2022-02-16-modern-data-stacks</link>
+      <description>An argument and map for 4 modern data stacks.</description>
+      <guid>https://loppsided.blog/posts/2022-02-16-modern-data-stacks</guid>
+      <pubDate>Wed, 16 Feb 2022 00:00:00 +0000</pubDate>
+      <media:content url="https://loppsided.blog/posts/2022-02-16-modern-data-stacks/images/ELTA_high_res.jpg" medium="image" type="image/jpeg"/>
+    </item>
     <item>
       <title>To the Behemoth</title>
       <dc:creator>Sean Lopp</dc:creator>
@@ -20,7 +37,7 @@
       <title>Boxplots and p-values</title>
       <dc:creator>Sean Lopp</dc:creator>
       <link>https://loppsided.blog/posts/2021-06-18-boxplots-and-p-values</link>
-      <description>Do boxplots provid good intuition about hypothesis tests?</description>
+      <description>Do boxplots provide good intuition about hypothesis tests?</description>
       <guid>https://loppsided.blog/posts/2021-06-18-boxplots-and-p-values</guid>
       <pubDate>Fri, 18 Jun 2021 00:00:00 +0000</pubDate>
       <media:content url="https://loppsided.blog/posts/2021-06-18-boxplots-and-p-values/boxplots-and-p-values_files/figure-html5/unnamed-chunk-2-1.png" medium="image" type="image/png" width="1248" height="768"/>

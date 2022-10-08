@@ -1,0 +1,153 @@
+---
+title: "Dagster Getting Started"
+description: |
+  Steps to get started with dagster using GCP for "local" dev and Dagster Cloud + GKE for production.
+author:
+  - name: Sean Lopp
+date: 09-23-2022
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Intro 
+
+This post is, continuing my trend lately, incomplete. I recently learned a new tool, called [Dagster](https://dagster.io), for orchestrating data pipelines. To learn this tool I followed a process:
+
+1. I did a cursory read through the documentation.
+2. I installed a sample project. This often requires a clean development environment.
+3. I played with the sample project, changing lines of code to see what would break, and attempting to test my understanding of the core concepts by making minor tweaks. 
+
+The first part of this post covers these three steps. After feeling like I understood the open source coding behind dagster, I wanted to follow a similar process for their SaaS offering, [Dagster Cloud](https://dagster.cloud).
+
+1. I did a cursory read through the documentation. Dagster Cloud has a few "choose your own adventure" moments, and I picked a single path that I felt would introduce me to many of the core components: Dagster Cloud Hybrid + Kubernetes. This path was not the simplest - that would be Dagster Cloud Serverless - but I wanted to learn as much of the architecture concepts as possible.
+
+2. I attempted to follow the documentation for my selected path, using my modified sample project.
+
+These two steps make up the back half of this post. After finding success with the modified sample project, I then try to re-implement something from scratch that I've built before. Usually my [snow report](https://github.com/slopp/scheduledsnow). In my re-implementation I try to start simple and eventually use a large surface area of the new tool. This post ends with a brief summary of that process.
+
+I mentioned the post was "incomplete" - I've outlined the post but haven't filled in all the commentary. :shrug:
+
+## Development Setup
+
+Lots of people use their laptop for dev work. I prefer to use a small cloud VM for a few reasons:  
+
+- My internet sucks. It can usually maintain a ssh connection, but installing new software is much faster onto a cloud VM.  
+- The tooling for "local" remote work is really great in VS code through their remote host connection. All you need is ssh.  
+- I can use my dev environment from many computers, which often comes in handy.  
+
+In this case I:  
+
+- Followed the GCP console to create a default compute engine VM with a public network  
+- Connected VS Code to the GCP VM using `gcloud compute config-ssh`
+
+## Dagster 101    
+
+I followed the excellent dagster docs to bootstrap the library and the sample project:
+
+```
+mkdir dagsterbootstrap
+mkdir dagsterbootstrap/env
+virtualenv dagsterbootstrap/env
+source dagsterbootstrap/env/bin/activate
+printf 'dagster\ndagit' >> dagsterbootstrap/requirements.txt
+pip install -r dagsterbootstrap/requirements.txt
+dagster project from-example --name myproj --example assets_dbt_python
+```
+
+At this point I did my code reading and modifications. The result is in the [loppster repo](https://github.com/slopp/loppster).
+
+The changes I made:  
+
+- make ML "model" persist in DB table  
+- make ML "model" log starting values and optimized values for linear reg  
+- make ML "model" starting values configurable  
+
+## Prep for Dagster Cloud 1
+
+After understanding my modified sample project I got ready to follow the steps for Dagster Cloud + Kubernetes:  
+
+- Sign into Dagster Cloud w/ "Hybrid" option  
+- In GCP follow default steps to create K8s cluster with "autopilot"  
+- Copy agent secret from Dagster Cloud  
+- In cloud console (easiest place), run this command that ensures helm and kubectl use the cluster we just built:  
+
+```
+gcloud container clusters get-credentials autopilot-cluster-1 \
+    --region us-central1 \
+    --project myhybrid-200215
+```
+
+- Follow the dagster docs to create the namespace, setup the secret, and install the agent into the namespace with helm, with helpful commands being:  
+
+```
+kubectl config current-context
+kubectl get pods --namespace=dagster
+```
+
+## Prep for Dagstr Cloud 2
+This is the part where we take our working dagster code and get it ready for deployment. 
+
+1. In the dagster example project, initialize a git repo, commit all the things, push to a GitHub repo
+2. Add a Dockerfile with this content to the top-level directory of the example project (I copied this from their docs):
+
+```
+FROM python:3.8-slim
+
+COPY requirements.txt /requirements.txt
+RUN pip install -r /requirements.txt
+
+WORKDIR /opt/dagster/app
+
+COPY . /opt/dagster/app
+```
+
+3. Add a requirements.txt file to the top level example project directory with the necessary packages, the list is in `setup.py`. *You could also modify the Dockerfile to install your dagster project as a package and would pull in the deps through setup.py instead of requirements.txt*
+
+4. (One time), create a place to store docker images
+
+```
+gcloud artifacts repositories create dagit --repository-format=docker --location=us-central1 --description="DAGS"
+```
+
+5. (One time, before we forget), go to the GCP IAM console and select the box for "Include Google-provided role grants", for the Compute Engine Service Agent and Kubernetes Engine Service Agent, select the box, select the edit pencil, and add the role  "Artifact Registry Reader"
+
+6. Have GCP build your code into a docker image and push to the registry 
+
+```
+gcloud builds submit --region=us-central1 --tag us-central1-docker.pkg.dev/myhybrid-200215/dagit/loppster
+```
+
+7. (Prob one time), setup the code location in Dagster Cloud using the result from above. Future updates can be done by deploying a new image and clicking "redeploy" on the code location page.
+
+```
+location_name: prod
+image: us-central1-docker.pkg.dev/myhybrid-200215/dagit/loppster
+code_source:
+  package_name: assets_dbt_python
+```
+
+
+## Build a New Project
+
+Now that I felt comfortable with dagster and Dagster Cloud I decided to re-implement my snow report project. The extensive details are documented in the [repository ReadMe](https://github.com/slopp/snowreport). My general approach was:  
+
+- Build the scaffolding for the project  
+- Start out locally, and take the functions I had for pulling data from an API and cleaning it and place them in the dagster paradigm  
+- Work through the dagster concept of resources, and switch from just local resources to using BQ and GCS  
+- Attempt to deploy my basic implementation (this time using GitHub actions instead of the manual approach outlined in this post)  
+- Fight GCP IAM and GitHub Actions. Subdue them 
+- Add tests  
+- Refactor my code, asking questions in the dagster Slack  
+- Adopt Dagster Cloud's GitHub action for branch deployments following their guides  
+- Add more complexity to the project by bringing in partitions  
+- Add more complexity to the project by brining in dbt 
+
+This sequence is clearer in hindsight, and was developed step by step. There was also plenty of trial and error - see the GitHub commits and Action runs for the comical set of typos, mistakes, and mis-understandings.
+
+I really appreciate the VS Code development tools, the Python debugger, the Python notebook debugger, and of course dagster. It is a great time to be alive and writing software!
