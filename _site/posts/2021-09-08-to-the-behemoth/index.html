@@ -50,40 +50,42 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  { color: #00769e; background-color: #f1f3f5; }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #545454; font-weight: bold; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #a1024a; } /* BaseN */
+code span { color: #00769e; } /* Normal */
+code span.al { color: #ad0000; } /* Alert */
+code span.an { color: #5e5e5e; } /* Annotation */
+code span.at { color: #657422; } /* Attribute */
+code span.bn { color: #ad0000; } /* BaseN */
 code span.bu { } /* BuiltIn */
-code span.cf { color: #007faa; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #008000; } /* Char */
-code span.cn { color: #d91e18; } /* Constant */
-code span.co { color: #545454; } /* Comment */
-code span.cv { color: #545454; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #aa5d00; } /* DataType */
-code span.dv { color: #a1024a; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.cf { color: #00769e; } /* ControlFlow */
+code span.ch { color: #20794d; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #5e5e5e; } /* Comment */
+code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+code span.dt { color: #ad0000; } /* DataType */
+code span.dv { color: #ad0000; } /* DecVal */
+code span.er { color: #ad0000; } /* Error */
 code span.ex { } /* Extension */
-code span.fl { color: #a1024a; } /* Float */
-code span.fu { color: #4254a7; } /* Function */
+code span.fl { color: #ad0000; } /* Float */
+code span.fu { color: #4758ab; } /* Function */
 code span.im { } /* Import */
-code span.in { color: #545454; font-weight: bold; } /* Information */
-code span.kw { color: #007faa; font-weight: bold; } /* Keyword */
-code span.op { color: #696969; } /* Operator */
-code span.ot { color: #007faa; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #008000; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #008000; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #008000; } /* VerbatimString */
-code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warning */
+code span.in { color: #5e5e5e; } /* Information */
+code span.kw { color: #00769e; } /* Keyword */
+code span.op { color: #5e5e5e; } /* Operator */
+code span.ot { color: #00769e; } /* Other */
+code span.pp { color: #ad0000; } /* Preprocessor */
+code span.sc { color: #5e5e5e; } /* SpecialChar */
+code span.ss { color: #20794d; } /* SpecialString */
+code span.st { color: #20794d; } /* String */
+code span.va { color: #111111; } /* Variable */
+code span.vs { color: #20794d; } /* VerbatimString */
+code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
+
 
   <!--radix_placeholder_meta_tags-->
 <title>Loppsided: To the Behemoth</title>
@@ -464,10 +466,17 @@ d-title {
   top: 0;
 }
 
+/* adjust viewport for navbar height */
+/* helps vertically center bootstrap (non-distill) content */
+.min-vh-100 {
+  min-height: calc(100vh - 100px) !important;
+}
+
 </style>
 
-<link href="../../site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet"/>
-<link href="../../site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet"/>
+<script src="../../site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="../../site_libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet"/>
+<link href="../../site_libs/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet"/>
 <script src="../../site_libs/headroom-0.9.4/headroom.min.js"></script>
 <script src="../../site_libs/autocomplete-0.37.1/autocomplete.min.js"></script>
 <script src="../../site_libs/fuse-6.4.1/fuse.min.js"></script>
@@ -573,19 +582,21 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
           var results = fuse.search(query, searchOptions);
           callback(results
             .map(function(result) { return result.item; })
-            .filter(function(item) { return !!item.description; })
           );
         },
         templates: {
           suggestion: function(suggestion) {
+            var img = suggestion.preview && Object.keys(suggestion.preview).length > 0
+              ? `<img src="${offsetURL(suggestion.preview)}"</img>`
+              : '';
             var html = `
               <div class="search-item">
                 <h3>${suggestion.title}</h3>
                 <div class="search-item-description">
-                  ${suggestion.description}
+                  ${suggestion.description || ''}
                 </div>
                 <div class="search-item-preview">
-                  <img src="${suggestion.preview ? offsetURL(suggestion.preview) : ''}"</img>
+                  ${img}
                 </div>
               </div>
             `;
@@ -608,6 +619,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 
 <style type="text/css">
+
+.nav-search {
+  font-size: x-small;
+}
 
 /* Algolioa Autocomplete */
 
@@ -683,6 +698,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 }
 
 .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item h3 {
+  font-size: 1rem;
   margin-block-start: 0;
   margin-block-end: 5px;
 }
@@ -789,6 +805,7 @@ d-title .dt-tags {
 d-article table.gt_table td,
 d-article table.gt_table th {
   border-bottom: none;
+  font-size: 100%;
 }
 
 .html-widget {
@@ -829,9 +846,21 @@ d-article table.gt_table th {
   display: none !important;
 }
 
+hr.section-separator {
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  margin: 0px;
+}
+
+
+d-byline {
+  border-top: none;
+}
+
 d-article {
   padding-top: 2.5rem;
   padding-bottom: 30px;
+  border-top: none;
 }
 
 d-appendix {
@@ -910,6 +939,11 @@ d-article pre a:hover {
   text-decoration: underline;
 }
 
+d-article details {
+  grid-column: text;
+  margin-bottom: 0.8em;
+}
+
 @media(min-width: 768px) {
 
 d-article pre,
@@ -921,6 +955,11 @@ d-article div.sourceCode pre {
 d-article div.sourceCode pre {
   padding-left: 18px;
   font-size: 14px;
+}
+
+/* tweak for Pandoc numbered line within distill */
+d-article pre.numberSource code > span {
+    left: -2em;
 }
 
 d-article pre {
@@ -1027,10 +1066,6 @@ figure img.external {
   margin-top: 1.5em;
 }
 
-.figure img {
-  width: 100%;
-}
-
 .figure .caption {
   color: rgba(0, 0, 0, 0.6);
   font-size: 12px;
@@ -1064,6 +1099,17 @@ d-article .citation {
 
 div.hanging-indent{
   margin-left: 1em; text-indent: -1em;
+}
+
+/* Citation hover box */
+
+.tippy-box[data-theme~=light-border] {
+  background-color: rgba(250, 250, 250, 0.95);
+}
+
+.tippy-content > p {
+  margin-bottom: 0;
+  padding: 2px;
 }
 
 
@@ -1675,6 +1721,12 @@ function init_distill() {
   // create d-title
   $('.d-title').changeElementType('d-title');
 
+  // separator
+  var separator = '<hr class="section-separator" style="clear: both"/>';
+  // prepend separator above appendix
+  $('.d-byline').before(separator);
+  $('.d-article').before(separator);
+
   // create d-byline
   var byline = $('<d-byline></d-byline>');
   $('.d-byline').replaceWith(byline);
@@ -1731,7 +1783,7 @@ function init_distill() {
     var layout = $(this).attr('data-layout');
 
     // apply layout to markdown level block elements
-    var elements = $(this).children().not('div.sourceCode, pre, script');
+    var elements = $(this).children().not('details, div.sourceCode, pre, script');
     elements.each(function(i, el) {
       var layout_div = $('<div class="' + layout + '"></div>');
       if (layout_div.hasClass('shaded')) {
@@ -1752,8 +1804,9 @@ function init_distill() {
   $('.distill-force-highlighting-css').parent().remove();
 
   // remove empty line numbers inserted by pandoc when using a
-  // custom syntax highlighting theme
-  $('code.sourceCode a:empty').remove();
+  // custom syntax highlighting theme, except when numbering line
+  // in code chunk
+  $('pre:not(.numberLines) code.sourceCode a:empty').remove();
 
   // load distill framework
   load_distill_framework();
@@ -1779,12 +1832,13 @@ function init_distill() {
     // add orcid ids
     $('.authors-affiliations').find('.author').each(function(i, el) {
       var orcid_id = front_matter.authors[i].orcidID;
+      var author_name = front_matter.authors[i].author
       if (orcid_id) {
         var a = $('<a></a>');
         a.attr('href', 'https://orcid.org/' + orcid_id);
         var img = $('<img></img>');
         img.addClass('orcid-id');
-        img.attr('alt', 'ORCID ID');
+        img.attr('alt', author_name ? 'ORCID ID for ' + author_name : 'ORCID ID');
         img.attr('src','data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==');
         a.append(img);
         $(this).append(a);
@@ -1846,6 +1900,60 @@ function init_distill() {
     // move appendix-bottom entries to the bottom
     $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
     $('.appendix-bottom').remove();
+
+    // hoverable references
+    $('span.citation[data-cites]').each(function() {
+      const citeChild = $(this).children()[0]
+      // Do not process if @xyz has been used without escaping and without bibliography activated
+      // https://github.com/rstudio/distill/issues/466
+      if (citeChild === undefined) return true
+
+      if (citeChild.nodeName == "D-FOOTNOTE") {
+        var fn = citeChild
+        $(this).html(fn.shadowRoot.querySelector("sup"))
+        $(this).id = fn.id
+        fn.remove()
+      }
+      var refs = $(this).attr('data-cites').split(" ");
+      var refHtml = refs.map(function(ref) {
+        // Could use CSS.escape too here, we insure backward compatibility in navigator
+        return "<p>" + $('div[id="ref-' + ref + '"]').html() + "</p>";
+      }).join("\n");
+      window.tippy(this, {
+        allowHTML: true,
+        content: refHtml,
+        maxWidth: 500,
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'light-border',
+        placement: 'bottom-start'
+      });
+    });
+
+    // fix footnotes in tables (#411)
+    // replacing broken distill.pub feature
+    $('table d-footnote').each(function() {
+      // we replace internal showAtNode methode which is triggered when hovering a footnote
+      this.hoverBox.showAtNode = function(node) {
+        // ported from https://github.com/distillpub/template/pull/105/files
+        calcOffset = function(elem) {
+            let x = elem.offsetLeft;
+            let y = elem.offsetTop;
+            // Traverse upwards until an `absolute` element is found or `elem`
+            // becomes null.
+            while (elem = elem.offsetParent && elem.style.position != 'absolute') {
+                x += elem.offsetLeft;
+                y += elem.offsetTop;
+            }
+
+            return { left: x, top: y };
+        }
+        // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetTop
+        const bbox = node.getBoundingClientRect();
+        const offset = calcOffset(node);
+        this.show([offset.left + bbox.width, offset.top + bbox.height]);
+      }
+    })
 
     // clear polling timer
     clearInterval(tid);
@@ -1945,6 +2053,8 @@ function init_common() {
   // mark non-body figures created by knitr chunks as 100% width
   $('.layout-chunk').each(function(i, val) {
     var figures = $(this).find('img, .html-widget');
+    // ignore leaflet img layers (#106)
+    figures = figures.filter(':not(img[class*="leaflet"])')
     if ($(this).attr('data-layout') !== "l-body") {
       figures.css('width', '100%');
     } else {
@@ -1967,7 +2077,7 @@ function init_common() {
   // get rid of index.html references in header
   if (window.location.protocol !== "file:") {
     $('.distill-site-header a[href]').each(function(i,val) {
-      $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+      $(this).attr('href', $(this).attr('href').replace(/^index[.]html/, "./"));
     });
   }
 
@@ -2006,15 +2116,19 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <!--/radix_placeholder_distill-->
-  <script src="../../site_libs/header-attrs-2.5/header-attrs.js"></script>
-  <script src="../../site_libs/jquery-1.11.3/jquery.min.js"></script>
+  <script src="../../site_libs/header-attrs-2.25/header-attrs.js"></script>
+  <script src="../../site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+  <script src="../../site_libs/popper-2.6.0/popper.min.js"></script>
+  <link href="../../site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="../../site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="../../site_libs/tippy-6.2.7/tippy.umd.min.js"></script>
   <script src="../../site_libs/anchor-4.2.2/anchor.min.js"></script>
   <script src="../../site_libs/bowser-1.9.3/bowser.min.js"></script>
   <script src="../../site_libs/webcomponents-2.0.0/webcomponents.js"></script>
   <script src="../../site_libs/distill-2.2.21/template.v2.js"></script>
   <!--radix_placeholder_site_in_header-->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-106545908-2"></script>
-<script>
+<script type="text/javascript" cookie-consent="tracking" async src="https://www.googletagmanager.com/gtag/js?id=UA-106545908-2"></script>
+<script type="text/javascript" cookie-consent="tracking">
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
@@ -2069,7 +2183,7 @@ h3 {
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"To the Behemoth","description":"On leaving RStudio to join Google","authors":[{"author":"Sean Lopp","authorURL":{},"affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-09-08T00:00:00.000+00:00","citationText":"Lopp, 2021"}
+{"title":"To the Behemoth","description":"On leaving RStudio to join Google","authors":[{"author":"Sean Lopp","authorURL":{},"affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-09-08T00:00:00.000-06:00","citationText":"Lopp, 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2093,6 +2207,7 @@ h3 {
 
 <div class="d-title">
 <h1>To the Behemoth</h1>
+
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
 <p><p>On leaving RStudio to join Google</p></p>
@@ -2121,7 +2236,7 @@ h3 {
 <li><p>2017-2018 is what I’d consider my golden years. We hired Cole Arendt - the single smartest person I’ve ever worked with, despite his tendency to hack faster than he could ever document. I traveled all over, including Austin, Boston, Seattle, New York, San Fran, Chicago, and Houston (where I got an exclusive tour of NASA mission control before giving one of the worst demos of my life because, while they could send a man to the moon, NASA couldn’t provide reliable public internet.). Everywhere I went we got to eat amazing food, and I filled any spare time walking the streets or visiting art museums. Overtime I would also travel to Belgium (my first trip abroad) and London. I rediscovered biking (thanks to the prodding of Aron Atkins to buy a Salsa Warbird). I gave my single best presentation at the 2018 RStudio Conf in Orlando showing in real time how to scale a shiny app to 10,000 users. (The Orlando conf was incredible. We started with a RStudio exclusive evening at Harry Potter World and then JJ paid for the RStudio employees to spend the next day at the park, fast passes included! This also happened to be 7 days after my wedding…. quite the “honeymoon”?).</p></li>
 <li><p>Towards the end of 2018 I started to dabble my toes in product management. I joined the sprint reviews for RStudio Connect and I started working closer with Jeff Allen (an enormously kind and talented engineering manager) and Robby Shaver (a brilliant but laid back designer who taught me that less is more in words, buttons, and just about everything but white space). (Side, side note: for some reason I consistently lied to Jeff about my age, claiming I was a few years older than I really am. This lie started because I was embarrassed to take on responsibilities while being so young, but because Jeff is so thoughtful it ultimately became worse and worse - one night he politely realized I was lying when my time in college, high school, and at RStudio didn’t add up. Sorry Jeff!). I became more and more involved in our product planning, and eventually I was given the reigns to create a new product from scratch in RStudio Package Manager. The genesis of this product was partly a need to support customers in offline environments, but mostly my ambition to lead a product team. We started with a gaggle of spreadsheets and customer interviews, and thanks to Jon Yoder (a humble, quiet, and brilliant engineer) we built something special. Package Manager would fully launch in 2019, and I would lead the team through 2020. The product eventually became both a core part of RStudio’s offering, accounting for millions in revenue, and it became a <a href="https://packagemanager.rstudio.com">public service</a>. I am most proud of how Package Manager provides pre-compiled packages for Linux. This work took a team and some clever planning, but in it I feel I’ve left a lasting fingerprint on the R community. Before, installing R and packages on Linux could easily take hours. Now, both R and packages come pre-compiled from RStudio. The way I know I’m successful is that occasionally the service will fail and folks will have to go back to the old method, and it is so painful as to be unfathomable! Of course none of this success was pre-destined, I learned that building a product requires countless trade-offs and a near constant diligence in engineering groomings and reviews. (Even great engineers have a tendency to never ship if left to their own choices.) During this period I also got to work on marketing content with Greg Swinehart, who is perhaps the best human being I’ve ever met.</p></li>
 <li><p>2019 and 2020 marked the beginning of the end, though I didn’t know it at the time. In mid-2019 I formally became a full time product manager – RStudio’s first. I was woefully unprepared, and in hindsight, this position wasn’t really a fair one. I was tasked with balancing our executive team’s ever-changing vision, our legitimate but diverse customer requests, and our dev team’s daily execution. I was soon crushed. Luckily at this time I was able to rely on the wisdom of Kris Overholt and Daniel Rodriguez, two ex-PMs who briefly worked at RStudio and instilled in me both an earnest skepticism of the business and a keen nose for bullshit. At this time Jeff left to pursue a new team at RStudio, and so I found myself managing both RStudio Package Manager and RStudio Connect. A wiser person would have built a product managemnt team, I attempted to forge ahead on my own. I also refused to give up my work with customers which I rightly thought would ground my product work, but which I incorrectly assumed would magically take less time. A perfect recipe for burnout. This was also the period when I began to realize an unhealthy relationship with Tareef, RStudio’s president. I hesitate to write much about Tareef, I won’t need a blogpost to remember him. He was both a paternal figure genuinely invested in my career, an interesting corporate philosopher, and my strategic arch-enemy. I wanted to build a process that took data from our customers, aligned around a strategic vision, and then executed against a prioritized roadmap. In many ways Tareef wanted the same thing, but lived at a different level of visibility. He struggled to share his vision, and I lacked the leadership tools to clarify it, and so I often felt undermined when he would critique the team’s execution or focus while simultaneously introducing new initiatives. The only way I lasted until the end of 2020 was because I was joined in product by Kelly. Kelly is one of the most strategic and empathetic people I’ve ever met, and in Jan 2020 she joined me in working on Connect. Mentoring Kelly was hard for me, not because of Kelly - whose work was always brilliant and 3 steps ahead of my own, but because the challenges she felt and reported back to me caused me 10x the frustration as when I felt them myself. I realized during this time just how hard it can be to be a manager or mentor, I was much better suited to dealing with shit than telling someone I cared about that I couldn’t remove their obstacles. By Oct 2020 I was constantly angry, burnt out, and quick to boil into frustration with others. My wife said I had to quit. I had promised Tareef if it came to that I would give him a few months notice, so in October I told him I needed to leave. A few other things are worth noting about the fall of 2020. For one, my old solutions engineering team was imploding. Skeptical Kris had left, leaving a wake and a big hole (because he was also the most gifted solutions engineer I’ve worked with). Cole and James (who was and is my constant motivation in RStudio’s cycling strava) were both on paternity leave. Edgar, the other old goat from 2017, had abruptly quit at the beginning of the year. This proved a tough load, and it ultimately contributed to Nathan stepping away from the director role. In short, it was a total and complete dumpster fire, and I found myself in the midst of my struggles with product attempting to hold together the fragile remains of the SE team.</p></li>
-<li><p>Enter 2021. My big question after telling Tareef I was done was “what’s next?”. This question turned out to be quite the doozy. I temporarily opted to return to solutions engineering, and like most things in my life this short term choice turned out to be insanely lucky. After 9 months of reflection it is easier for me to understand that sales engineering is where I should continue next, but that realization came after quite a few false starts. I applied and almost accepted a consulting job that would have returned me to my college work of energy analytics and 10 hour days of coding. I applied and was accepted to law school. I even read all about other product roles, teams, and domains. In June I took two weeks off to attend a wedding in Alaska and travel the state. During this time, and there was a LOT of time driving, I realized that I really enjoyed my time with our sales team. I have been lucky to work alongside really excellent account executives in Jason Miles, Kevin Hayden, Sabrina, Lauren, Nichole, Dylan, and countless others. Unlike product management, where the objectives are ambiguous and the time frames are measured in years, sales had a clear directive. Yes, there is still an art to asking questions and aligning around value, but our team was always on the same page. The rewards were satisfying and aligned with compensation. The customers were diverse and interesting. Finally, in my year of renewed SE focus, I rediscovered that I was really good at sales engineering. I had unknowingly felt like an imposter as a product manager, always quite certain that I had no business representing the needs of any users, desperately trying to read the market tea leaves while directing millions of dollars in dev investment. Ultimately I realized I was in the right role as an SE, which led to a natural question, how do I get better and go further? This question has taken awhile to answer, but it is what leads me to Google. I need to be exposed to something outside of RStudio, to learn how other organizations and sales teams operate, to sell different products, in different frameworks, to different customers. I realized, with both happiness and sorrow, that I need to leave RStudio.</p></li>
+<li><p>Enter 2021. My big question after telling Tareef I was done was “what’s next?”. This question turned out to be quite the doozy. I temporarily opted to return to solutions engineering, and like most things in my life this short term choice turned out to be insanely lucky. After 9 months of reflection it is easier for me to understand that sales engineering is where I should continue next, but that realization came after quite a few false starts. I applied and almost accepted a consulting job that would have returned me to my college work of energy analytics and 10 hour days of coding. I applied and was accepted to law school. I even read all about other product roles, teams, and domains. In June I took two weeks off to attend a wedding in Alaska and travel the state. During this time, and there was a LOT of time driving, I realized that I really enjoyed my time with our sales team. I have been lucky to work alongside really excellent account executives in Rachael Dempsey (also the most gifted community marketer I’ve ever met), Jason Miles, Kevin Hayden, Sabrina, Lauren, Nichole, Dylan, and countless others. Unlike product management, where the objectives are ambiguous and the time frames are measured in years, sales had a clear directive. Yes, there is still an art to asking questions and aligning around value, but our team was always on the same page. The rewards were satisfying and aligned with compensation. The customers were diverse and interesting. Finally, in my year of renewed SE focus, I rediscovered that I was really good at sales engineering. I had unknowingly felt like an imposter as a product manager, always quite certain that I had no business representing the needs of any users, desperately trying to read the market tea leaves while directing millions of dollars in dev investment. Ultimately I realized I was in the right role as an SE, which led to a natural question, how do I get better and go further? This question has taken awhile to answer, but it is what leads me to Google. I need to be exposed to something outside of RStudio, to learn how other organizations and sales teams operate, to sell different products, in different frameworks, to different customers. I realized, with both happiness and sorrow, that I need to leave RStudio.</p></li>
 </ol>
 <p>You may be wondering whats to come of the SE team that was struggling in 2020 and that I luckily rejoined in earnest in 2021. To answer that question I have to introduce a few more characters. Alex Gold joined RStudio in 2019 as an SE after giving an excellent interview with a few too many memes. He is proving to be both a talented “get shit done” organizer and a thoughtful manager who will carry the team. Andrie joined RStudio in 2017 and has had a knack for doing the dirtiest work, and I expect he will continue that trend. David joined RStudio in 2020 and shares my knack for sarcasm, dread, and picking up new tools quickly and holistically. Others deserve mention as marvelous people who I worked with less but still hold dear: Gagan, Ian, Ralf, Mark, and Lou (the most diligently organized product marketer).</p>
 <p>It is also worth mentioning that during 2021 I had the privilege of working with an executive coach. I spent 6 months working every other week with an older gentlemen named Harry. Harry’s superpower is very quickly seeing to the heart of things. The main thing Harry helped me realize was that I was responsible when people misunderstood me, or I misunderstood them. He taught me to convince others by teaching them not telling them (slow down and ask questions you sometimes know the answer to). He taught me to ask questions I didn’t know the answer to, again and again, to try and help others show me their work. Most of all, he taught me that Pixar’s Inside Out is actually pretty accurate, and that feelings serve their best purpose when they work together. Or, the Aristotelian take, prudence is the heart of all virtues.</p>
@@ -2187,11 +2302,11 @@ h3 {
   <p class="social_footer">
     <span class="article-sharing">
       Share: &nbsp;
-      <a href="https://twitter.com/share?text=To%20the%20Behemoth&amp;url=https%3A%2F%2Floppsided.blog%2Fposts%2F2021-09-08-to-the-behemoth%2F">
-        <i class="fab fa-twitter"></i>
+      <a href="https://twitter.com/share?text=To%20the%20Behemoth&amp;url=https%3A%2F%2Floppsided.blog%2Fposts%2F2021-09-08-to-the-behemoth%2F" aria-label="share on twitter">
+        <i class="fab fa-twitter" aria-hidden="true"></i>
       </a>
-      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Floppsided.blog%2Fposts%2F2021-09-08-to-the-behemoth%2F&amp;title=To%20the%20Behemoth">
-        <i class="fab fa-linkedin"></i>
+      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Floppsided.blog%2Fposts%2F2021-09-08-to-the-behemoth%2F&amp;title=To%20the%20Behemoth" aria-label="share on linkedin">
+        <i class="fab fa-linkedin" aria-hidden="true"></i>
       </a>
     </span>
   </p>
