@@ -1,0 +1,85 @@
+---
+title: "A RAG to chat with your favorite blogger"
+description: |
+  Use Nvidia NIMs and Langchain to create a chatbot based on knowledge from your favorite blog
+author:
+  - name: Sean Lopp
+    url: {}
+date: 12-26-2024
+output:
+  distill::distill_article:
+    self_contained: true
+---
+
+One of my goals this Christmas break was to explore LLMs in a bit more detail. One place I started was with the Torch, by [recreating the R for Torch getting started guide](https://torch.mlverse.org/start/guess_the_correlation/) but [in Python](https://gist.github.com/slopp/f85515eabdb99f7430cfbad0abc5908f) which gave me my first exposure to speeding up a nueral network on a GPU using Modal. I also read ["how to code chatgpt from scratch"](https://blogs.rstudio.com/ai/posts/2023-06-20-gpt2-torch/) on the RStudio AI blog. Neither of these were super helpful besides building a bit of a mental model.
+
+However, in the process I discovered this [excellent post](https://amaarora.github.io/posts/2023-07-27_Document_Question_Answering_with_LangChain.html) on how to create a chatbot using RAG with a custom document store.
+
+I decided to copy this code to build a chatbot that would learn from my favorite blog, [theradavist.com](https://theradavist.com). In general, this had two parts:
+
+1. Write some Python code to download a corpus of texts from theradavist.com. Create a vector database with embeddings from this corpus using Nvidia NIM API calls to do the embeddings.
+2. Create the chatbot that answers questions following this process:
+ - Search for the most relevant documents based on the user's question, using similarity search in the vector DB from step 1
+ - Pass in the question, along with the relevant documents found in the prior step, to a LLM to get a response (using Llama via Nvidia NIM as the foundational LLM)
+
+Here is example usage and output:
+
+```shell 
+ python chat_with_radavist.py  --text "what is the best material to build a hardtail  out of?"
+```
+
+```
+{'answer': 'According to the text, the author thinks that titanium is the best '
+           'material for a hardtail mountain bike. They mention that it allows '
+           'the bike to "snap through tight singletrack, soften those '
+           'brake-bump riddled turns, eat chunderous fall-line for dinner, and '
+           'at the end of a long ride, won’t leave your back and wrists '
+           'wrecked." They also mention that their rigid 29+ desert touring '
+           'bike is made of titanium and that it "soaks up rugged jeep roads '
+           'like a piece of cornbread atop a bowl of chili."',
+ 
+ 'source_documents': [Document(metadata={'source': 'radavist_posts/moots-womble-29er-review.md'}, page_content='On a hardtail, this means it will snap through tight ...,
+                      Document(metadata={'source': 'radavist_posts/moots-womble-29er-review.md'}, page_content='On a hardtail, this means it will snap through tight ...!'),
+                      Document(metadata={'source': 'radavist_posts/wood-is-good-twmpa-cycles-gr1-gravel-bike-review.md'}, page_content='“I’ll preface this by saying ...,
+                      Document(metadata={'source': 'radavist_posts/wood-is-good-twmpa-cycles-gr1-gravel-bike-review.md'}, page_content='“I’ll preface this by saying ...
+```
+
+The full sequence of steps to reproduce would be: 
+
+1. Get a Nivida NIM API Key from https://www.nvidia.com/en-us/ai/ 
+
+2. Setup a Python environment with roughly these dependencies:
+
+```
+unstructured
+Markdown
+langchain-nvidia-ai-endpoints
+langchain-community
+langchain-chroma
+bs4
+```
+
+3. Run these commands, which will download a corpus of text and then build the embeddings before doing Q&A
+
+```shell
+python get_data.py 
+python chat_with_radavist.py --rebuild  --text "what is the best material to build a hardtail  out of?"
+```
+
+
+## Code details
+
+Full source code can be found in this [gist](https://gist.github.com/slopp/278832dac5a994485dff7d53ef4348bf). *Warning*: This code is definitely "first draft" state, and could benefit from refactoring.
+
+The general idea of `get_data` is to: 
+
+- parse the sitemap for theradavist 
+- download a bunch of html posts from the site into markdown 
+
+This code is fairly specific to theradavist's site structure, but similar code could be written for any blog. Please be polite when programmatically bashing a blog. In particular, theradavist has a sitemap per year, so the code first downloads all URLs for a certain year. Then the code attempts to parse each of those URLs, excluding files that aren't blogposts, and saves the resulting markdown files to disk. The process is done in parallel, with a bunch of error handling to ensure one unparsable page doesn't stop everything. 
+
+The code in `chat_with_radavist` is almost a 1:1 copy of the blogpost noted earlier, swapping out Nvidia NIMs for OpenAI. 
+
+
+
+

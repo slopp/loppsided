@@ -7,7 +7,15 @@
     <description>Loppsided
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Sat, 16 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 26 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>A RAG to chat with your favorite blogger</title>
+      <dc:creator>Sean Lopp</dc:creator>
+      <link>https://loppsided.blog/posts/2024-12-26-a-rag-to-chat-with-your-favorite-blogger</link>
+      <description>Use Nvidia NIMs and Langchain to create a chatbot based on knowledge from your favorite blog</description>
+      <guid>https://loppsided.blog/posts/2024-12-26-a-rag-to-chat-with-your-favorite-blogger</guid>
+      <pubDate>Thu, 26 Dec 2024 00:00:00 +0000</pubDate>
+    </item>
     <item>
       <title>Bike Check 2024</title>
       <dc:creator>Sean Lopp</dc:creator>
