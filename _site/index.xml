@@ -7,7 +7,15 @@
     <description>Loppsided
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Thu, 26 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 27 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>A basic tool calling agent</title>
+      <dc:creator>Sean Lopp</dc:creator>
+      <link>https://loppsided.blog/posts/2024-12-27-a-basic-tool-calling-agent</link>
+      <description>Use Nvidia NIMs and Langchain to create an agent that uses tools to find you a coffee shop</description>
+      <guid>https://loppsided.blog/posts/2024-12-27-a-basic-tool-calling-agent</guid>
+      <pubDate>Fri, 27 Dec 2024 00:00:00 +0000</pubDate>
+    </item>
     <item>
       <title>A RAG to chat with your favorite blogger</title>
       <dc:creator>Sean Lopp</dc:creator>
