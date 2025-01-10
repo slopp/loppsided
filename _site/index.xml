@@ -7,7 +7,16 @@
     <description>Loppsided
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Fri, 27 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 10 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>GPUs</title>
+      <dc:creator>Sean Lopp</dc:creator>
+      <link>https://loppsided.blog/posts/gpus</link>
+      <description>Moving from Dagster to Nvidia</description>
+      <guid>https://loppsided.blog/posts/gpus</guid>
+      <pubDate>Fri, 10 Jan 2025 00:00:00 +0000</pubDate>
+      <media:content url="https://loppsided.blog/posts/gpus/images/watch.png" medium="image" type="image/png" width="527" height="734"/>
+    </item>
     <item>
       <title>A basic tool calling agent</title>
       <dc:creator>Sean Lopp</dc:creator>
