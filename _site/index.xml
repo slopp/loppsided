@@ -7,7 +7,15 @@
     <description>Loppsided
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Fri, 10 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 14 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>2025 Year in Review</title>
+      <dc:creator>Sean Lopp</dc:creator>
+      <link>https://loppsided.blog/posts/2025-12-14-2025-year-in-review</link>
+      <description>Looking back at 2025</description>
+      <guid>https://loppsided.blog/posts/2025-12-14-2025-year-in-review</guid>
+      <pubDate>Sun, 14 Dec 2025 00:00:00 +0000</pubDate>
+    </item>
     <item>
       <title>GPUs</title>
       <dc:creator>Sean Lopp</dc:creator>

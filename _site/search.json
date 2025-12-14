@@ -5,14 +5,14 @@
       "title": "About",
       "author": [],
       "contents": "\n\nMy name is Sean Lopp. I post about a wide range of topics including: data science, open source software, product management, and bikes.\nI am currently the first sales engineer at Elementl, the team behind Dagster.\nI worked as a data analytics customer engineer at Google, a sales engineer at Looker, and a sales and product leader at RStudio. I was also a data scientist at NREL while I studied applied math at the Colorado School of Mines.\nWhile the posts in this blog are my own, I’ve also written for Google, RStudio, NREL, and Mines. You can view my research profile here where I’ve accidentally gotten an h-index of 4! I’ve also written extensively about environment management in R.\nIf you are looking for videos or pretty versions of talks, those live here.\nThis site is built using the R package distill and hosted by Netlify.\n\n\n\n",
-      "last_modified": "2025-01-10T11:06:12-07:00"
+      "last_modified": "2025-12-14T17:31:18+00:00"
     },
     {
       "path": "index.html",
       "title": "Loppsided",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2025-01-10T11:06:12-07:00"
+      "last_modified": "2025-12-14T17:31:19+00:00"
     }
   ],
   "collections": ["posts/posts.json"]

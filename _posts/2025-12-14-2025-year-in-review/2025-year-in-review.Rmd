@@ -1,0 +1,45 @@
+---
+title: "2025 Year in Review"
+description: |
+  Looking back at 2025
+author:
+  - name: Sean Lopp
+    url: {}
+date: 2025-12-14
+output:
+  distill::distill_article:
+    self_contained: true
+---
+
+
+2025 was the year of AI. Aggressively. I started the year (and ending!) in a new role at NVIDIA as an engineer. The main focus of the year has been building two blueprints:
+
+- Deep Researcher
+- Superfast Chatbot
+
+The year started with writing code by hand, relearning Python and Kubernetes, and no real knowledge of LLMs or GPUs. The year ends with Claude prompting, confidence with Docker compose, Helm charts, `nvidia-smi`, LLMs, VLMs, webRTC (what!), and just general exhaustion at trying to keep up with the rapid pace of model, framework, and tooling releases. TBH though, its still mostly about profiling and debugging Python environments.
+
+Overall I am happy with the year and role, despite working perhaps longer hours than ever before. I enjoyed writing code, going deep on production deployments, and most recently re-starting some customer facing work. I feel a bit rusty now on sales calls, but its never been easier to build a bespoke demo.
+
+Outside of work we welecomed Finley Sebastian Lopp in August following a tough month of hospital bed rest. Liesl is a great older sister and has enjoyed moving from KinderCare to her new school.
+
+No new bikes added or removed from the fleet this year. While I did not relentlessly pursue a bike ride a day like I did in 2024, I still managed to hit some highlights: 
+
+- A-basin laps
+- Keystone Gulch loop
+- Littleton gravel grind
+- Roadie for a day loop around Denver (incl Lookout)
+- Beaver Brook many times
+- Echo Lake once
+- 3 Sisters
+- But most of all: Elk Meadow loops all day
+
+The main missing ride this year was Buffalo Creek. But, a highlight of the year has been riding with Liesl in the Shotgun bike seat!
+
+Ski days... 2 :( But I think I may have found a solution to my Boot problem with new rear entry boots that fit my orthodics. Yes, I am very old. 
+
+Still attempting to recover my sense of smell which has put some damper on my scotch and coffee enjoyment, though I would not say any decrease in consumption.
+
+Finally this was a year I explored a new hobby (? is it a hobby or just frantic research and shopping) of watch collecting. 
+
+
